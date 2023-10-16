@@ -1,11 +1,24 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import LogOutButton from '../LogOutButton/LogOutButton';
-import './Nav.css';
-import { useSelector } from 'react-redux';
+import React from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import LogOutButton from "../LogOutButton/LogOutButton";
+import "./Nav.css";
+import { useSelector } from "react-redux";
+import {
+  Drawer,
+  Button,
+  List,
+  ListItem,
+  // Link,
+  ListItemText,
+  // LogOutButton,
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
 
 function Nav() {
   const user = useSelector((store) => store.user);
+
+  const [drawerOpen, setDrawerOpen] = useState(false); //state for drawer
 
   return (
     <div className="nav">
@@ -39,6 +52,70 @@ function Nav() {
         <Link className="navLink" to="/about">
           About
         </Link>
+        <Button className="menuButton" onClick={() => setDrawerOpen(true)}>
+          <MenuIcon fontSize="large" />
+        </Button>
+
+        <Drawer
+          className="drawer"
+          anchor="right"
+          open={drawerOpen}
+          onClose={() => setDrawerOpen(false)}
+        >
+          <List>
+            <ListItem
+              button
+              onClick={() => setDrawerOpen(false)}
+              component={Link}
+              to="/home"
+            >
+              <ListItemText primary="Home" />
+            </ListItem>
+            <ListItem
+              button
+              onClick={() => setDrawerOpen(false)}
+              component={Link}
+              to="/info"
+            >
+              <ListItemText primary="Info" />
+            </ListItem>
+            <ListItem
+              button
+              onClick={() => setDrawerOpen(false)}
+              component={Link}
+              to="/about"
+            >
+              <ListItemText primary="About" />
+            </ListItem>
+            <ListItem
+              button
+              onClick={() => setDrawerOpen(false)}
+              component={Link}
+              to="/settings"
+            >
+              <ListItemText primary="Settings" />
+            </ListItem>
+            <ListItem
+              button
+              onClick={() => setDrawerOpen(false)}
+              component={Link}
+              to="/courses"
+            >
+              <ListItemText primary="Courses" />
+            </ListItem>
+            <ListItem
+              button
+              onClick={() => setDrawerOpen(false)}
+              component={Link}
+              to="/rounds"
+            >
+              <ListItemText primary="Rounds" />
+            </ListItem>
+            {/* <ListItem button onClick={() => setDrawerOpen(false)}>
+              <LogOutButton className="navLink" />
+            </ListItem> */}
+          </List>
+        </Drawer>
       </div>
     </div>
   );
