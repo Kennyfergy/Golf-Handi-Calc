@@ -111,9 +111,17 @@ function Nav() {
             >
               <ListItemText primary="Rounds" />
             </ListItem>
-            {/* <ListItem button onClick={() => setDrawerOpen(false)}>
-              <LogOutButton className="navLink" />
+            {/* <ListItem
+              button
+              onClick={() => setDrawerOpen(false)}
+              component={Link}
+              to="/rounds"
+            >
+              <ListItemText primary="Log Out" />
             </ListItem> */}
+            <ListItem button onClick={() => setDrawerOpen(false)}>
+              <LogOutButton className="navLink" />
+            </ListItem>
           </List>
         </Drawer>
       </div>
