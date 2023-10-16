@@ -14,9 +14,9 @@ function truncateToDecimalPlace(num, decimalPlaces) {
 //console.log(truncateToDecimalPlace(5.678, 1)); function works correct
 
 // get route to grab data required, then calculate a users handicap index
-router.get("/:userId", async (req, res) => {
+router.get("/:userId", rejectUnauthenticated, async (req, res) => {
   console.log("Handicap route accessed");
-  const userId = req.params.userId;
+  const userId = req.user.userId; //req.body or req.user?
   try {
     // Fetch last 20 rounds of golf scores, related course data, and user gender from the database
     const result = await pool.query(

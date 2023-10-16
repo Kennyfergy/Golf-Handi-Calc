@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 require("dotenv").config();
+//const cookieSession = require("cookie-session");
 
 const app = express();
 
@@ -12,6 +13,22 @@ const userRouter = require("./routes/user.router");
 const handicapRouter = require("./routes/handicap.router");
 const roundsRouter = require("./routes/rounds.router");
 const coursesRouter = require("./routes/courses.router");
+
+// app.use(
+//   cookieSession({
+//     name: "session",
+//     keys: ["session"],
+
+//     // Cookie Options
+//     maxAge: 2 * 60 * 1000, // 2 minutes
+//   })
+// );
+
+// app.get("/get-id", (req, res) => {
+//   req.session.id = (req.session && req.session.id) || 0;
+//   const { id } = req.session;
+//   res.send({ id });
+// });
 
 // Body parser middleware
 app.use(bodyParser.json());
