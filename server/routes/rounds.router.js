@@ -29,10 +29,10 @@ router.get("/:id", (req, res) => {
 
 router.post("/:id", (req, res) => {
   // Check if the user is authenticated
-  //   if (!req.user) {
-  //     res.status(401).json({ error: "Not authenticated" });
-  //     return;
-  //   }
+  if (!req.user) {
+    res.status(401).json({ error: "Not authenticated" });
+    return;
+  }
 
   const userId = req.params.id; //change from usr to params for postman testing
 
@@ -81,10 +81,63 @@ router.post("/:id", (req, res) => {
     }
   );
 });
-router.put("/", (req, res) => {
-  //TODO update round info
+
+router.put("/:roundId", (req, res) => {
+  // Extract round details from the request body
+  const dateValue = req.body.date || new Date().toISOString();
+  const front9 = req.body.front_9_score;
+  const back9 = req.body.back_9_score;
+  const courseId = req.body.course_id;
+  const courseHdcp = req.body.course_handicap;
+
+  // Extract round ID from the request parameters
+  const roundId = req.params.roundId;
+
+  // Check for essential data
+  if (!front9 || !back9 || !courseId || !courseHdcp) {
+    res.status(400).json({ error: "Required fields are missing" });
+    return;
+  }
+
+  // SQL query to update the specified round in the user_rounds table
+  const queryText = `
+        UPDATE user_rounds 
+        SET date = $1, front_9_score = $2, back_9_score = $3, course_id = $4, course_handicap = $5
+        WHERE id = $6;
+    `;
+
+  pool.query(
+    queryText,
+    [dateValue, front9, back9, courseId, courseHdcp, roundId],
+    (error, results) => {
+      if (error) {
+        console.error("Error updating the round:", error);
+        res.status(500).json({ error: "Database error" });
+      } else {
+        res.sendStatus(200); // 200 OK
+      }
+    }
+  );
 });
-router.delete("/", (req, res) => {
-  //TODO delete round
+
+router.delete("/:roundId", (req, res) => {
+  // Extract round ID from the request parameters
+  const roundId = req.params.roundId;
+
+  // SQL query to delete the specified round from the user_rounds table
+  const queryText = `
+        DELETE FROM user_rounds 
+        WHERE id = $1;
+    `;
+
+  pool.query(queryText, [roundId], (error, results) => {
+    if (error) {
+      console.error("Error deleting the round:", error);
+      res.status(500).json({ error: "Database error" });
+    } else {
+      res.sendStatus(200); // 200 OK
+    }
+  });
 });
+
 module.exports = router;
