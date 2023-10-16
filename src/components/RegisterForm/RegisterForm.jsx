@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 function RegisterForm() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [is_male, setIs_male] = useState(null);
+
   const errors = useSelector((store) => store.errors);
   const dispatch = useDispatch();
 
@@ -11,10 +13,11 @@ function RegisterForm() {
     event.preventDefault();
 
     dispatch({
-      type: 'REGISTER',
+      type: "REGISTER",
       payload: {
         username: username,
         password: password,
+        is_male: is_male,
       },
     });
   }; // end registerUser
@@ -51,6 +54,31 @@ function RegisterForm() {
           />
         </label>
       </div>
+      <div>
+        <label>
+          <input
+            required
+            type="radio"
+            name="gender"
+            value="male"
+            checked={is_male === true}
+            onChange={() => setIs_male(true)}
+          />
+          Male
+        </label>
+        <label>
+          <input
+            required
+            type="radio"
+            name="gender"
+            value="female"
+            checked={is_male === false}
+            onChange={() => setIs_male(false)}
+          />
+          Female
+        </label>
+      </div>
+
       <div>
         <input className="btn" type="submit" name="submit" value="Register" />
       </div>
