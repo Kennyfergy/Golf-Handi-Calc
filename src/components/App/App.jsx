@@ -10,7 +10,6 @@ import { useDispatch, useSelector } from "react-redux";
 
 import Nav from "../Nav/Nav";
 import Footer from "../Footer/Footer";
-// import Sidebar from "../Sidebar/Sidebar";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
 import AboutPage from "../AboutPage/AboutPage";
@@ -20,18 +19,13 @@ import LandingPage from "../LandingPage/LandingPage";
 import LoginPage from "../LoginPage/LoginPage";
 import RegisterPage from "../RegisterPage/RegisterPage";
 
+// import { Drawer, Button, List, ListItem, ListItemText } from "@material-ui";
 import "./App.css";
 
 function App() {
   const dispatch = useDispatch();
 
   const user = useSelector((store) => store.user);
-
-  // const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-  // const toggleSidebar = () => {
-  //   setIsSidebarOpen(!isSidebarOpen);
-  // };
 
   useEffect(() => {
     dispatch({ type: "FETCH_USER" });

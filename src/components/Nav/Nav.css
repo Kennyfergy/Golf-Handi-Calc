@@ -40,3 +40,48 @@
 .navLink:hover {
   background-color: #008183;
 }
+.drawer {
+  width: 33.33%;
+  max-width: 600px;
+  /* background-color: #f5f5f5; */
+}
+.drawer .MuiList-root {
+  padding: 20px;
+}
+
+.drawer .MuiListItem-root {
+  margin: 10px 0;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+.drawer .MuiListItem-root:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  transform: scale(1.12);
+}
+
+.drawer .MuiListItemText-root {
+  font-size: 1.2em;
+}
+.menuButton {
+  background-color: #253170;
+  color: white;
+  margin-left: 10px;
+  border-radius: 3px;
+  transition: background-color 0.3s, transform 0.2s;
+  border: none;
+  cursor: pointer;
+  outline: 0;
+}
+
+.menuButton:hover {
+  background-color: #2c387e; /* Darken on hover */
+  transform: scale(1.1);
+}
+.drawer .MuiDrawer-paper {
+  transition: transform 0.3s;
+  transform-origin: right;
+}
+
+.drawer .MuiDrawer-paperAnchorRight {
+  transform: scale(1.05); /* Slightly enlarge the drawer when it's opened */
+}
