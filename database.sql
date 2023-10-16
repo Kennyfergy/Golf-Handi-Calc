@@ -15,7 +15,7 @@ CREATE TABLE users (
 );
 DROP TABLE users CASCADE;
 -- User Courses Table
-CREATE TABLE user_courses (
+CREATE TABLE courses (
     id serial PRIMARY KEY,
     user_id integer NOT NULL,
     course_name varchar(255) NOT NULL,

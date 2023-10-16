@@ -1,0 +1,12 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -33.33%; /* Starts off the screen to the right */
+  height: 100%;
+  width: 33.33%; /* Takes up 1/3 of the viewport width */
+  transition: 0.3s;
+}
+
+.sidebar.open {
+  right: 0; /* Moves the sidebar to cover the right-most 1/3 of the page when opened */
+}
