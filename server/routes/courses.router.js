@@ -3,6 +3,8 @@ const router = express.Router();
 const pool = require("../modules/pool");
 
 // Routes related to user courses
+
+//get route do grab all courses attached to user logged in
 router.get("/:userId", (req, res) => {
   const userId = req.params.userId;
 
@@ -18,8 +20,9 @@ router.get("/:userId", (req, res) => {
       res.json(results.rows);
     }
   });
-});
+}); //end router.get
 
+//route to add a new course
 router.post("/:userId", (req, res) => {
   const userId = req.params.userId;
 
@@ -36,7 +39,7 @@ router.post("/:userId", (req, res) => {
     women_back_9_par,
   } = req.body;
 
-  // add validation here
+  // TODO add validation here
 
   const queryText = `
         INSERT INTO user_courses (user_id, course_name, course_location, men_course_rating, men_course_slope, men_front_9_par, men_back_9_par, women_course_rating, women_course_slope, women_front_9_par, women_back_9_par)
@@ -67,7 +70,7 @@ router.post("/:userId", (req, res) => {
       }
     }
   );
-});
+}); //end router.post
 
 //put route to update course information
 router.put("/:courseId", (req, res) => {
@@ -116,7 +119,8 @@ router.put("/:courseId", (req, res) => {
       }
     }
   );
-});
+}); //end router.put
+
 //delete route to remove course with specific courseId
 router.delete("/:courseId", (req, res) => {
   const courseId = req.params.courseId;
@@ -134,6 +138,6 @@ router.delete("/:courseId", (req, res) => {
       res.sendStatus(200); // 200 OK
     }
   });
-});
+}); //end router.delete
 
 module.exports = router;

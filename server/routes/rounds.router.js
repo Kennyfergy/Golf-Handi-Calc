@@ -25,8 +25,9 @@ router.get("/:id", (req, res) => {
       }
     }
   );
-});
+}); //end router.get
 
+//route to add a new round for the user
 router.post("/:id", (req, res) => {
   // Check if the user is authenticated
   if (!req.user) {
@@ -80,8 +81,9 @@ router.post("/:id", (req, res) => {
       }
     }
   );
-});
+}); //end router.post
 
+//put route to update a users round
 router.put("/:roundId", (req, res) => {
   // Extract round details from the request body
   const dateValue = req.body.date || new Date().toISOString();
@@ -93,7 +95,7 @@ router.put("/:roundId", (req, res) => {
   // Extract round ID from the request parameters
   const roundId = req.params.roundId;
 
-  // Check for essential data
+  // Validating data
   if (!front9 || !back9 || !courseId || !courseHdcp) {
     res.status(400).json({ error: "Required fields are missing" });
     return;
@@ -118,8 +120,9 @@ router.put("/:roundId", (req, res) => {
       }
     }
   );
-});
+}); //end router.put
 
+//delete route to delete from round with specific round id
 router.delete("/:roundId", (req, res) => {
   // Extract round ID from the request parameters
   const roundId = req.params.roundId;
@@ -138,6 +141,6 @@ router.delete("/:roundId", (req, res) => {
       res.sendStatus(200); // 200 OK
     }
   });
-});
+}); //end router.delete
 
 module.exports = router;

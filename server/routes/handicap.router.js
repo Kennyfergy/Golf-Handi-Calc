@@ -6,11 +6,14 @@ const pool = require("../modules/pool");
 
 const router = express.Router();
 
+//this function cuts off everything after the first decimal point, necessary for handicap calculation rather than rounding.
 function truncateToDecimalPlace(num, decimalPlaces) {
   const multiplier = Math.pow(10, decimalPlaces);
   return Math.trunc(num * multiplier) / multiplier;
 }
 //console.log(truncateToDecimalPlace(5.678, 1)); function works correct
+
+// get route to grab data required, then calculate a users handicap index
 router.get("/:userId", async (req, res) => {
   console.log("Handicap route accessed");
   const userId = req.params.userId;
