@@ -1,7 +1,12 @@
 const express = require("express");
 const router = express.Router();
 const pool = require("../modules/pool");
-// Routes related to user rounds
+const {
+  rejectUnauthenticated,
+} = require("../modules/authentication-middleware");
+const { calculateHandicap } = require("../modules/helperFunctions.module");
+
+// This page contains routes related to user rounds
 
 //get route to /rounds to get all rounds for the user
 router.get("/", (req, res) => {
@@ -28,63 +33,76 @@ router.get("/", (req, res) => {
 }); //end router.get
 
 //route to add a new round for the user
-router.post("/", (req, res) => {
-  // Check if the user is authenticated
-  if (!req.user) {
-    res.status(401).json({ error: "Not authenticated" });
-    return;
-  }
-
-  const userId = req.user.id; //change from user to params for postman testing
-
-  // Extract round details from the request body
-  const dateValue = req.body.date || new Date().toISOString();
-  const front9 = req.body.front_9_score;
-  const back9 = req.body.back_9_score;
-  const courseId = req.body.course_id;
-  const courseHdcp = req.body.course_handicap || 0.0;
-  console.log("request.params", req.params);
-  console.log("request.body", req.body);
-
-  console.log("Inserting round data:", {
-    userId,
-    dateValue,
-    front9,
-    back9,
-    courseId,
-    courseHdcp,
-  });
-
-  //data validation
-  if (
-    front9 === null ||
-    front9 === undefined ||
-    back9 === null ||
-    back9 === undefined ||
-    courseId === null ||
-    courseId === undefined
-  ) {
-    res.status(400).json({ error: "Required fields are missing" });
-    return;
-  }
-  // SQL query to insert the new round into the user_rounds table
-  const queryText = `
-        INSERT INTO user_rounds (user_id, date, front_9_score, back_9_score, course_id, course_handicap)
-        VALUES ($1, $2, $3, $4, $5, $6);
-    `;
-
-  pool.query(
-    queryText,
-    [userId, dateValue, front9, back9, courseId, courseHdcp],
-    (error, results) => {
-      if (error) {
-        console.error("Error inserting new round:", error);
-        res.status(500).json({ error: "Database error" });
-      } else {
-        res.sendStatus(201); // 201 Created
-      }
+router.post("/", async (req, res) => {
+  try {
+    // Check if the user is authenticated
+    if (!req.user) {
+      res.status(401).json({ error: "Not authenticated" });
+      return;
     }
-  );
+
+    const userId = req.user.id; //change from user to params for postman testing
+
+    // Extract round details from the request body
+    const dateValue = req.body.date || new Date().toISOString();
+    const front9 = req.body.front_9_score;
+    const back9 = req.body.back_9_score;
+    const courseId = req.body.course_id;
+    const courseHdcp = req.body.course_handicap || 0.0;
+    //console.log("request.params", req.params); //for postman
+    console.log("request.body", req.body);
+
+    console.log("Inserting round data:", {
+      userId,
+      dateValue,
+      front9,
+      back9,
+      courseId,
+      courseHdcp,
+    });
+
+    //data validation
+    if (
+      front9 === null ||
+      front9 === undefined ||
+      back9 === null ||
+      back9 === undefined ||
+      courseId === null ||
+      courseId === undefined
+    ) {
+      res.status(400).json({ error: "Required fields are missing" });
+      return;
+    }
+    // SQL query to insert the new round into the user_rounds table
+    const queryText = `
+      INSERT INTO user_rounds (user_id, date, front_9_score, back_9_score, course_id, course_handicap)
+      VALUES ($1, $2, $3, $4, $5, $6);
+  `;
+
+    await pool.query(queryText, [
+      userId,
+      dateValue,
+      front9,
+      back9,
+      courseId,
+      courseHdcp,
+    ]);
+
+    //calculate handicap after inserting the round
+    const handicap = await calculateHandicap(userId);
+    // Update the user's handicap in the users table
+    const updateHandicapQuery = `
+      UPDATE users 
+      SET user_handicap = $1
+      WHERE id = $2;
+    `;
+    await pool.query(updateHandicapQuery, [handicap, userId]);
+
+    res.sendStatus(201); // 201 Created
+  } catch (err) {
+    console.log("error updating handicap", err);
+    res.sendStatus(500);
+  }
 }); //end router.post
 
 //put route to update a users round

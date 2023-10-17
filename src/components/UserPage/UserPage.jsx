@@ -1,11 +1,22 @@
-import React from "react";
-
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 function UserPage() {
-  // this component doesn't do much to start, just renders some user reducer info to the DOM
+  const dispatch = useDispatch();
+
   const user = useSelector((store) => store.user);
+  console.log(user);
   //const rounds = useSelector((store) => store.rounds) doesn't exist yet, may need it to grab total rounds played data
+
+  // useEffect(() => {
+  //   // Fetch the updated handicap when the component mounts
+  //   dispatch({ type: "FETCH_USER_HANDICAP", payload: user.id });
+  // }, [dispatch, user.id]); //dependency, will run this code for any user that logs in
+
+  // useEffect(() => {
+  //   dispatch({ type: "FETCH_USER" });
+  // }, []);
+
   return (
     <div className="container">
       <h2>Welcome, {user.username}!</h2>
