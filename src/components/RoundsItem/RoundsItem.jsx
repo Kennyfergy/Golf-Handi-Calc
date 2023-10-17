@@ -15,8 +15,7 @@ export default function RoundsItem({ round }) {
   const [newDate, setNewDate] = useState("");
   // const [roundToEdit, setRoundToEdit] = useState("");
 
-  // Get the rounds from the Redux stor
-
+  // function to set state when user edits an input
   const handleEdit = (id) => {
     console.log("Logging round id", id);
     setEditingRoundId(id);
@@ -26,6 +25,7 @@ export default function RoundsItem({ round }) {
     setNewDate(round.date);
   };
 
+  //deletes round from DB
   const handleDelete = (id) => {
     const userConfirmed = window.confirm(
       "Are you sure you want to delete this round?"
@@ -41,6 +41,15 @@ export default function RoundsItem({ round }) {
     }
   };
 
+  //lets user cancel the edit mode
+  const handleCancelEdit = () => {
+    setEditingRoundId(null);
+    setEditingFront9Score("");
+    setEditingBack9Score("");
+    setNewDate("");
+  };
+
+  // submits the edit changes
   const saveChanges = () => {
     const updatedRoundData = {
       front_9_score: editingFront9Score,
@@ -114,6 +123,7 @@ export default function RoundsItem({ round }) {
               />
               <Button onClick={() => handleDelete(round.id)}>Delete</Button>
               <Button onClick={() => saveChanges(round.id)}>Save</Button>
+              <Button onClick={handleCancelEdit}>Cancel</Button>
             </>
           ) : (
             // Display round data
@@ -127,9 +137,9 @@ export default function RoundsItem({ round }) {
               <Typography variant="subtitle1" className="date">
                 {formatDate(round.date)}
               </Typography>
-              <Typography variant="subtitle2" className="courseHandicap">
-                Course Handicap: {round.course_handicap}
-              </Typography>
+              {/* <Typography variant="subtitle2" className="courseHandicap"> not a usable feature yet
+                Course Handicap: {round.course_handicap} 
+              </Typography> */}
             </>
           )}
         </CardContent>
