@@ -4,7 +4,7 @@ const pool = require("../modules/pool");
 // Routes related to user rounds
 
 //get route to /rounds to get all rounds for the user
-router.get("/:id", (req, res) => {
+router.get("/", (req, res) => {
   // Check if the user is authenticated and there's a user object in the request
   if (!req.user) {
     res.status(401).json({ error: "Not authenticated" });
@@ -28,14 +28,14 @@ router.get("/:id", (req, res) => {
 }); //end router.get
 
 //route to add a new round for the user
-router.post("/:id", (req, res) => {
+router.post("/", (req, res) => {
   // Check if the user is authenticated
   if (!req.user) {
     res.status(401).json({ error: "Not authenticated" });
     return;
   }
 
-  const userId = req.params.id; //change from usr to params for postman testing
+  const userId = req.user.id; //change from usr to params for postman testing
 
   // Extract round details from the request body
   //   const { date, front_9_score, back_9_score, course_id, course_handicap } =
