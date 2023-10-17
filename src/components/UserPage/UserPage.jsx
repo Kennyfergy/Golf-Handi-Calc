@@ -1,11 +1,18 @@
-import React from "react";
-
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 function UserPage() {
-  // this component doesn't do much to start, just renders some user reducer info to the DOM
+  const dispatch = useDispatch();
+
   const user = useSelector((store) => store.user);
-  //const rounds = useSelector((store) => store.rounds) doesn't exist yet, may need it to grab total rounds played data
+  console.log(user);
+  //const rounds = useSelector((store) => store.rounds); //doesn't exist yet, may need it to grab total rounds played data
+  //TODO component to display rounds, import here, get total count and display here
+
+  // useEffect(() => {
+  //   dispatch({ type: "FETCH_USER" });
+  // }, []);
+
   return (
     <div className="container">
       <h2>Welcome, {user.username}!</h2>

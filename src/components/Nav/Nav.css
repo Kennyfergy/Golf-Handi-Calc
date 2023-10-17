@@ -5,20 +5,22 @@
   align-items: center;
 
   margin: 0 0 30px;
-  background-color: #00acb0;
+  background-color: #44604d;
   overflow: hidden;
 }
 
 .nav a {
   text-decoration: none;
+  flex: 1;
 }
 
 .nav-title {
   font-size: 24px;
   font-weight: 700;
   color: #f2f2f2;
-  padding-left: 10px;
-  margin: 0;
+  margin: auto;
+  align-items: center;
+  flex: 1;
 }
 
 .navLink {
@@ -52,7 +54,7 @@
 .drawer .MuiListItem-root {
   margin: 10px 0;
   border-radius: 5px;
-  transition: background-color 0.3s, transform 0.2s;
+  transition: background-color 0.2s, transform 0.1s;
 }
 .drawer .MuiListItem-root:hover {
   background-color: rgba(0, 0, 0, 0.1);
