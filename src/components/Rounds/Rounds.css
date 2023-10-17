@@ -1,0 +1,51 @@
+body {
+  background-color: #95b8a4; /* Light green background for the entire app */
+}
+
+.MuiCard-root {
+  margin: 20px auto; /* Center the card horizontally */
+  max-width: 600px; /* Restrict the width of the card for better readability */
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease-in-out;
+  background-color: #ffffff;
+}
+
+.MuiCard-root:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cardContent {
+  position: relative;
+}
+
+.score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.date {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: #666;
+}
+
+h1 {
+  color: #2c7a49;
+  text-align: center;
+}
+
+.container {
+  position: relative; /* Setting context for absolute positioning of the button */
+}
+
+.addButton {
+  position: right;
+  top: 20px;
+  right: 20px;
+}
