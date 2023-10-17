@@ -19,6 +19,7 @@ import LandingPage from "../LandingPage/LandingPage";
 import LoginPage from "../LoginPage/LoginPage";
 import RegisterPage from "../RegisterPage/RegisterPage";
 import Rounds from "../Rounds/Rounds";
+import AddRound from "../AddRound/AddRound";
 
 // import { Drawer, Button, List, ListItem, ListItemText } from "@material-ui";
 import "./App.css";
@@ -63,7 +64,15 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows UserPage else shows LoginPage
+            // logged in shows add rounds page else shows login page
+            exact
+            path="/addRound"
+          >
+            <AddRound />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows rounds page else shows LoginPage
             exact
             path="/rounds"
           >
