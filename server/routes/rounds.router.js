@@ -45,7 +45,7 @@ router.post("/", (req, res) => {
   const front9 = req.body.front_9_score;
   const back9 = req.body.back_9_score;
   const courseId = req.body.course_id;
-  const courseHdcp = req.body.course_handicap;
+  const courseHdcp = req.body.course_handicap || 0.0;
   console.log("request.params", req.params);
   console.log("request.body", req.body);
 
@@ -59,7 +59,14 @@ router.post("/", (req, res) => {
   });
 
   //data validation
-  if (!front9 || !back9 || !courseId || !courseHdcp) {
+  if (
+    front9 === null ||
+    front9 === undefined ||
+    back9 === null ||
+    back9 === undefined ||
+    courseId === null ||
+    courseId === undefined
+  ) {
     res.status(400).json({ error: "Required fields are missing" });
     return;
   }
@@ -96,7 +103,14 @@ router.put("/:roundId", (req, res) => {
   const roundId = req.params.roundId;
 
   // Validating data
-  if (!front9 || !back9 || !courseId || !courseHdcp) {
+  if (
+    front_9_score === null ||
+    front_9_score === undefined ||
+    back_9_score === null ||
+    back_9_score === undefined ||
+    course_id === null ||
+    course_id === undefined
+  ) {
     res.status(400).json({ error: "Required fields are missing" });
     return;
   }
