@@ -26,6 +26,10 @@ export default function RoundsItem({ round }) {
     setNewDate(round.date);
   };
 
+  const handleDelete = (id) => {
+    console.log("Delete clicked");
+  };
+
   const saveChanges = () => {
     const updatedRoundData = {
       front_9_score: editingFront9Score,
@@ -104,6 +108,7 @@ export default function RoundsItem({ round }) {
             // Display round data
             <>
               <Button onClick={() => handleEdit(round.id)}>Edit</Button>
+              <Button onClick={() => handleDelete(round.id)}>Delete</Button>
               {/* <Button onClick={() => setRoundToEdit(round.id)}>Edit</Button> */}
               <Typography variant="h5" className="score">
                 Score: {round.front_9_score + round.back_9_score}
