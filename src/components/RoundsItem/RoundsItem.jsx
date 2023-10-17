@@ -28,6 +28,11 @@ export default function RoundsItem({ round }) {
 
   const handleDelete = (id) => {
     console.log("Delete clicked");
+    alert("Successfully Deleted Round");
+    dispatch({
+      type: "DELETE_ROUND",
+      payload: { roundId: editingRoundId },
+    });
   };
 
   const saveChanges = () => {
@@ -101,14 +106,14 @@ export default function RoundsItem({ round }) {
                 value={newDate}
                 onChange={(event) => setNewDate(event.target.value)}
               />
-
+              <Button onClick={() => handleDelete(round.id)}>Delete</Button>
               <Button onClick={() => saveChanges(round.id)}>Save</Button>
             </>
           ) : (
             // Display round data
             <>
               <Button onClick={() => handleEdit(round.id)}>Edit</Button>
-              <Button onClick={() => handleDelete(round.id)}>Delete</Button>
+
               {/* <Button onClick={() => setRoundToEdit(round.id)}>Edit</Button> */}
               <Typography variant="h5" className="score">
                 Score: {round.front_9_score + round.back_9_score}

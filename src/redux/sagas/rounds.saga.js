@@ -22,10 +22,21 @@ function* updateRound(action) {
     console.error("Error updating round", error);
   }
 }
+
+function* deleteRound(action) {
+  try {
+    yield axios.delete(`/api/rounds/${action.payload.roundId}`);
+    yield put({ type: "FETCH_ROUNDS" });
+  } catch (error) {
+    console.log("error with DELETE saga request", error);
+  }
+}
+
 // Watcher Saga: watch for actions of type 'FETCH_ROUNDS'
 function* roundsSaga() {
   yield takeEvery("FETCH_ROUNDS", fetchRounds);
   yield takeEvery("UPDATE_ROUND", updateRound);
+  yield takeEvery("DELETE_ROUND", deleteRound);
 }
 
 export default roundsSaga;
