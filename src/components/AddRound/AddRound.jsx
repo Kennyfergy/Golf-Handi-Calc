@@ -22,11 +22,38 @@ export default function AddRound() {
   const [front9Score, setFront9Score] = useState("");
   const [back9Score, setBack9Score] = useState("");
   const [roundDate, setRoundDate] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async () => {
+    //added error messages for all input fields
+    if (!front9 && !back9) {
+      setErrorMessage("Please select either Front 9 or Back 9.");
+      return;
+    }
+
+    if (front9 && !front9Score) {
+      setErrorMessage("Please enter a score for Front 9.");
+      return;
+    }
+
+    if (back9 && !back9Score) {
+      setErrorMessage("Please enter a score for Back 9.");
+      return;
+    }
+
+    if (!courseId) {
+      setErrorMessage("Please select a course.");
+      return;
+    }
+
+    if (!roundDate) {
+      setErrorMessage("Please select a date.");
+      return;
+    }
+
     // Prepare the data payload
     const roundData = {
-      user_id: 1, // TODO: Replace this with the actual user ID
+      //user_id: 0, // TODO: Replace this with the actual user ID, never mind don't even need this
       date: roundDate,
       front_9_score: front9 ? front9Score : 0,
       back_9_score: back9 ? back9Score : 0,
@@ -52,10 +79,14 @@ export default function AddRound() {
     } catch (error) {
       console.error("There was an error adding the round", error);
     }
-  };
+    setErrorMessage("");
+  }; // end handleSubmit
 
   return (
     <div className="add-round-container">
+      <Button onClick={() => history.push("/rounds")}>Back to Rounds</Button>
+      {errorMessage && <Typography color="error">{errorMessage}</Typography>}
+
       <Typography variant="h4">Add Round</Typography>
       <FormControl component="fieldset">
         <FormControlLabel
