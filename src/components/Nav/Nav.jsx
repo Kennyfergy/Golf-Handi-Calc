@@ -49,9 +49,9 @@ function Nav() {
           </>
         )}
 
-        <Link className="navLink" to="/about">
+        {/* <Link className="navLink" to="/about">
           About
-        </Link>
+        </Link> */}
         <Button className="menuButton" onClick={() => setDrawerOpen(true)}>
           <MenuIcon fontSize="large" />
         </Button>
