@@ -84,7 +84,13 @@ export default function AddRound() {
 
   return (
     <div className="add-round-container">
-      <Button onClick={() => history.push("/rounds")}>Back to Rounds</Button>
+      <Button
+        variant="outlined"
+        color="primary"
+        onClick={() => history.push("/rounds")}
+      >
+        Back to Rounds
+      </Button>
       {errorMessage && (
         <Typography variant="h6" className="errorMessage">
           {errorMessage}
