@@ -27,12 +27,18 @@ export default function RoundsItem({ round }) {
   };
 
   const handleDelete = (id) => {
-    console.log("Delete clicked");
-    alert("Successfully Deleted Round");
-    dispatch({
-      type: "DELETE_ROUND",
-      payload: { roundId: editingRoundId },
-    });
+    const userConfirmed = window.confirm(
+      "Are you sure you want to delete this round?"
+    );
+    if (userConfirmed) {
+      alert("Successfully Deleted Round");
+      dispatch({
+        type: "DELETE_ROUND",
+        payload: { roundId: editingRoundId },
+      });
+    } else {
+      console.log("Delete cancelled");
+    }
   };
 
   const saveChanges = () => {
