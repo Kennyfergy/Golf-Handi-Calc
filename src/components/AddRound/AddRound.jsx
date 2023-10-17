@@ -65,9 +65,9 @@ export default function AddRound() {
       const response = await fetch("/api/rounds", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/json", //need to specify to server that json data is sent
         },
-        body: JSON.stringify(roundData),
+        body: JSON.stringify(roundData), //sending JSON to server
       });
 
       if (response.ok) {
@@ -110,6 +110,7 @@ export default function AddRound() {
           label="Back 9"
         />
       </FormControl>
+      <Typography variant="h6">Select Course:</Typography>
       <Select
         value={courseId}
         onChange={(e) => setCourseId(e.target.value)}
