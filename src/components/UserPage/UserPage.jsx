@@ -6,12 +6,8 @@ function UserPage() {
 
   const user = useSelector((store) => store.user);
   console.log(user);
-  //const rounds = useSelector((store) => store.rounds) doesn't exist yet, may need it to grab total rounds played data
-
-  // useEffect(() => {
-  //   // Fetch the updated handicap when the component mounts
-  //   dispatch({ type: "FETCH_USER_HANDICAP", payload: user.id });
-  // }, [dispatch, user.id]); //dependency, will run this code for any user that logs in
+  //const rounds = useSelector((store) => store.rounds); //doesn't exist yet, may need it to grab total rounds played data
+  //TODO component to display rounds, import here, get total count and display here
 
   // useEffect(() => {
   //   dispatch({ type: "FETCH_USER" });

@@ -8,9 +8,15 @@ const roundsReducer = (state = initialState, action) => {
       return action.payload;
     case "ADD_ROUND":
       return action.payload;
+    case "UPDATE_ROUND":
+      return action.payload;
     default:
       return state;
   }
 };
 
 export default roundsReducer;
+
+// return state.map((round) =>
+//         round.id === action.payload.id ? action.payload : round
+//       );

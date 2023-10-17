@@ -10,10 +10,18 @@ function* fetchRounds() {
     console.error("Error fetching rounds:", error);
   }
 }
-
+function* updateRound(action) {
+  try {
+    yield axios.put(`/api/rounds/${action.payload.id}`);
+    yield put({ type: "FETCH_ROUNDS" }); // Refresh rounds data
+  } catch (error) {
+    console.error("Error updating round", error);
+  }
+}
 // Watcher Saga: watch for actions of type 'FETCH_ROUNDS'
 function* roundsSaga() {
   yield takeEvery("FETCH_ROUNDS", fetchRounds);
+  yield takeEvery("UPDATE_ROUND", updateRound);
 }
 
 export default roundsSaga;
