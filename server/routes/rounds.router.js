@@ -35,12 +35,9 @@ router.post("/", (req, res) => {
     return;
   }
 
-  const userId = req.user.id; //change from usr to params for postman testing
+  const userId = req.user.id; //change from user to params for postman testing
 
   // Extract round details from the request body
-  //   const { date, front_9_score, back_9_score, course_id, course_handicap } =
-  //     req.body;
-
   const dateValue = req.body.date || new Date().toISOString();
   const front9 = req.body.front_9_score;
   const back9 = req.body.back_9_score;

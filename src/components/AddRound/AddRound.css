@@ -12,6 +12,12 @@ html {
   height: 100%;
 }
 
+.errorMessage {
+  color: red;
+  font-size: 40px;
+  margin-top: 10px;
+}
+
 .add-round-container {
   display: flex;
   flex-direction: column;

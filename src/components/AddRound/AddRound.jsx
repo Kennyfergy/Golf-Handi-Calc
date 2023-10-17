@@ -85,7 +85,11 @@ export default function AddRound() {
   return (
     <div className="add-round-container">
       <Button onClick={() => history.push("/rounds")}>Back to Rounds</Button>
-      {errorMessage && <Typography color="error">{errorMessage}</Typography>}
+      {errorMessage && (
+        <Typography variant="h6" className="errorMessage">
+          {errorMessage}
+        </Typography>
+      )}
 
       <Typography variant="h4">Add Round</Typography>
       <FormControl component="fieldset">
