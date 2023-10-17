@@ -12,7 +12,11 @@ function* fetchRounds() {
 }
 function* updateRound(action) {
   try {
-    yield axios.put(`/api/rounds/${action.payload.id}`);
+    const response = yield axios.put(
+      `/api/rounds/${action.payload.roundId}`,
+      action.payload.updatedRoundData
+    );
+    console.log(response);
     yield put({ type: "FETCH_ROUNDS" }); // Refresh rounds data
   } catch (error) {
     console.error("Error updating round", error);

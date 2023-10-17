@@ -19,7 +19,7 @@ router.get("/", (req, res) => {
   const userId = req.user.id;
 
   pool.query(
-    "SELECT * FROM user_rounds WHERE user_id = $1",
+    `SELECT * FROM user_rounds WHERE user_id = $1 ORDER BY "date" DESC`,
     [userId],
     (error, results) => {
       if (error) {
@@ -111,20 +111,18 @@ router.put("/:roundId", (req, res) => {
   const dateValue = req.body.date || new Date().toISOString();
   const front9 = req.body.front_9_score;
   const back9 = req.body.back_9_score;
-  const courseId = req.body.course_id;
-  const courseHdcp = req.body.course_handicap;
 
   // Extract round ID from the request parameters
   const roundId = req.params.roundId;
 
+  console.log(req.body);
+
   // Validating data
   if (
-    front_9_score === null ||
-    front_9_score === undefined ||
-    back_9_score === null ||
-    back_9_score === undefined ||
-    course_id === null ||
-    course_id === undefined
+    front9 === null ||
+    front9 === undefined ||
+    back9 === null ||
+    back9 === undefined
   ) {
     res.status(400).json({ error: "Required fields are missing" });
     return;
@@ -133,19 +131,20 @@ router.put("/:roundId", (req, res) => {
   // SQL query to update the specified round in the user_rounds table
   const queryText = `
         UPDATE user_rounds 
-        SET date = $1, front_9_score = $2, back_9_score = $3, course_id = $4, course_handicap = $5
-        WHERE id = $6;
+        SET date = $1, front_9_score = $2, back_9_score = $3
+        WHERE id = $4;
     `;
 
   pool.query(
     queryText,
-    [dateValue, front9, back9, courseId, courseHdcp, roundId],
+    [dateValue, front9, back9, roundId],
     (error, results) => {
       if (error) {
         console.error("Error updating the round:", error);
         res.status(500).json({ error: "Database error" });
       } else {
         res.sendStatus(200); // 200 OK
+        console.log("Router.put worked");
       }
     }
   );

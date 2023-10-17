@@ -6,10 +6,6 @@ const roundsReducer = (state = initialState, action) => {
   switch (action.type) {
     case "SET_ROUNDS":
       return action.payload;
-    case "ADD_ROUND":
-      return action.payload;
-    case "UPDATE_ROUND":
-      return action.payload;
     default:
       return state;
   }
