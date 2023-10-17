@@ -39,3 +39,13 @@ h1 {
   color: #2c7a49;
   text-align: center;
 }
+
+.container {
+  position: relative; /* Setting context for absolute positioning of the button */
+}
+
+.addButton {
+  position: right;
+  top: 20px;
+  right: 20px;
+}
