@@ -4,6 +4,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import "./CourseItem.css";
 
 export default function CourseItem({ course }) {
   const dispatch = useDispatch();
@@ -114,96 +115,99 @@ export default function CourseItem({ course }) {
   return (
     <div>
       <Card key={course.id} className="styledCard">
-        <CardContent className="cardContent">
-          {editingCourseId === course.id ? (
-            // Render input fields for editing
-            <>
-              <>Course Name</>
-              <input
-                type="text"
-                value={editingCourseName}
-                onChange={(event) => setEditingCourseName(event.target.value)}
-              />
-              <>Location</>
-              <input
-                type="text"
-                value={editingLocation}
-                onChange={(event) => setEditingLocation(event.target.value)}
-              />
+        <div className="inputGroup">
+          <CardContent className="cardContent">
+            {editingCourseId === course.id ? (
+              // Render input fields for editing
 
-              <>Mens Back 9 Par</>
-              <input
-                type="text"
-                value={menBack9}
-                onChange={(event) => setMenBack9(event.target.value)}
-              />
-              <>Mens Front 9 Par</>
-              <input
-                type="text"
-                value={menFront9}
-                onChange={(event) => setMenFront9(event.target.value)}
-              />
-              <>Mens Course Rating</>
-              <input
-                type="text"
-                value={menCourseRating}
-                onChange={(event) => setMenCourseRating(event.target.value)}
-              />
-              <>Mens Course Slope</>
-              <input
-                type="text"
-                value={menCourseSlope}
-                onChange={(event) => setMenCourseSlope(event.target.value)}
-              />
+              <>
+                <>Course Name</>
+                <input
+                  type="text"
+                  value={editingCourseName}
+                  onChange={(event) => setEditingCourseName(event.target.value)}
+                />
+                <>Location</>
+                <input
+                  type="text"
+                  value={editingLocation}
+                  onChange={(event) => setEditingLocation(event.target.value)}
+                />
 
-              <>Women's Back 9 Par</>
-              <input
-                type="text"
-                value={womenBack9}
-                onChange={(event) => setWomenBack9(event.target.value)}
-              />
-              <>Women's Front 9 Par</>
-              <input
-                type="text"
-                value={womenFront9}
-                onChange={(event) => setWomenFront9(event.target.value)}
-              />
-              <>Women's Course Rating</>
-              <input
-                type="text"
-                value={womenCourseRating}
-                onChange={(event) => setWomenCourseRating(event.target.value)}
-              />
-              <>Women's Course Slope</>
-              <input
-                type="text"
-                value={womenCourseSlope}
-                onChange={(event) => setWomenCourseSlope(event.target.value)}
-              />
+                <>Mens Back 9 Par</>
+                <input
+                  type="text"
+                  value={menBack9}
+                  onChange={(event) => setMenBack9(event.target.value)}
+                />
+                <>Mens Front 9 Par</>
+                <input
+                  type="text"
+                  value={menFront9}
+                  onChange={(event) => setMenFront9(event.target.value)}
+                />
+                <>Mens Course Rating</>
+                <input
+                  type="text"
+                  value={menCourseRating}
+                  onChange={(event) => setMenCourseRating(event.target.value)}
+                />
+                <>Mens Course Slope</>
+                <input
+                  type="text"
+                  value={menCourseSlope}
+                  onChange={(event) => setMenCourseSlope(event.target.value)}
+                />
 
-              <Button onClick={() => handleDelete(course.id)}>Delete</Button>
-              <Button onClick={() => saveChanges(course.id)}>Save</Button>
-              <Button onClick={handleCancelEdit}>Cancel</Button>
-            </>
-          ) : (
-            // Display course data
-            <>
-              <Button onClick={() => handleEdit(course.id)}>Edit</Button>
+                <>Women's Back 9 Par</>
+                <input
+                  type="text"
+                  value={womenBack9}
+                  onChange={(event) => setWomenBack9(event.target.value)}
+                />
+                <>Women's Front 9 Par</>
+                <input
+                  type="text"
+                  value={womenFront9}
+                  onChange={(event) => setWomenFront9(event.target.value)}
+                />
+                <>Women's Course Rating</>
+                <input
+                  type="text"
+                  value={womenCourseRating}
+                  onChange={(event) => setWomenCourseRating(event.target.value)}
+                />
+                <>Women's Course Slope</>
+                <input
+                  type="text"
+                  value={womenCourseSlope}
+                  onChange={(event) => setWomenCourseSlope(event.target.value)}
+                />
 
-              <Typography variant="h5" className="courseName">
-                Course: {course.course_name}
-              </Typography>
-              <Typography variant="h5" className="courseName">
-                Location: {course.course_location}
-              </Typography>
-            </>
-          )}
-        </CardContent>
+                <Button onClick={() => handleDelete(course.id)}>Delete</Button>
+                <Button onClick={() => saveChanges(course.id)}>Save</Button>
+                <Button onClick={handleCancelEdit}>Cancel</Button>
+              </>
+            ) : (
+              // Display course data
+              <>
+                <Button onClick={() => handleEdit(course.id)}>Edit</Button>
+
+                <Typography variant="h5" className="courseName">
+                  Course: {course.course_name}
+                </Typography>
+                <Typography variant="h5" className="courseName">
+                  Location: {course.course_location}
+                </Typography>
+              </>
+            )}
+          </CardContent>
+        </div>
       </Card>
     </div>
   );
 }
-//data available with course.
+//data available with
 // course_location: "123 Golf Lane, Golftown";
 // course_name: "Sample Golf Course";
 // id: 3;
