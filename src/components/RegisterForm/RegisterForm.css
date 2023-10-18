@@ -1,0 +1,9 @@
+.gender-input > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.gender-input label {
+  margin-right: 60px;
+  margin-left: 60px;
+}

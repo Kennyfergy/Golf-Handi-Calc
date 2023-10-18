@@ -10,11 +10,11 @@ function LoginPage() {
     <header className="login-background">
       <div className="login-form">
         <LoginForm />
-        {/* <div style={{ backgroundImage: `url(${backgroundImage})` }}> */}
+
         <center>
           <button
             type="button"
-            className="btn btn_asLink"
+            className="btn "
             onClick={() => {
               history.push("/registration");
             }}
