@@ -5,7 +5,7 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
-export default function CourseItem(course) {
+export default function CourseItem({ course }) {
   const dispatch = useDispatch();
 
   //
@@ -18,13 +18,26 @@ export default function CourseItem(course) {
   const [menCourseRating, setMenCourseRating] = useState("");
   const [menCourseSlope, setMenCourseSlope] = useState("");
 
+  const [womenBack9, setWomenBack9] = useState("");
+  const [womenFront9, setWomenFront9] = useState("");
+  const [womenCourseRating, setWomenCourseRating] = useState("");
+  const [womenCourseSlope, setWomenCourseSlope] = useState("");
   // function to set state when user edits inputs
   const handleEdit = (id) => {
     console.log("Logging course id", id);
     setEditingCourseId(id);
     // Set the local states with the original data from the course
+    setEditingCourseName(course.course_name);
     setEditingLocation(course.course_location);
     setMenBack9(course.men_back_9_par);
+    setMenFront9(course.men_front_9_par);
+    setMenCourseRating(course.men_course_rating);
+    setMenCourseSlope(course.men_course_slope);
+
+    setWomenBack9(course.women_back_9_par);
+    setWomenFront9(course.women_front_9_par);
+    setWomenCourseRating(course.women_course_rating);
+    setWomenCourseSlope(course.women_course_slope);
   };
   //deletes course from DB
   const handleDelete = (id) => {
@@ -51,6 +64,11 @@ export default function CourseItem(course) {
     setMenFront9("");
     setMenCourseRating("");
     setMenCourseSlope("");
+
+    setWomenBack9("");
+    setWomenFront9("");
+    setWomenCourseRating("");
+    setWomenCourseSlope("");
   };
 
   // submits the edit changes
@@ -62,6 +80,11 @@ export default function CourseItem(course) {
       men_front_9_par: menFront9,
       men_course_rating: menCourseRating,
       men_course_slope: menCourseSlope,
+
+      women_back_9_par: womenBack9,
+      women_front_9_par: womenFront9,
+      women_course_rating: womenCourseRating,
+      women_course_slope: womenCourseSlope,
     };
     console.log("logging updatedCourseData", updatedCourseData);
     // Dispatch update action
@@ -77,8 +100,14 @@ export default function CourseItem(course) {
     setEditingCourseName("");
     setEditingLocation("");
     setMenBack9("");
+    setMenFront9("");
     setMenCourseRating("");
     setMenCourseSlope("");
+
+    setWomenBack9("");
+    setWomenFront9("");
+    setWomenCourseRating("");
+    setWomenCourseSlope("");
   };
   console.log(course);
   console.log("course name", course.course_name);
@@ -126,6 +155,32 @@ export default function CourseItem(course) {
                 value={menCourseSlope}
                 onChange={(event) => setMenCourseSlope(event.target.value)}
               />
+
+              <>Women's Back 9 Par</>
+              <input
+                type="text"
+                value={womenBack9}
+                onChange={(event) => setWomenBack9(event.target.value)}
+              />
+              <>Women's Front 9 Par</>
+              <input
+                type="text"
+                value={womenFront9}
+                onChange={(event) => setWomenFront9(event.target.value)}
+              />
+              <>Women's Course Rating</>
+              <input
+                type="text"
+                value={womenCourseRating}
+                onChange={(event) => setWomenCourseRating(event.target.value)}
+              />
+              <>Women's Course Slope</>
+              <input
+                type="text"
+                value={womenCourseSlope}
+                onChange={(event) => setWomenCourseSlope(event.target.value)}
+              />
+
               <Button onClick={() => handleDelete(course.id)}>Delete</Button>
               <Button onClick={() => saveChanges(course.id)}>Save</Button>
               <Button onClick={handleCancelEdit}>Cancel</Button>
@@ -148,7 +203,7 @@ export default function CourseItem(course) {
     </div>
   );
 }
-
+//data available with course.
 // course_location: "123 Golf Lane, Golftown";
 // course_name: "Sample Golf Course";
 // id: 3;
