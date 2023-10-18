@@ -221,6 +221,18 @@ export default function CourseItem({ course }) {
                     ? course.men_back_9_par + course.men_front_9_par
                     : course.women_back_9_par + course.women_back_9_par}
                 </Typography>
+                <Typography variant="h5" className="courseName">
+                  Course Rating:{" "}
+                  {user.is_male
+                    ? course.men_course_rating
+                    : course.women_course_rating}
+                </Typography>
+                <Typography variant="h5" className="courseName">
+                  Slope:{" "}
+                  {user.is_male
+                    ? course.men_course_slope
+                    : course.women_course_slope}
+                </Typography>
               </>
             )}
           </CardContent>
