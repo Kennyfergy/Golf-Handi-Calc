@@ -91,7 +91,7 @@ router.put("/:courseId", (req, res) => {
   // } = req.body;
 
   const queryText = `
-        UPDATE courses 
+        UPDATE user_courses 
         SET course_name = $1, course_location = $2, men_course_rating = $3, men_course_slope = $4, men_front_9_par = $5, men_back_9_par = $6, women_course_rating = $7, women_course_slope = $8, women_front_9_par = $9, women_back_9_par = $10
         WHERE id = $11;
     `;
@@ -127,7 +127,7 @@ router.delete("/:courseId", (req, res) => {
   const courseId = req.params.courseId;
 
   const queryText = `
-        DELETE FROM courses
+        DELETE FROM user_courses
         WHERE id = $1;
     `;
 
