@@ -4,24 +4,19 @@ import { useSelector } from "react-redux";
 import {
   Button,
   TextField,
-  Checkbox,
-  FormControlLabel,
   Typography,
-  FormControl,
-  Select,
-  MenuItem,
+  Divider,
+  Paper,
+  Grid,
 } from "@mui/material";
-// import "./AddCourse.css";
+import "./AddCourse.css";
 
 export default function AddCourse() {
   const history = useHistory();
 
   const user = useSelector((store) => store.user);
-  console.log("who the fuck am I ?", user);
 
-  // State for checkboxes
-  //   const [front9, setFront9] = useState(false);
-  //   const [back9, setBack9] = useState(false);
+  // State for each input
   const [courseName, setCourseName] = useState("");
   const [courseLocation, setCourseLocation] = useState("");
   const [menCourseRating, setMenCourseRating] = useState("");
@@ -41,12 +36,10 @@ export default function AddCourse() {
       setErrorMessage("Please enter a course name.");
       return;
     }
-
     if (!courseLocation) {
       setErrorMessage("Please enter course location.");
       return;
     }
-
     if (!menCourseRating) {
       setErrorMessage("Please enter men course rating.");
       return;
@@ -63,7 +56,6 @@ export default function AddCourse() {
       setErrorMessage("Please enter men par for back 9.");
       return;
     }
-
     if (!womenCourseRating) {
       setErrorMessage("Please enter women course rating.");
       return;
@@ -83,7 +75,6 @@ export default function AddCourse() {
 
     // Prepare the data payload
     const courseData = {
-      //user_id: 0, // TODO: Replace this with the actual user ID, never mind don't even need this
       course_name: courseName,
       course_location: courseLocation,
       men_course_rating: menCourseRating,
@@ -96,7 +87,7 @@ export default function AddCourse() {
       women_back_9_par: womenBack9Par,
       user_id: userId,
     };
-    console.log("course dataaa", courseData);
+
     // Call the API endpoint to add the round
     try {
       const response = await fetch("/api/courses", {
@@ -119,101 +110,160 @@ export default function AddCourse() {
     setErrorMessage("");
   }; // end handleSubmit
   return (
-    <div className="add-course-container">
+    <Paper className="add-course-container" elevation={3}>
+      <Typography variant="h4" align="center" gutterBottom>
+        Add Course
+      </Typography>
+      <Divider style={{ marginBottom: "20px" }} />
+
       <Button
         variant="outlined"
         color="primary"
+        size="small"
         onClick={() => history.push("/courses")}
+        style={{ marginBottom: "20px" }}
       >
-        Back to Courses
+        ⬅ Back to Courses
       </Button>
+
       {errorMessage && (
-        <Typography variant="h6" className="errorMessage">
+        <Typography
+          variant="body1"
+          color="error"
+          style={{ marginBottom: "20px" }}
+        >
           {errorMessage}
         </Typography>
       )}
 
-      <Typography variant="h4">Add Course</Typography>
+      <Grid container spacing={3}>
+        <Grid item xs={12}>
+          <TextField
+            fullWidth
+            label="Course Name"
+            variant="outlined"
+            type="text"
+            value={courseName}
+            onChange={(e) => setCourseName(e.target.value)}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <TextField
+            fullWidth
+            label="Course Location"
+            variant="outlined"
+            type="text"
+            value={courseLocation}
+            onChange={(e) => setCourseLocation(e.target.value)}
+          />
+        </Grid>
 
-      <TextField
-        label="Course Name"
-        variant="outlined"
-        type="text"
-        value={courseName}
-        onChange={(e) => setCourseName(e.target.value)}
-      />
+        <Grid item xs={12}>
+          <Typography variant="h6" gutterBottom>
+            Men's Details
+          </Typography>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <TextField
+            fullWidth
+            label="Course Rating"
+            variant="outlined"
+            type="number"
+            value={menCourseRating}
+            onChange={(e) => setMenCourseRating(e.target.value)}
+          />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <TextField
+            fullWidth
+            label="Course Slope"
+            variant="outlined"
+            type="number"
+            value={menCourseSlope}
+            onChange={(e) => setMenCourseSlope(e.target.value)}
+          />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <TextField
+            fullWidth
+            label="Front 9 Par"
+            variant="outlined"
+            type="number"
+            value={menFront9Par}
+            onChange={(e) => setMenFront9Par(e.target.value)}
+          />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <TextField
+            fullWidth
+            label="Back 9 Par"
+            variant="outlined"
+            type="number"
+            value={menBack9Par}
+            onChange={(e) => setMenBack9Par(e.target.value)}
+          />
+        </Grid>
 
-      <TextField
-        label="Course Location"
-        variant="outlined"
-        type="text"
-        value={courseLocation}
-        onChange={(e) => setCourseLocation(e.target.value)}
-      />
-      <TextField
-        label="Men Course Rating"
-        variant="outlined"
-        type="number"
-        value={menCourseRating}
-        onChange={(e) => setMenCourseRating(e.target.value)}
-      />
-      <TextField
-        label="Men Course Slope"
-        variant="outlined"
-        type="number"
-        value={menCourseSlope}
-        onChange={(e) => setMenCourseSlope(e.target.value)}
-      />
-      <TextField
-        label="Men Front 9 Par"
-        variant="outlined"
-        type="number"
-        value={menFront9Par}
-        onChange={(e) => setMenFront9Par(e.target.value)}
-      />
-      <TextField
-        label="Men Back 9 Par"
-        variant="outlined"
-        type="number"
-        value={menBack9Par}
-        onChange={(e) => setMenBack9Par(e.target.value)}
-      />
+        <Grid item xs={12} md={6}>
+          <Typography variant="h6" gutterBottom>
+            Women's Details
+          </Typography>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <TextField
+            fullWidth
+            label="Course Rating"
+            variant="outlined"
+            type="number"
+            value={womenCourseRating}
+            onChange={(e) => setWomenCourseRating(e.target.value)}
+          />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <TextField
+            fullWidth
+            label="Course Slope"
+            variant="outlined"
+            type="number"
+            value={womenCourseSlope}
+            onChange={(e) => setWomenCourseSlope(e.target.value)}
+          />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <TextField
+            fullWidth
+            label="Front 9 Par"
+            variant="outlined"
+            type="number"
+            value={womenFront9Par}
+            onChange={(e) => setWomenFront9Par(e.target.value)}
+          />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <TextField
+            fullWidth
+            label="Back 9 Par"
+            variant="outlined"
+            type="number"
+            value={womenBack9Par}
+            onChange={(e) => setWomenBack9Par(e.target.value)}
+          />
+        </Grid>
 
-      <TextField
-        label="Women Course Rating"
-        variant="outlined"
-        type="number"
-        value={womenCourseRating}
-        onChange={(e) => setWomenCourseRating(e.target.value)}
-      />
-      <TextField
-        label="Women Course Slope"
-        variant="outlined"
-        type="number"
-        value={womenCourseSlope}
-        onChange={(e) => setWomenCourseSlope(e.target.value)}
-      />
-      <TextField
-        label="Women Front 9 Par"
-        variant="outlined"
-        type="number"
-        value={womenFront9Par}
-        onChange={(e) => setWomenFront9Par(e.target.value)}
-      />
-      <TextField
-        label="Women Back 9 Par"
-        variant="outlined"
-        type="number"
-        value={womenBack9Par}
-        onChange={(e) => setWomenBack9Par(e.target.value)}
-      />
-
-      <Button variant="contained" color="primary" onClick={handleSubmit}>
-        Submit
-      </Button>
-    </div>
+        <Grid item xs={12} style={{ display: "flex" }}>
+          <Button
+            className="submit-btn"
+            variant="contained"
+            color="primary"
+            onClick={handleSubmit}
+          >
+            Submit
+          </Button>
+        </Grid>
+      </Grid>
+    </Paper>
   );
-}
+} // end addCourse
 
 //data needed for courses table
 // user_id,
