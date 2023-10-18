@@ -21,8 +21,6 @@ export default function Courses() {
     history.push("/addCourse");
   };
 
-  user.is_male ? console.log("male") : console.log("female");
-
   console.log(courses);
   return (
     <div className="container">

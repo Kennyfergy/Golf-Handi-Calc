@@ -214,6 +214,13 @@ export default function CourseItem({ course }) {
                 <Typography variant="h5" className="courseName">
                   Location: {course.course_location}
                 </Typography>
+
+                <Typography variant="h5" className="courseName">
+                  Par:{" "}
+                  {user.is_male
+                    ? course.men_back_9_par + course.men_front_9_par
+                    : course.women_back_9_par + course.women_back_9_par}
+                </Typography>
               </>
             )}
           </CardContent>
