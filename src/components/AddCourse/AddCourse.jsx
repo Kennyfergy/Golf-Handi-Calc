@@ -180,99 +180,103 @@ export default function AddCourse() {
             onChange={(e) => setCourseLocation(e.target.value)}
           />
         </Grid>
-
-        <Grid item xs={12}>
-          <Typography variant="h6" gutterBottom>
-            Men's Details
-          </Typography>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <TextField
-            fullWidth
-            label="Course Rating"
-            variant="outlined"
-            type="number"
-            value={menCourseRating}
-            onChange={(e) => setMenCourseRating(e.target.value)}
-          />
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <TextField
-            fullWidth
-            label="Course Slope"
-            variant="outlined"
-            type="number"
-            value={menCourseSlope}
-            onChange={(e) => setMenCourseSlope(e.target.value)}
-          />
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <TextField
-            fullWidth
-            label="Front 9 Par"
-            variant="outlined"
-            type="number"
-            value={menFront9Par}
-            onChange={(e) => setMenFront9Par(e.target.value)}
-          />
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <TextField
-            fullWidth
-            label="Back 9 Par"
-            variant="outlined"
-            type="number"
-            value={menBack9Par}
-            onChange={(e) => setMenBack9Par(e.target.value)}
-          />
-        </Grid>
-
-        <Grid item xs={12}>
-          <Typography variant="h6" gutterBottom>
-            Women's Details
-          </Typography>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <TextField
-            fullWidth
-            label="Course Rating"
-            variant="outlined"
-            type="number"
-            value={womenCourseRating}
-            onChange={(e) => setWomenCourseRating(e.target.value)}
-          />
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <TextField
-            fullWidth
-            label="Course Slope"
-            variant="outlined"
-            type="number"
-            value={womenCourseSlope}
-            onChange={(e) => setWomenCourseSlope(e.target.value)}
-          />
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <TextField
-            fullWidth
-            label="Front 9 Par"
-            variant="outlined"
-            type="number"
-            value={womenFront9Par}
-            onChange={(e) => setWomenFront9Par(e.target.value)}
-          />
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <TextField
-            fullWidth
-            label="Back 9 Par"
-            variant="outlined"
-            type="number"
-            value={womenBack9Par}
-            onChange={(e) => setWomenBack9Par(e.target.value)}
-          />
-        </Grid>
-
+        {user.is_male ? (
+          <>
+            <Grid item xs={12}>
+              <Typography variant="h6" gutterBottom>
+                Men's Details
+              </Typography>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <TextField
+                fullWidth
+                label="Course Rating"
+                variant="outlined"
+                type="number"
+                value={menCourseRating}
+                onChange={(e) => setMenCourseRating(e.target.value)}
+              />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <TextField
+                fullWidth
+                label="Course Slope"
+                variant="outlined"
+                type="number"
+                value={menCourseSlope}
+                onChange={(e) => setMenCourseSlope(e.target.value)}
+              />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <TextField
+                fullWidth
+                label="Front 9 Par"
+                variant="outlined"
+                type="number"
+                value={menFront9Par}
+                onChange={(e) => setMenFront9Par(e.target.value)}
+              />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <TextField
+                fullWidth
+                label="Back 9 Par"
+                variant="outlined"
+                type="number"
+                value={menBack9Par}
+                onChange={(e) => setMenBack9Par(e.target.value)}
+              />
+            </Grid>
+          </>
+        ) : (
+          <>
+            <Grid item xs={12}>
+              <Typography variant="h6" gutterBottom>
+                Women's Details
+              </Typography>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <TextField
+                fullWidth
+                label="Course Rating"
+                variant="outlined"
+                type="number"
+                value={womenCourseRating}
+                onChange={(e) => setWomenCourseRating(e.target.value)}
+              />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <TextField
+                fullWidth
+                label="Course Slope"
+                variant="outlined"
+                type="number"
+                value={womenCourseSlope}
+                onChange={(e) => setWomenCourseSlope(e.target.value)}
+              />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <TextField
+                fullWidth
+                label="Front 9 Par"
+                variant="outlined"
+                type="number"
+                value={womenFront9Par}
+                onChange={(e) => setWomenFront9Par(e.target.value)}
+              />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <TextField
+                fullWidth
+                label="Back 9 Par"
+                variant="outlined"
+                type="number"
+                value={womenBack9Par}
+                onChange={(e) => setWomenBack9Par(e.target.value)}
+              />
+            </Grid>
+          </>
+        )}
         <Grid
           item
           xs={12}
