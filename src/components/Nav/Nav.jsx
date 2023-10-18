@@ -22,7 +22,9 @@ function Nav() {
   return (
     <div className="nav">
       <Link to="/home">
-        <h2 className="nav-title">Prime Solo Project</h2>
+        <div class="nav-title-container">
+          <h2 className="nav-title">Golf Handi-Calc</h2>
+        </div>
       </Link>
       <div>
         {/* If no user is logged in, show these links */}
