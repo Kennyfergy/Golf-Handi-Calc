@@ -20,7 +20,7 @@ export default function Rounds() {
   // Get the rounds from the Redux store
   const rounds = useSelector((state) => state.rounds);
   const user = useSelector((state) => state.user);
-  console.log(user);
+  // console.log(user);
   // Dispatch the FETCH_ROUNDS action when the component mounts
   useEffect(() => {
     dispatch({ type: "FETCH_ROUNDS" });

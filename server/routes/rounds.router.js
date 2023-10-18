@@ -64,7 +64,7 @@ router.post("/", async (req, res) => {
     const courseId = req.body.course_id;
     const courseHdcp = req.body.course_handicap || 0.0;
     //console.log("request.params", req.params); //for postman
-    console.log("request.body", req.body);
+    // console.log("request.body", req.body);
 
     console.log("Inserting round data:", {
       userId,
@@ -129,7 +129,7 @@ router.put("/:roundId", (req, res) => {
   // Extract round ID from the request parameters
   const roundId = req.params.roundId;
 
-  console.log(req.body);
+  // console.log(req.body);
 
   // Validating data
   if (

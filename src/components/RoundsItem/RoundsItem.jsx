@@ -7,7 +7,7 @@ import Button from "@mui/material/Button";
 
 export default function RoundsItem({ round }) {
   const dispatch = useDispatch();
-  console.log(round);
+  // console.log(round);
   //states
   const [editingRoundId, setEditingRoundId] = useState(null);
   const [editingFront9Score, setEditingFront9Score] = useState("");
@@ -17,7 +17,7 @@ export default function RoundsItem({ round }) {
 
   // function to set state when user edits an input
   const handleEdit = (id) => {
-    console.log("Logging round id", round.id);
+    // console.log("Logging round id", round.id);
     setEditingRoundId(round.id);
     // Set the local states with the original data from the round
     setEditingFront9Score(round.front_9_score);
@@ -56,7 +56,7 @@ export default function RoundsItem({ round }) {
       back_9_score: editingBack9Score,
       date: newDate,
     };
-    console.log("logging updatedRoundData", updatedRoundData);
+    // console.log("logging updatedRoundData", updatedRoundData);
     // Dispatch update action
     dispatch({
       type: "UPDATE_ROUND",
