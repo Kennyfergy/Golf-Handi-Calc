@@ -96,7 +96,7 @@ export default function AddCourse() {
       women_back_9_par: womenBack9Par,
       user_id: userId,
     };
-
+    console.log("course dataaa", courseData);
     // Call the API endpoint to add the round
     try {
       const response = await fetch("/api/courses", {

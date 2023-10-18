@@ -23,10 +23,9 @@ router.get("/", (req, res) => {
 }); //end router.get
 
 //route to add a new course
-router.post("/:userId", (req, res) => {
-  const userId = req.params.userId;
-
+router.post("/", (req, res) => {
   const {
+    user_id,
     course_name,
     course_location,
     men_course_rating,
@@ -42,14 +41,14 @@ router.post("/:userId", (req, res) => {
   // TODO add validation here
 
   const queryText = `
-        INSERT INTO courses (user_id, course_name, course_location, men_course_rating, men_course_slope, men_front_9_par, men_back_9_par, women_course_rating, women_course_slope, women_front_9_par, women_back_9_par)
+        INSERT INTO user_courses (user_id, course_name, course_location, men_course_rating, men_course_slope, men_front_9_par, men_back_9_par, women_course_rating, women_course_slope, women_front_9_par, women_back_9_par)
         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11);
     `;
 
   pool.query(
     queryText,
     [
-      userId,
+      user_id,
       course_name,
       course_location,
       men_course_rating,
