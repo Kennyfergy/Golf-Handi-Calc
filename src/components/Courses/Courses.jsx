@@ -12,6 +12,7 @@ export default function Courses() {
 
   const courses = useSelector((state) => state.courses);
   const user = useSelector((state) => state.user);
+
   useEffect(() => {
     dispatch({ type: "FETCH_COURSES" });
   }, [dispatch]);
@@ -19,6 +20,8 @@ export default function Courses() {
   const goToAddCourses = () => {
     history.push("/addCourse");
   };
+
+  user.is_male ? console.log("male") : console.log("female");
 
   console.log(courses);
   return (
