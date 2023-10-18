@@ -142,13 +142,15 @@ export default function AddRound() {
         ))}
       </Select>
       <div className="score-inputs">
-        <TextField
-          label="Front 9 Score"
-          variant="outlined"
-          type="number"
-          value={front9Score}
-          onChange={(e) => setFront9Score(e.target.value)}
-        />
+        {front9 && (
+          <TextField
+            label="Front 9 Score"
+            variant="outlined"
+            type="number"
+            value={front9Score}
+            onChange={(e) => setFront9Score(e.target.value)}
+          />
+        )}
         {back9 && (
           <TextField
             label="Back 9 Score"
