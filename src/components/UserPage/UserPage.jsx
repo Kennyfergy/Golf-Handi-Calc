@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "./UserPage.css";
+import { Box, Typography } from "@mui/material";
 
 function UserPage() {
   const dispatch = useDispatch();
@@ -24,11 +25,35 @@ function UserPage() {
 
   return (
     <div className="userPageBackground">
-      <h2>Welcome, {user.username}!</h2>
-      <p>Your ID is: {user.id}</p>
-      <p>Handicap Index: {user.user_handicap}</p>
-      <p>Rounds Played: {round.length}</p>
-      <p>Courses Played: {numberOfUniqueCoursesPlayed}</p>
+      <div>
+        <Typography variant="h3" gutterBottom>
+          Welcome, {user.username}!
+        </Typography>
+      </div>
+      {/* <Typography variant="body1" gutterBottom>
+        Your ID is: {user.id}
+      </Typography> */}
+
+      <Box className="infoBox">
+        <Typography variant="h6" gutterBottom>
+          Handicap Index:
+        </Typography>
+        <Typography variant="h4">{user.user_handicap}</Typography>
+      </Box>
+
+      <Box className="infoBox">
+        <Typography variant="h6" gutterBottom>
+          Rounds Played:
+        </Typography>
+        <Typography variant="h4">{round.length}</Typography>
+      </Box>
+
+      <Box className="infoBox">
+        <Typography variant="h6" gutterBottom>
+          Courses Played:
+        </Typography>
+        <Typography variant="h4">{numberOfUniqueCoursesPlayed}</Typography>
+      </Box>
     </div>
   );
 }

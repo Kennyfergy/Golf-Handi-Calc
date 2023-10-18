@@ -3,5 +3,22 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  padding-top: 0;
   height: 100vh;
+}
+
+.login-form {
+  opacity: 0.9; /*  0 is fully transparent and 1 is fully opaque. */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 30%;
+  justify-content: center;
+}
+.login-form input {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
