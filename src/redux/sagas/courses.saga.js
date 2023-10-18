@@ -15,7 +15,7 @@ function* fetchCourses() {
 function* updateCourse(action) {
   try {
     const response = yield axios.put(
-      `/api/rounds/${action.payload.courseId}`,
+      `/api/courses/${action.payload.courseId}`,
       action.payload.updatedCourseData
     );
     console.log(response);

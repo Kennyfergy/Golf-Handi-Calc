@@ -1,0 +1,52 @@
+/* .add-course-container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 30px;
+  border-radius: 5px;
+  background-color: #e8f5e9;
+} */
+#courseForm.add-course-container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 30px;
+  border-radius: 5px;
+  background-color: #c4e9c7;
+}
+/* Responsive padding adjustment for smaller screens */
+@media (max-width: 600px) {
+  .add-course-container {
+    padding: 15px;
+    background-color: #e8f5e9;
+  }
+}
+
+.add-course-container > * {
+  margin-bottom: 15px;
+}
+
+.add-course-container > *:last-child {
+  margin-bottom: 0;
+}
+.MuiOutlinedInput-root {
+  background-color: #f0fff0; /* A slightly different color for input fields */
+}
+.errorMessage {
+  color: red;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.add-course-container > Button {
+  display: block;
+  width: 100%;
+}
+
+.add-course-container > TextField,
+.add-course-container > Select {
+  width: 100%;
+}
+.submit-btn {
+  max-width: 200px;
+  margin-left: auto; /* Aligning to the right */
+  margin-right: 0;
+}

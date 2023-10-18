@@ -18,18 +18,32 @@ router.get("/", (req, res) => {
 
   const userId = req.user.id;
 
-  pool.query(
-    `SELECT * FROM user_rounds WHERE user_id = $1 ORDER BY "date" DESC`,
-    [userId],
-    (error, results) => {
-      if (error) {
-        console.error("Error fetching user rounds:", error);
-        res.status(500).json({ error: "Database error" });
-      } else {
-        res.json(results.rows);
+  //   SELECT
+  //   user_rounds.id, user_rounds.date, user_rounds.front_9_score,
+  //   user_rounds.back_9_score, user_courses.course_name, user_rounds.course_handicap
+  // FROM
+  //   user_rounds
+  // JOIN
+  //   user_courses ON user_rounds.course_id = user_courses.id
+  // WHERE
+  //   user_rounds.user_id = [USER_ID];
+  `SELECT * FROM user_rounds WHERE user_id = $1 ORDER BY "date" DESC`,
+    pool.query(
+      `SELECT ur.id, ur.user_id, ur.date, ur.front_9_score, ur.back_9_score, ur.course_id, uc.course_name  FROM user_rounds AS ur
+    JOIN user_courses AS uc ON ur.course_id = uc.id
+    WHERE ur.user_id = $1
+    ORDER BY "date" DESC
+    ;`,
+      [userId],
+      (error, results) => {
+        if (error) {
+          console.error("Error fetching user rounds:", error);
+          res.status(500).json({ error: "Database error" });
+        } else {
+          res.json(results.rows);
+        }
       }
-    }
-  );
+    );
 }); //end router.get
 
 //route to add a new round for the user
@@ -50,7 +64,7 @@ router.post("/", async (req, res) => {
     const courseId = req.body.course_id;
     const courseHdcp = req.body.course_handicap || 0.0;
     //console.log("request.params", req.params); //for postman
-    console.log("request.body", req.body);
+    // console.log("request.body", req.body);
 
     console.log("Inserting round data:", {
       userId,
@@ -115,7 +129,7 @@ router.put("/:roundId", (req, res) => {
   // Extract round ID from the request parameters
   const roundId = req.params.roundId;
 
-  console.log(req.body);
+  // console.log(req.body);
 
   // Validating data
   if (
