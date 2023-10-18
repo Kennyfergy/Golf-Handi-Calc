@@ -219,7 +219,7 @@ export default function CourseItem({ course }) {
                   Par:{" "}
                   {user.is_male
                     ? course.men_back_9_par + course.men_front_9_par
-                    : course.women_back_9_par + course.women_back_9_par}
+                    : course.women_back_9_par + course.women_front_9_par}
                 </Typography>
                 <Typography variant="h5" className="courseName">
                   Course Rating:{" "}
