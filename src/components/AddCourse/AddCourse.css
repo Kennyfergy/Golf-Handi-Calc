@@ -1,17 +1,22 @@
-/* AddCourse.css */
-
-.add-course-container {
+/* .add-course-container {
   max-width: 800px;
   margin: 30px auto;
   padding: 30px;
   border-radius: 5px;
   background-color: #e8f5e9;
+} */
+#courseForm.add-course-container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 30px;
+  border-radius: 5px;
+  background-color: #c4e9c7;
 }
-
 /* Responsive padding adjustment for smaller screens */
 @media (max-width: 600px) {
   .add-course-container {
     padding: 15px;
+    background-color: #e8f5e9;
   }
 }
 
@@ -23,7 +28,7 @@
   margin-bottom: 0;
 }
 .MuiOutlinedInput-root {
-  background-color: #e2faed; /* A slightly different color for input fields */
+  background-color: #f0fff0; /* A slightly different color for input fields */
 }
 .errorMessage {
   color: red;

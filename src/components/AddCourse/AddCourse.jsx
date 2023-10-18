@@ -110,7 +110,7 @@ export default function AddCourse() {
     setErrorMessage("");
   }; // end handleSubmit
   return (
-    <Paper className="add-course-container" elevation={3}>
+    <Paper id="courseForm" className="add-course-container" elevation={3}>
       <Typography variant="h4" align="center" gutterBottom>
         Add Course
       </Typography>
@@ -204,7 +204,7 @@ export default function AddCourse() {
           />
         </Grid>
 
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12}>
           <Typography variant="h6" gutterBottom>
             Women's Details
           </Typography>
@@ -250,7 +250,11 @@ export default function AddCourse() {
           />
         </Grid>
 
-        <Grid item xs={12} style={{ display: "flex" }}>
+        <Grid
+          item
+          xs={12}
+          style={{ display: "flex", justifyContent: "flex-end" }}
+        >
           <Button
             className="submit-btn"
             variant="contained"
