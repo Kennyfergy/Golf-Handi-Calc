@@ -5,11 +5,11 @@ const pool = require("../modules/pool");
 // Routes related to user courses
 
 //get route do grab all courses attached to user logged in
-router.get("/:userId", (req, res) => {
-  const userId = req.params.userId;
+router.get("/", (req, res) => {
+  const userId = req.user.id;
 
   const queryText = `
-        SELECT * FROM courses WHERE user_id = $1;
+        SELECT * FROM user_courses WHERE user_id = $1;
     `;
 
   pool.query(queryText, [userId], (error, results) => {
