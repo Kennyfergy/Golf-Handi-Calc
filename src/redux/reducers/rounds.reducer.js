@@ -12,7 +12,3 @@ const roundsReducer = (state = initialState, action) => {
 };
 
 export default roundsReducer;
-
-// return state.map((round) =>
-//         round.id === action.payload.id ? action.payload : round
-//       );

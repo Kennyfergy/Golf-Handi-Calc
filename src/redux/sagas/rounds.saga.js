@@ -4,7 +4,7 @@ import axios from "axios";
 // Worker Saga: fetch rounds from the backend
 function* fetchRounds() {
   try {
-    const response = yield axios.get("/api/rounds/"); //is it api/rounds? need to check
+    const response = yield axios.get("/api/rounds/");
     yield put({ type: "SET_ROUNDS", payload: response.data });
   } catch (error) {
     console.error("Error fetching rounds:", error);
