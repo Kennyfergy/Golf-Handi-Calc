@@ -1,0 +1,7 @@
+.login-background {
+  background-image: url("../Images/Golf10.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 100vh;
+}

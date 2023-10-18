@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import "./UserPage.css";
 
 function UserPage() {
   const dispatch = useDispatch();
@@ -14,7 +15,7 @@ function UserPage() {
   // }, []);
 
   return (
-    <div className="container">
+    <div className="userPageBackground">
       <h2>Welcome, {user.username}!</h2>
       <p>Your ID is: {user.id}</p>
       <p>Handicap Index: {user.user_handicap}</p>

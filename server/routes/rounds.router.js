@@ -18,6 +18,16 @@ router.get("/", (req, res) => {
 
   const userId = req.user.id;
 
+  //   SELECT
+  //   user_rounds.id, user_rounds.date, user_rounds.front_9_score,
+  //   user_rounds.back_9_score, user_courses.course_name, user_rounds.course_handicap
+  // FROM
+  //   user_rounds
+  // JOIN
+  //   user_courses ON user_rounds.course_id = user_courses.id
+  // WHERE
+  //   user_rounds.user_id = [USER_ID];
+
   pool.query(
     `SELECT * FROM user_rounds WHERE user_id = $1 ORDER BY "date" DESC`,
     [userId],
