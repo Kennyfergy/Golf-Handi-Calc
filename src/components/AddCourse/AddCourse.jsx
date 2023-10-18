@@ -32,6 +32,7 @@ export default function AddCourse() {
 
   const handleSubmit = async () => {
     //added error messages for all input fields
+
     if (!courseName) {
       setErrorMessage("Please enter a course name.");
       return;
@@ -40,53 +41,75 @@ export default function AddCourse() {
       setErrorMessage("Please enter course location.");
       return;
     }
-    if (!menCourseRating) {
-      setErrorMessage("Please enter men course rating.");
-      return;
+    if (user.is_male) {
+      if (!menCourseRating) {
+        setErrorMessage("Please enter men course rating.");
+        return;
+      }
+      if (!menCourseSlope) {
+        setErrorMessage("Please enter men course slope.");
+        return;
+      }
+      if (!menFront9Par) {
+        setErrorMessage("Please enter men par for front 9.");
+        return;
+      }
+      if (!menBack9Par) {
+        setErrorMessage("Please enter men par for back 9, if 9 hole enter 0.");
+        return;
+      }
+    } else {
+      if (!womenCourseRating) {
+        setErrorMessage("Please enter women course rating.");
+        return;
+      }
+      if (!womenCourseSlope) {
+        setErrorMessage("Please enter women course slope.");
+        return;
+      }
+      if (!womenFront9Par) {
+        setErrorMessage("Please enter women par for front 9.");
+        return;
+      }
+      if (!womenBack9Par) {
+        setErrorMessage(
+          "Please enter women par for back 9, if 9 hole, enter 0."
+        );
+        return;
+      }
     }
-    if (!menCourseSlope) {
-      setErrorMessage("Please enter men course slope.");
-      return;
-    }
-    if (!menFront9Par) {
-      setErrorMessage("Please enter men par for front 9.");
-      return;
-    }
-    if (!menBack9Par) {
-      setErrorMessage("Please enter men par for back 9.");
-      return;
-    }
-    if (!womenCourseRating) {
-      setErrorMessage("Please enter women course rating.");
-      return;
-    }
-    if (!womenCourseSlope) {
-      setErrorMessage("Please enter women course slope.");
-      return;
-    }
-    if (!womenFront9Par) {
-      setErrorMessage("Please enter women par for front 9.");
-      return;
-    }
-    if (!womenBack9Par) {
-      setErrorMessage("Please enter women par for back 9.");
-      return;
-    }
-
     // Prepare the data payload
-    const courseData = {
+    let courseData = {
       course_name: courseName,
       course_location: courseLocation,
-      men_course_rating: menCourseRating,
-      men_course_slope: menCourseSlope,
-      men_front_9_par: menFront9Par,
-      men_back_9_par: menBack9Par,
-      women_course_rating: womenCourseRating,
-      women_course_slope: womenCourseSlope,
-      women_front_9_par: womenFront9Par,
-      women_back_9_par: womenBack9Par,
       user_id: userId,
     };
+
+    if (user.is_male) {
+      courseData.men_course_rating = menCourseRating;
+      courseData.men_course_slope = menCourseSlope;
+      courseData.men_front_9_par = menFront9Par;
+      courseData.men_back_9_par = menBack9Par;
+    } else {
+      courseData.women_course_rating = womenCourseRating;
+      courseData.women_course_slope = womenCourseSlope;
+      courseData.women_front_9_par = womenFront9Par;
+      courseData.women_back_9_par = womenBack9Par;
+    }
+
+    // const courseData = {
+    //   course_name: courseName,
+    //   course_location: courseLocation,
+    //   men_course_rating: menCourseRating,
+    //   men_course_slope: menCourseSlope,
+    //   men_front_9_par: menFront9Par,
+    //   men_back_9_par: menBack9Par,
+    //   women_course_rating: womenCourseRating,
+    //   women_course_slope: womenCourseSlope,
+    //   women_front_9_par: womenFront9Par,
+    //   women_back_9_par: womenBack9Par,
+    //   user_id: userId,
+    // };
 
     // Call the API endpoint to add the round
     try {
@@ -157,99 +180,103 @@ export default function AddCourse() {
             onChange={(e) => setCourseLocation(e.target.value)}
           />
         </Grid>
-
-        <Grid item xs={12}>
-          <Typography variant="h6" gutterBottom>
-            Men's Details
-          </Typography>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <TextField
-            fullWidth
-            label="Course Rating"
-            variant="outlined"
-            type="number"
-            value={menCourseRating}
-            onChange={(e) => setMenCourseRating(e.target.value)}
-          />
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <TextField
-            fullWidth
-            label="Course Slope"
-            variant="outlined"
-            type="number"
-            value={menCourseSlope}
-            onChange={(e) => setMenCourseSlope(e.target.value)}
-          />
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <TextField
-            fullWidth
-            label="Front 9 Par"
-            variant="outlined"
-            type="number"
-            value={menFront9Par}
-            onChange={(e) => setMenFront9Par(e.target.value)}
-          />
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <TextField
-            fullWidth
-            label="Back 9 Par"
-            variant="outlined"
-            type="number"
-            value={menBack9Par}
-            onChange={(e) => setMenBack9Par(e.target.value)}
-          />
-        </Grid>
-
-        <Grid item xs={12}>
-          <Typography variant="h6" gutterBottom>
-            Women's Details
-          </Typography>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <TextField
-            fullWidth
-            label="Course Rating"
-            variant="outlined"
-            type="number"
-            value={womenCourseRating}
-            onChange={(e) => setWomenCourseRating(e.target.value)}
-          />
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <TextField
-            fullWidth
-            label="Course Slope"
-            variant="outlined"
-            type="number"
-            value={womenCourseSlope}
-            onChange={(e) => setWomenCourseSlope(e.target.value)}
-          />
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <TextField
-            fullWidth
-            label="Front 9 Par"
-            variant="outlined"
-            type="number"
-            value={womenFront9Par}
-            onChange={(e) => setWomenFront9Par(e.target.value)}
-          />
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <TextField
-            fullWidth
-            label="Back 9 Par"
-            variant="outlined"
-            type="number"
-            value={womenBack9Par}
-            onChange={(e) => setWomenBack9Par(e.target.value)}
-          />
-        </Grid>
-
+        {user.is_male ? (
+          <>
+            <Grid item xs={12}>
+              <Typography variant="h6" gutterBottom>
+                Men's Details
+              </Typography>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <TextField
+                fullWidth
+                label="Course Rating"
+                variant="outlined"
+                type="number"
+                value={menCourseRating}
+                onChange={(e) => setMenCourseRating(e.target.value)}
+              />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <TextField
+                fullWidth
+                label="Course Slope"
+                variant="outlined"
+                type="number"
+                value={menCourseSlope}
+                onChange={(e) => setMenCourseSlope(e.target.value)}
+              />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <TextField
+                fullWidth
+                label="Front 9 Par"
+                variant="outlined"
+                type="number"
+                value={menFront9Par}
+                onChange={(e) => setMenFront9Par(e.target.value)}
+              />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <TextField
+                fullWidth
+                label="Back 9 Par"
+                variant="outlined"
+                type="number"
+                value={menBack9Par}
+                onChange={(e) => setMenBack9Par(e.target.value)}
+              />
+            </Grid>
+          </>
+        ) : (
+          <>
+            <Grid item xs={12}>
+              <Typography variant="h6" gutterBottom>
+                Women's Details
+              </Typography>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <TextField
+                fullWidth
+                label="Course Rating"
+                variant="outlined"
+                type="number"
+                value={womenCourseRating}
+                onChange={(e) => setWomenCourseRating(e.target.value)}
+              />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <TextField
+                fullWidth
+                label="Course Slope"
+                variant="outlined"
+                type="number"
+                value={womenCourseSlope}
+                onChange={(e) => setWomenCourseSlope(e.target.value)}
+              />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <TextField
+                fullWidth
+                label="Front 9 Par"
+                variant="outlined"
+                type="number"
+                value={womenFront9Par}
+                onChange={(e) => setWomenFront9Par(e.target.value)}
+              />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <TextField
+                fullWidth
+                label="Back 9 Par"
+                variant="outlined"
+                type="number"
+                value={womenBack9Par}
+                onChange={(e) => setWomenBack9Par(e.target.value)}
+              />
+            </Grid>
+          </>
+        )}
         <Grid
           item
           xs={12}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import {
   Button,
@@ -11,9 +11,18 @@ import {
   MenuItem,
 } from "@mui/material";
 import "./AddRound.css";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function AddRound() {
+  const dispatch = useDispatch();
   const history = useHistory();
+
+  useEffect(() => {
+    dispatch({ type: "FETCH_COURSES" });
+  }, [dispatch]);
+
+  const course = useSelector((store) => store.courses);
+  console.log("logging the fucking course", course);
 
   // State for checkboxes
   const [front9, setFront9] = useState(false);
@@ -126,19 +135,22 @@ export default function AddRound() {
         label="Course"
         variant="outlined"
       >
-        {/* This should be populated with courses from the database */}
-        <MenuItem value={1}>Course 1</MenuItem>
-        <MenuItem value={2}>Course 2</MenuItem>
-        {/* ... */}
+        {course.map((c) => (
+          <MenuItem key={c.id} value={c.id}>
+            {c.course_name}
+          </MenuItem>
+        ))}
       </Select>
       <div className="score-inputs">
-        <TextField
-          label="Front 9 Score"
-          variant="outlined"
-          type="number"
-          value={front9Score}
-          onChange={(e) => setFront9Score(e.target.value)}
-        />
+        {front9 && (
+          <TextField
+            label="Front 9 Score"
+            variant="outlined"
+            type="number"
+            value={front9Score}
+            onChange={(e) => setFront9Score(e.target.value)}
+          />
+        )}
         {back9 && (
           <TextField
             label="Back 9 Score"
@@ -149,6 +161,7 @@ export default function AddRound() {
           />
         )}
       </div>
+
       <TextField
         label="Date"
         variant="outlined"

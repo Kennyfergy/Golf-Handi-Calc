@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
   const userId = req.user.id;
 
   const queryText = `
-        SELECT * FROM user_courses WHERE user_id = $1;
+  SELECT * FROM user_courses WHERE user_id = $1 OR user_id IS NULL;
     `;
 
   pool.query(queryText, [userId], (error, results) => {

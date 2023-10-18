@@ -12,6 +12,7 @@ export default function Courses() {
 
   const courses = useSelector((state) => state.courses);
   const user = useSelector((state) => state.user);
+
   useEffect(() => {
     dispatch({ type: "FETCH_COURSES" });
   }, [dispatch]);
