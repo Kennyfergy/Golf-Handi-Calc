@@ -27,19 +27,23 @@ router.get("/", (req, res) => {
   //   user_courses ON user_rounds.course_id = user_courses.id
   // WHERE
   //   user_rounds.user_id = [USER_ID];
-
-  pool.query(
-    `SELECT * FROM user_rounds WHERE user_id = $1 ORDER BY "date" DESC`,
-    [userId],
-    (error, results) => {
-      if (error) {
-        console.error("Error fetching user rounds:", error);
-        res.status(500).json({ error: "Database error" });
-      } else {
-        res.json(results.rows);
+  `SELECT * FROM user_rounds WHERE user_id = $1 ORDER BY "date" DESC`,
+    pool.query(
+      `SELECT ur.id, ur.user_id, ur.date, ur.front_9_score, ur.back_9_score, ur.course_id, uc.course_name  FROM user_rounds AS ur
+    JOIN user_courses AS uc ON ur.course_id = uc.id
+    WHERE ur.user_id = $1
+    ORDER BY "date" DESC
+    ;`,
+      [userId],
+      (error, results) => {
+        if (error) {
+          console.error("Error fetching user rounds:", error);
+          res.status(500).json({ error: "Database error" });
+        } else {
+          res.json(results.rows);
+        }
       }
-    }
-  );
+    );
 }); //end router.get
 
 //route to add a new round for the user

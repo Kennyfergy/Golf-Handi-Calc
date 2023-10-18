@@ -76,18 +76,20 @@ router.post("/:userId", (req, res) => {
 router.put("/:courseId", (req, res) => {
   const courseId = req.params.courseId;
 
-  const {
-    course_name,
-    course_location,
-    men_course_rating,
-    men_course_slope,
-    men_front_9_par,
-    men_back_9_par,
-    women_course_rating,
-    women_course_slope,
-    women_front_9_par,
-    women_back_9_par,
-  } = req.body;
+  const course = req.body;
+  console.log("course req.body", course);
+  // const {
+  //   course_name,
+  //   course_location,
+  //   men_course_rating,
+  //   men_course_slope,
+  //   men_front_9_par,
+  //   men_back_9_par,
+  //   women_course_rating,
+  //   women_course_slope,
+  //   women_front_9_par,
+  //   women_back_9_par,
+  // } = req.body;
 
   const queryText = `
         UPDATE courses 
@@ -98,16 +100,16 @@ router.put("/:courseId", (req, res) => {
   pool.query(
     queryText,
     [
-      course_name,
-      course_location,
-      men_course_rating,
-      men_course_slope,
-      men_front_9_par,
-      men_back_9_par,
-      women_course_rating,
-      women_course_slope,
-      women_front_9_par,
-      women_back_9_par,
+      course.course_name,
+      course.course_location,
+      course.men_course_rating,
+      course.men_course_slope,
+      course.men_front_9_par,
+      course.men_back_9_par,
+      course.women_course_rating,
+      course.women_course_slope,
+      course.women_front_9_par,
+      course.women_back_9_par,
       courseId,
     ],
     (error, results) => {
