@@ -6,8 +6,9 @@ function UserPage() {
   const dispatch = useDispatch();
 
   const user = useSelector((store) => store.user);
-  // console.log(user);
-  //const rounds = useSelector((store) => store.rounds); //doesn't exist yet, may need it to grab total rounds played data
+
+  const rounds = useSelector((store) => store.rounds);
+  console.log("logging fucking rounds", rounds);
   //TODO component to display rounds, import here, get total count and display here
 
   // useEffect(() => {

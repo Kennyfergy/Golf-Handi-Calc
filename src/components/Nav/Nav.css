@@ -1,11 +1,10 @@
 .nav {
   /* flex box layout */
   display: flex;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
+  align-items: center; /* vertically align items in the center */
+  justify-content: center; /* center the items */
 
-  position: relative;
+  position: relative; /* set parent to relative for absolute positioning of navLink */
   margin: 0 0 30px;
   background-color: #44604d;
   overflow: hidden;
@@ -30,8 +29,6 @@
   padding: 24px 10px;
   text-decoration: none;
   font-size: 15px;
-  position: absolute;
-  right: 10px;
 
   /* these last two make the logout button in
   the nav bar look like another link */
