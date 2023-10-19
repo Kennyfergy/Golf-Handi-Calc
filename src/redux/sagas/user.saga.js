@@ -1,15 +1,5 @@
 import axios from "axios";
-import { put, takeLatest, call } from "redux-saga/effects";
-
-// //function to grab a users handicap
-// function* fetchUserHandicap(action) {
-//   try {
-//     const response = yield call(axios.get, `/user/${action.payload}`);
-//     yield put({ type: "SET_USER_HANDICAP", payload: response.data });
-//   } catch (error) {
-//     console.error("Error fetching user handicap:", error);
-//   }
-// }
+import { put, takeLatest } from "redux-saga/effects";
 
 // worker Saga: will be fired on "FETCH_USER" actions
 function* fetchUser() {
@@ -36,7 +26,6 @@ function* fetchUser() {
 
 function* userSaga() {
   yield takeLatest("FETCH_USER", fetchUser);
-  // yield takeLatest("FETCH_USER_HANDICAP", fetchUserHandicap);
 }
 
 export default userSaga;

@@ -1,3 +1,16 @@
+.nav {
+  /* flex box layout */
+  display: flex;
+  align-items: center; /* vertically align items in the center */
+  justify-content: center; /* center the items */
+
+  position: relative; /* set parent to relative for absolute positioning of navLink */
+  margin: 0 0 30px;
+  background-color: #44604d;
+  overflow: hidden;
+  z-index: 1000;
+}
+
 .nav a {
   text-decoration: none;
   flex: 1;

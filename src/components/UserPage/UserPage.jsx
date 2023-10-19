@@ -1,24 +1,59 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "./UserPage.css";
+import { Box, Typography } from "@mui/material";
 
 function UserPage() {
   const dispatch = useDispatch();
 
   const user = useSelector((store) => store.user);
-  // console.log(user);
-  //const rounds = useSelector((store) => store.rounds); //doesn't exist yet, may need it to grab total rounds played data
-  //TODO component to display rounds, import here, get total count and display here
+  useEffect(() => {
+    dispatch({ type: "FETCH_ROUNDS" });
+  }, []);
+  const round = useSelector((store) => store.rounds);
 
   // useEffect(() => {
   //   dispatch({ type: "FETCH_USER" });
   // }, []);
 
+  // Extract a list of course IDs from the rounds data
+  const courseIdsPlayed = round.map((round) => round.course_id);
+  // Convert this list into a set to get unique course IDs
+  const uniqueCoursesPlayed = new Set(courseIdsPlayed);
+  // The size of this set is the number of unique courses played
+  const numberOfUniqueCoursesPlayed = uniqueCoursesPlayed.size;
+
   return (
     <div className="userPageBackground">
-      <h2>Welcome, {user.username}!</h2>
-      <p>Your ID is: {user.id}</p>
-      <p>Handicap Index: {user.user_handicap}</p>
+      <div>
+        <Typography variant="h3" gutterBottom>
+          Welcome, {user.username}!
+        </Typography>
+      </div>
+      {/* <Typography variant="body1" gutterBottom>
+        Your ID is: {user.id}
+      </Typography> */}
+
+      <Box className="infoBox">
+        <Typography variant="h6" gutterBottom>
+          Handicap Index:
+        </Typography>
+        <Typography variant="h4">{user.user_handicap}</Typography>
+      </Box>
+
+      <Box className="infoBox">
+        <Typography variant="h6" gutterBottom>
+          Rounds Played:
+        </Typography>
+        <Typography variant="h4">{round.length}</Typography>
+      </Box>
+
+      <Box className="infoBox">
+        <Typography variant="h6" gutterBottom>
+          Courses Played:
+        </Typography>
+        <Typography variant="h4">{numberOfUniqueCoursesPlayed}</Typography>
+      </Box>
     </div>
   );
 }
