@@ -1,15 +1,23 @@
 const express = require("express");
 const router = express.Router();
 const pool = require("../modules/pool");
+const {
+  rejectUnauthenticated,
+} = require("../modules/authentication-middleware");
 
 // Routes related to user courses
 
-//get route do grab all courses attached to user logged in
-router.get("/", (req, res) => {
+//get route to grab all courses attached to user logged in
+router.get("/", rejectUnauthenticated, (req, res) => {
+  if (!req.user) {
+    res.status(401).json({ error: "Not authenticated" });
+    return;
+  }
+
   const userId = req.user.id;
 
   const queryText = `
-  SELECT * FROM user_courses WHERE user_id = $1 OR user_id IS NULL;
+  SELECT * FROM user_courses WHERE user_id = $1 OR user_id IS NULL ORDER BY id DESC;
     `;
 
   pool.query(queryText, [userId], (error, results) => {
@@ -23,7 +31,12 @@ router.get("/", (req, res) => {
 }); //end router.get
 
 //route to add a new course
-router.post("/", (req, res) => {
+router.post("/", rejectUnauthenticated, (req, res) => {
+  if (!req.user) {
+    res.status(401).json({ error: "Not authenticated" });
+    return;
+  }
+
   const {
     user_id,
     course_name,
@@ -37,8 +50,6 @@ router.post("/", (req, res) => {
     women_front_9_par,
     women_back_9_par,
   } = req.body;
-
-  // TODO add validation here
 
   const queryText = `
         INSERT INTO user_courses (user_id, course_name, course_location, men_course_rating, men_course_slope, men_front_9_par, men_back_9_par, women_course_rating, women_course_slope, women_front_9_par, women_back_9_par)
@@ -72,23 +83,16 @@ router.post("/", (req, res) => {
 }); //end router.post
 
 //put route to update course information
-router.put("/:courseId", (req, res) => {
+router.put("/:courseId", rejectUnauthenticated, (req, res) => {
+  if (!req.user) {
+    res.status(401).json({ error: "Not authenticated" });
+    return;
+  }
+
   const courseId = req.params.courseId;
 
   const course = req.body;
   console.log("course req.body", course);
-  // const {
-  //   course_name,
-  //   course_location,
-  //   men_course_rating,
-  //   men_course_slope,
-  //   men_front_9_par,
-  //   men_back_9_par,
-  //   women_course_rating,
-  //   women_course_slope,
-  //   women_front_9_par,
-  //   women_back_9_par,
-  // } = req.body;
 
   const queryText = `
         UPDATE user_courses 
@@ -123,7 +127,12 @@ router.put("/:courseId", (req, res) => {
 }); //end router.put
 
 //delete route to remove course with specific courseId
-router.delete("/:courseId", (req, res) => {
+router.delete("/:courseId", rejectUnauthenticated, (req, res) => {
+  if (!req.user) {
+    res.status(401).json({ error: "Not authenticated" });
+    return;
+  }
+
   const courseId = req.params.courseId;
 
   const queryText = `

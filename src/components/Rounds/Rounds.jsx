@@ -26,6 +26,10 @@ export default function Rounds() {
     dispatch({ type: "FETCH_ROUNDS" });
   }, [dispatch]);
 
+  // useEffect(() => {
+  //   dispatch({ type: "FETCH_USER" });
+  // }, []);
+
   // console.log(rounds);
 
   return (
