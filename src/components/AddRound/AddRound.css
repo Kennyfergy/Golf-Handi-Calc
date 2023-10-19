@@ -48,7 +48,7 @@ html {
   flex: 1;
 }
 
-.score-inputs {
+.round-inputs {
   display: flex;
   justify-content: space-between;
   gap: 20px;

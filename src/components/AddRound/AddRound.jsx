@@ -141,7 +141,7 @@ export default function AddRound() {
           </MenuItem>
         ))}
       </Select>
-      <div className="score-inputs">
+      <div className="round-inputs">
         {front9 && (
           <TextField
             label="Front 9 Score"
@@ -151,6 +151,7 @@ export default function AddRound() {
             onChange={(e) => setFront9Score(e.target.value)}
           />
         )}
+
         {back9 && (
           <TextField
             label="Back 9 Score"

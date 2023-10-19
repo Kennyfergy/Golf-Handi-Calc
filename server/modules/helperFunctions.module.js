@@ -25,7 +25,6 @@ async function calculateHandicap(userId) {
     [userId]
   );
 
-  // Calculate score differentials considering gender
   const scoreDifferentials = result.rows.map((row) => {
     const totalScore = row.front_9_score + row.back_9_score;
     const courseRating = row.is_male

@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import LogOutButton from "../LogOutButton/LogOutButton";
+import NavStyles from "./Nav.module.css";
 import "./Nav.css";
 import { useSelector } from "react-redux";
 import {
@@ -20,7 +21,7 @@ function Nav() {
   const [drawerOpen, setDrawerOpen] = useState(false); //state for drawer
 
   return (
-    <div className="nav">
+    <div id="nav" className={NavStyles.nav}>
       <Link to="/home">
         <div class="nav-title-container">
           <h2 className="nav-title">Golf Handi-Calc</h2>
