@@ -22,7 +22,6 @@ export default function AddRound() {
   }, [dispatch]);
 
   const course = useSelector((store) => store.courses);
-  console.log("logging the fucking course", course);
 
   // State for checkboxes
   const [front9, setFront9] = useState(false);
@@ -78,7 +77,7 @@ export default function AddRound() {
         },
         body: JSON.stringify(roundData), //sending JSON to server
       });
-
+      console.log(roundData);
       if (response.ok) {
         console.log("Round added successfully");
         history.push("/rounds");
