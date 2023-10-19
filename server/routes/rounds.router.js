@@ -12,7 +12,7 @@ const {
 // This page contains routes related to user rounds
 
 //get route to /rounds to get all rounds for the user
-router.get("/", (req, res) => {
+router.get("/", rejectUnauthenticated, (req, res) => {
   // Check if the user is authenticated and there's a user object in the request
   if (!req.user) {
     res.status(401).json({ error: "Not authenticated" });
@@ -40,15 +40,30 @@ router.get("/", (req, res) => {
     );
 }); //end router.get
 
-//new router.post, adds score differential
-router.post("/", async (req, res) => {
+// posts rounds to the database
+router.post("/", rejectUnauthenticated, async (req, res) => {
+  if (!req.user) {
+    res.status(401).json({ error: "Not authenticated" });
+    return;
+  }
+
   // Extract round details from the request body
   const userId = req.user.id;
   const courseId = req.body.course_id;
   const front9Score = parseInt(req.body.front_9_score, 10);
   const back9Score = parseInt(req.body.back_9_score, 10);
-
   const dateValue = req.body.date || new Date().toISOString();
+
+  //validation
+  if (
+    isNaN(front9Score) ||
+    isNaN(back9Score) ||
+    front9Score < 0 ||
+    back9Score < 0
+  ) {
+    res.status(400).json({ error: "Invalid or missing scores" });
+    return;
+  }
 
   try {
     await pool.query(
@@ -60,6 +75,7 @@ router.post("/", async (req, res) => {
       "SELECT id FROM user_rounds ORDER BY id DESC LIMIT 1"
     );
 
+    // update and persist the round differential and handicap index
     calculateRoundScoreDifferential(round.rows[0].id);
     calculateHandicap(userId);
 
@@ -71,8 +87,12 @@ router.post("/", async (req, res) => {
 }); // end POST
 
 //put route to update a users round
+router.put("/:roundId", rejectUnauthenticated, async (req, res) => {
+  if (!req.user) {
+    res.status(401).json({ error: "Not authenticated" });
+    return;
+  }
 
-router.put("/:roundId", async (req, res) => {
   // Extract round details from the request body
   const roundId = req.params.roundId;
   const userId = req.user.id;
@@ -86,6 +106,7 @@ router.put("/:roundId", async (req, res) => {
 
     await pool.query(queryText, [dateValue, front9Score, back9Score, roundId]);
 
+    // update and persist the round differential and handicap index
     calculateRoundScoreDifferential(roundId);
     calculateHandicap(userId);
 
@@ -94,10 +115,15 @@ router.put("/:roundId", async (req, res) => {
     console.error(err);
     res.status(500).send("Server Error");
   }
-});
+}); //end router.put
 
 //delete route to delete from round with specific round id
-router.delete("/:roundId", (req, res) => {
+router.delete("/:roundId", rejectUnauthenticated, (req, res) => {
+  if (!req.user) {
+    res.status(401).json({ error: "Not authenticated" });
+    return;
+  }
+
   // Extract round ID from the request parameters
   const roundId = req.params.roundId;
   const userId = req.user.id;
@@ -120,80 +146,3 @@ router.delete("/:roundId", (req, res) => {
 }); //end router.delete
 
 module.exports = router;
-
-// router.put("/:roundId", async (req, res) => {
-//   // Extract round details from the request body
-//   const userId = req.user.id;
-//   const dateValue = req.body.date || new Date().toISOString();
-//   const front9 = req.body.front_9_score;
-//   const back9 = req.body.back_9_score;
-//   const courseId = req.body.course_id;
-
-//   // Extract round ID from the request parameters
-//   const roundId = req.params.roundId;
-
-// console.log(req.body);
-
-// Validating data
-//   if (
-//     front9 === null ||
-//     front9 === undefined ||
-//     back9 === null ||
-//     back9 === undefined
-//   ) {
-//     res.status(400).json({ error: "Required fields are missing" });
-//     return;
-//   }
-
-//   const userGender = await pool.query(
-//     "SELECT is_male FROM users WHERE id = $1",
-//     [userId]
-//   );
-//   const isMale = userGender.rows[0].is_male;
-
-//   const courseDetails = isMale
-//     ? await pool.query(
-//         "SELECT men_course_rating, men_course_slope FROM user_courses WHERE id = $1",
-//         [courseId]
-//       )
-//     : await pool.query(
-//         "SELECT women_course_rating, women_course_slope FROM user_courses WHERE id = $1",
-//         [courseId]
-//       );
-//   const courseRating = isMale
-//     ? courseDetails.rows[0].men_course_rating
-//     : courseDetails.rows[0].women_course_rating;
-//   const slopeRating = isMale
-//     ? courseDetails.rows[0].men_course_slope
-//     : courseDetails.rows[0].women_course_slope;
-
-//   const adjustedGrossScore = front9Score + back9Score;
-//   let scoreDifferential = (
-//     ((adjustedGrossScore - courseRating) / slopeRating) *
-//     113
-//   ).toFixed(0);
-
-//   if (scoreDifferential < 0) {
-//     scoreDifferential = 0;
-//   }
-//   // SQL query to update the specified round in the user_rounds table
-//   const queryText = `
-//         UPDATE user_rounds
-//         SET date = $1, front_9_score = $2, back_9_score = $3, score_differential = $4
-//         WHERE id = $5;
-//     `;
-
-//   await pool.query(
-//     queryText,
-//     [dateValue, front9, back9, scoreDifferential, roundId],
-//     (error, results) => {
-//       if (error) {
-//         console.error("Error updating the round:", error);
-//         res.status(500).json({ error: "Database error" });
-//       } else {
-//         res.sendStatus(200); // 200 OK
-//         console.log("Router.put worked");
-//       }
-//     }
-//   );
-// }); //end router.put
