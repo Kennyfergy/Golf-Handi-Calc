@@ -71,7 +71,7 @@ export default function RoundsItem({ round }) {
     setEditingBack9Score("");
     setNewDate("");
   };
-
+  console.log(round);
   // Function to format date to "YYYY-MM-DD" format
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -136,6 +136,9 @@ export default function RoundsItem({ round }) {
               </Typography>
               <Typography variant="h5" className="score">
                 Score: {round.front_9_score + round.back_9_score}
+              </Typography>
+              <Typography variant="h5" className="score">
+                Differential: {round.score_differential}
               </Typography>
               <Typography variant="subtitle1" className="date">
                 {formatDate(round.date)}
