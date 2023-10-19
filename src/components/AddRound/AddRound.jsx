@@ -80,6 +80,7 @@ export default function AddRound() {
       console.log(roundData);
       if (response.ok) {
         console.log("Round added successfully");
+        dispatch({ type: "FETCH_USER" });
         history.push("/rounds");
       } else {
         console.error("Failed to add round");

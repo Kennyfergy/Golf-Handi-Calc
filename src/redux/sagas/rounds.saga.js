@@ -18,6 +18,7 @@ function* updateRound(action) {
     );
     console.log(response);
     yield put({ type: "FETCH_ROUNDS" }); // Refresh rounds data
+    yield put({ type: "FETCH_USER" });
   } catch (error) {
     console.error("Error updating round", error);
   }
@@ -27,6 +28,7 @@ function* deleteRound(action) {
   try {
     yield axios.delete(`/api/rounds/${action.payload.roundId}`);
     yield put({ type: "FETCH_ROUNDS" });
+    yield put({ type: "FETCH_USER" });
   } catch (error) {
     console.log("error with DELETE saga request", error);
   }

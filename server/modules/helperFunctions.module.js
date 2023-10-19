@@ -4,9 +4,9 @@ const pool = require("./pool");
 function truncateToDecimalPlace(num, decimalPlaces) {
   const numberAsAString = num.toString();
   const [front, back] = numberAsAString.split(".");
-  let fixedBack = back;
+  let fixedBack = 0;
   if (back) {
-    fixedBack = fixedBack.slice(0, 1);
+    fixedBack = back.slice(0, decimalPlaces);
   }
 
   return Number(front + "." + fixedBack);

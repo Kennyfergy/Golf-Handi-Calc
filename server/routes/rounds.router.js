@@ -100,6 +100,7 @@ router.put("/:roundId", async (req, res) => {
 router.delete("/:roundId", (req, res) => {
   // Extract round ID from the request parameters
   const roundId = req.params.roundId;
+  const userId = req.user.id;
 
   // SQL query to delete the specified round from the user_rounds table
   const queryText = `
