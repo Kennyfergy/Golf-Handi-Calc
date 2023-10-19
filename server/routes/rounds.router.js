@@ -61,6 +61,7 @@ router.post("/", async (req, res) => {
     );
 
     calculateRoundScoreDifferential(round.rows[0].id);
+    calculateHandicap(userId);
 
     res.json({ message: "Round submitted successfully!" });
   } catch (err) {
@@ -74,6 +75,7 @@ router.post("/", async (req, res) => {
 router.put("/:roundId", async (req, res) => {
   // Extract round details from the request body
   const roundId = req.params.roundId;
+  const userId = req.user.id;
   const front9Score = parseInt(req.body.front_9_score, 10);
   const back9Score = parseInt(req.body.back_9_score, 10);
   const dateValue = req.body.date || new Date().toISOString();
@@ -85,6 +87,7 @@ router.put("/:roundId", async (req, res) => {
     await pool.query(queryText, [dateValue, front9Score, back9Score, roundId]);
 
     calculateRoundScoreDifferential(roundId);
+    calculateHandicap(userId);
 
     res.json({ message: "Round updated successfully!" });
   } catch (err) {
@@ -109,6 +112,7 @@ router.delete("/:roundId", (req, res) => {
       console.error("Error deleting the round:", error);
       res.status(500).json({ error: "Database error" });
     } else {
+      calculateHandicap(userId);
       res.sendStatus(200); // 200 OK
     }
   });
