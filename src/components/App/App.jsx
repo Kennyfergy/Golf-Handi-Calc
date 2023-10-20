@@ -23,6 +23,7 @@ import AddRound from "../AddRound/AddRound";
 import Courses from "../Courses/Courses";
 import AddCourse from "../AddCourse/AddCourse";
 import AdminPage from "../AdminPage/AdminPage";
+import SettingsPage from "../SettingsPage/SettingsPage";
 
 // import { Drawer, Button, List, ListItem, ListItemText } from "@material-ui";
 import "./App.css";
@@ -93,6 +94,13 @@ function App() {
             path="/addCourse"
           >
             <AddCourse />
+          </ProtectedRoute>
+          <ProtectedRoute
+            // logged in shows settings page else shows LoginPage
+            exact
+            path="/settings"
+          >
+            <SettingsPage />
           </ProtectedRoute>
           <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
