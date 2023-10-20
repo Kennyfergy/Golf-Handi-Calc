@@ -13,6 +13,8 @@ export default function Courses() {
   const courses = useSelector((state) => state.courses);
   const user = useSelector((state) => state.user);
 
+  //console.log("logging courses and user", courses, user);
+
   useEffect(() => {
     dispatch({ type: "FETCH_COURSES" });
   }, [dispatch]);

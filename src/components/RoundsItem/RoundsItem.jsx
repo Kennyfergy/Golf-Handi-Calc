@@ -71,7 +71,7 @@ export default function RoundsItem({ round }) {
     setEditingBack9Score("");
     setNewDate("");
   };
-  console.log(round);
+
   // Function to format date to "YYYY-MM-DD" format
   const formatDate = (dateString) => {
     const date = new Date(dateString);

@@ -12,6 +12,15 @@ function truncateToDecimalPlace(num, decimalPlaces) {
   return Number(front + "." + fixedBack);
 }
 
+//this function calculates a users handicap(playing handicap) for a specific course
+function calculateCourseHandicap(handicapIndex, slopeRating) {
+  // Calculate course handicap
+  const courseHandicap = handicapIndex * (slopeRating / 113);
+
+  // Truncate to one decimal place
+  return truncateToDecimalPlace(courseHandicap, 1);
+}
+
 // get route to grab data required, then calculate a users handicap index
 async function calculateHandicap(userId) {
   let differentials = await pool.query(
@@ -49,6 +58,7 @@ WHERE rnum <=
     Math.max(0, differentials.rows[0].avgdifferential)
   ); //max of 54 handicap, min of 0
 
+  // running the function to truncate handicap. ex: 15.4564 = 15.4
   const handicap = truncateToDecimalPlace(handicapIndex, 1);
 
   await pool.query("UPDATE users SET user_handicap = $1 WHERE id=$2", [
@@ -59,37 +69,5 @@ WHERE rnum <=
 
 module.exports = {
   calculateHandicap,
+  calculateCourseHandicap,
 };
-
-// // Fetch last 20 rounds of golf scores, related course data, and user gender from the database
-// await pool.query;
-// let scoreDifferentials;
-
-// // Sort score differentials, select depending on number of rounds in database, and calculate average
-// scoreDifferentials.sort((a, b) => a - b);
-
-// let bestDifferentials;
-// const numRounds = scoreDifferentials.length;
-
-// if (numRounds <= 3) {
-//   bestDifferentials = scoreDifferentials.slice(0, 1); //if 3 rounds, only use best 1 round
-// } else if (numRounds <= 5) {
-//   bestDifferentials = scoreDifferentials.slice(0, 1);
-// } else if (numRounds <= 8) {
-//   bestDifferentials = scoreDifferentials.slice(0, 2); //if 8 rounds, only use best 2
-// } else if (numRounds <= 10) {
-//   bestDifferentials = scoreDifferentials.slice(0, 3);
-// } else if (numRounds <= 12) {
-//   bestDifferentials = scoreDifferentials.slice(0, 4);
-// } else if (numRounds <= 14) {
-//   bestDifferentials = scoreDifferentials.slice(0, 5);
-// } else if (numRounds <= 16) {
-//   bestDifferentials = scoreDifferentials.slice(0, 6);
-// } else if (numRounds <= 18) {
-//   bestDifferentials = scoreDifferentials.slice(0, 7);
-// } else {
-//   bestDifferentials = scoreDifferentials.slice(0, 8);
-// }
-
-// const avgDifferential =
-//   bestDifferentials.reduce((a, b) => a + b, 0) / bestDifferentials.length;
