@@ -216,7 +216,14 @@ export default function CourseItem({ course }) {
             ) : (
               // Display course data
               <>
-                <Button onClick={() => handleEdit(course.id)}>Edit</Button>
+                {(!course.is_admin_course || user.is_admin) && (
+                  <Button onClick={() => handleEdit(course.id)}>Edit</Button>
+                )}
+                {course.is_admin_course ? (
+                  <p>This course was added by Admin</p>
+                ) : (
+                  <></>
+                )}
 
                 <Typography variant="h5" className="courseName">
                   Course: {course.course_name}
