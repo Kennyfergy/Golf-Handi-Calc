@@ -135,7 +135,7 @@ export default function AddCourse() {
   return (
     <Paper id="courseForm" className="add-course-container" elevation={3}>
       <Typography variant="h4" align="center" gutterBottom>
-        Add Course
+        Add {user.is_admin && <>New Admin</>} Course
       </Typography>
       <Divider style={{ marginBottom: "20px" }} />
 
