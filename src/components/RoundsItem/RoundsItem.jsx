@@ -4,6 +4,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import Swal from "sweetalert2";
 
 export default function RoundsItem({ round }) {
   const dispatch = useDispatch();
@@ -27,18 +28,23 @@ export default function RoundsItem({ round }) {
 
   //deletes round from DB
   const handleDelete = (id) => {
-    const userConfirmed = window.confirm(
-      "Are you sure you want to delete this round?"
-    );
-    if (userConfirmed) {
-      alert("Successfully Deleted Round");
-      dispatch({
-        type: "DELETE_ROUND",
-        payload: { roundId: editingRoundId },
-      });
-    } else {
-      console.log("Delete cancelled");
-    }
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire("Deleted!", "Your file has been deleted.", "success");
+        dispatch({
+          type: "DELETE_ROUND",
+          payload: { roundId: editingRoundId },
+        });
+      }
+    });
   };
 
   //lets user cancel the edit mode
