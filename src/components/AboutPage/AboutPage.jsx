@@ -6,6 +6,14 @@ function AboutPage() {
     <div className="aboutPageContainer">
       <h2 className="aboutPageHeading">About the App</h2>
 
+      <h3 className="aboutPageSubheading">What is WHS?</h3>
+      <p className="aboutPageParagraph">
+        The World Handicap System (WHS) is a system that allows golfers of
+        different abilities to play and compete on an equal basis. The WHS was
+        developed by the USGA and The R&A in collaboration with other handicap
+        bodies. It took effect on January 1, 2020
+      </p>
+
       <h3 className="aboutPageSubheading">
         How is the Handicap Index calculated using the World Handicap System?
       </h3>
@@ -28,7 +36,16 @@ function AboutPage() {
         lowest differentials is taken into account to compute the average, which
         then represents the Handicap Index.
       </p>
-
+      <h3 className="aboutPageSubheading">
+        How is the Score Differential calculated using the World Handicap
+        System?
+      </h3>
+      <p className="aboutPageParagraph">
+        An individual golfer's score differential compared to the course par is
+        a measure of how their performance on a particular round of golf
+        compares to the expected or standard performance on that course. <br />
+        ((score - course rating) x 113) / slope rating
+      </p>
       <h3 className="aboutPageSubheading">
         How is the Course Handicap calculated using the WHS?
       </h3>
