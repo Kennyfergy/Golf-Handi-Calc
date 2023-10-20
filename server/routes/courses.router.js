@@ -17,7 +17,7 @@ router.get("/", rejectUnauthenticated, (req, res) => {
   const userId = req.user.id;
 
   const queryText = `
-  SELECT * FROM user_courses WHERE user_id = $1 OR user_id IS NULL ORDER BY id DESC;
+  SELECT * FROM user_courses WHERE user_id = $1 OR is_admin_course = true ORDER BY id DESC;
     `;
 
   pool.query(queryText, [userId], (error, results) => {

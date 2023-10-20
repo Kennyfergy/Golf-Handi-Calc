@@ -105,6 +105,17 @@ function Nav() {
             >
               <ListItemText primary="Rounds" />
             </ListItem>
+
+            {user.is_admin && (
+              <ListItem
+                button
+                onClick={() => setDrawerOpen(false)}
+                component={Link}
+                to="/admin"
+              >
+                <ListItemText primary="Admin" />
+              </ListItem>
+            )}
             {/* <ListItem
               button
               onClick={() => setDrawerOpen(false)}
