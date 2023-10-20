@@ -53,6 +53,7 @@ export default function CourseItem({ course }) {
     setWomenCourseRating(course.women_course_rating);
     setWomenCourseSlope(course.women_course_slope);
   };
+
   //deletes course from DB
   const handleDelete = (id) => {
     const userConfirmed = window.confirm(
@@ -100,7 +101,7 @@ export default function CourseItem({ course }) {
       women_course_rating: womenCourseRating,
       women_course_slope: womenCourseSlope,
     };
-    // console.log("logging updatedCourseData", updatedCourseData);
+
     // Dispatch update action
     dispatch({
       type: "UPDATE_COURSE",
@@ -214,7 +215,7 @@ export default function CourseItem({ course }) {
                 <Button onClick={handleCancelEdit}>Cancel</Button>
               </>
             ) : (
-              // Display course data
+              // Display course data, only an admin can edit admin courses
               <>
                 {(!course.is_admin_course || user.is_admin) && (
                   <Button onClick={() => handleEdit(course.id)}>Edit</Button>
