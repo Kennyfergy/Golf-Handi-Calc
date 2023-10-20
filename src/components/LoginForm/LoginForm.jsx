@@ -6,7 +6,14 @@ function LoginForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const errors = useSelector((store) => store.errors);
+  const [showPassword, setShowPassword] = useState(false);
+
   const dispatch = useDispatch();
+
+  //letting a user see their password if they toggle visibility
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   const login = (event) => {
     event.preventDefault();
@@ -48,13 +55,17 @@ function LoginForm() {
         <label htmlFor="password">
           Password:
           <input
-            type="password"
+            type={showPassword ? "text" : "password"}
             name="password"
             required
             value={password}
             onChange={(event) => setPassword(event.target.value)}
           />
         </label>
+        <div>
+          <input type="checkbox" onChange={togglePasswordVisibility} /> Show
+          Password
+        </div>
       </div>
       <div>
         <input className="btn" type="submit" name="submit" value="Log In" />

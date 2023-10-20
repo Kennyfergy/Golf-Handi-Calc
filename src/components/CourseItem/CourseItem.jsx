@@ -4,6 +4,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import Swal from "sweetalert2";
 import "./CourseItem.css";
 import { calculateCourseHandicap } from "./CourseFunctions";
 
@@ -55,18 +56,23 @@ export default function CourseItem({ course }) {
   };
 
   //deletes course from DB
-  const handleDelete = (id) => {
-    const userConfirmed = window.confirm(
-      "Are you sure you want to delete this course?"
-    );
-    if (userConfirmed) {
-      alert("Successfully Deleted Course");
+  const handleDelete = async (id) => {
+    const result = await Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    });
+
+    if (result.isConfirmed) {
+      Swal.fire("Deleted!", "Successfully Deleted Course", "success");
       dispatch({
         type: "DELETE_COURSE",
         payload: { courseId: editingCourseId },
       });
-    } else {
-      console.log("Delete cancelled");
     }
   };
 
@@ -252,7 +258,7 @@ export default function CourseItem({ course }) {
                     : course.women_course_slope}
                 </Typography>
                 <Typography variant="h5" className="courseName">
-                  Playing Handicap: {courseHandicap}
+                  {user.username}'s Course Handicap: {courseHandicap}
                 </Typography>
               </>
             )}

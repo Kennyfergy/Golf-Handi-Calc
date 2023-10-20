@@ -6,6 +6,11 @@ function RegisterForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [is_male, setIs_male] = useState(null);
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   const errors = useSelector((store) => store.errors);
   const dispatch = useDispatch();
@@ -47,7 +52,7 @@ function RegisterForm() {
         <label htmlFor="password">
           Password:
           <input
-            type="password"
+            type={showPassword ? "text" : "password"}
             name="password"
             value={password}
             required
@@ -82,7 +87,8 @@ function RegisterForm() {
           </label>
         </div>
       </div>
-
+      <input type="checkbox" onChange={togglePasswordVisibility} /> Show
+      Password
       <div>
         <input className="btn" type="submit" name="submit" value="Register" />
       </div>
