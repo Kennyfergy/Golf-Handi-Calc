@@ -1,0 +1,43 @@
+.aboutPageContainer {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.aboutPageHeading {
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.aboutPageSubheading {
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.aboutPageParagraph {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.aboutPageUl {
+  margin-bottom: 20px;
+}
+
+.external-link {
+  color: #0077cc;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.external-link:hover {
+  color: #0055aa;
+}
