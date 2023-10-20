@@ -82,7 +82,9 @@ router.post("/", rejectUnauthenticated, async (req, res) => {
     calculateRoundScoreDifferential(round.rows[0].id);
     calculateHandicap(userId);
 
-    res.json({ message: "Round submitted successfully!" });
+    res.json({
+      message: "Round submitted successfully!",
+    });
   } catch (err) {
     console.error(err);
     res.status(500).send("Server Error");

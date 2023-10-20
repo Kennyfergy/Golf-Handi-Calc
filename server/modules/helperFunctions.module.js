@@ -12,6 +12,7 @@ function truncateToDecimalPlace(num, decimalPlaces) {
   return Number(front + "." + fixedBack);
 }
 
+//this function calculates a users handicap(playing handicap) for a specific course
 function calculateCourseHandicap(handicapIndex, slopeRating) {
   // Calculate course handicap
   const courseHandicap = handicapIndex * (slopeRating / 113);

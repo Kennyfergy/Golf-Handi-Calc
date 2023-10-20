@@ -16,7 +16,7 @@ function* updateRound(action) {
       `/api/rounds/${action.payload.roundId}`,
       action.payload.updatedRoundData
     );
-    console.log(response);
+    // console.log(response);
     yield put({ type: "FETCH_ROUNDS" }); // Refresh rounds data
     yield put({ type: "FETCH_USER" });
   } catch (error) {

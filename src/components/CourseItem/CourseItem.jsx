@@ -26,6 +26,33 @@ export default function CourseItem({ course }) {
   const [womenCourseRating, setWomenCourseRating] = useState("");
   const [womenCourseSlope, setWomenCourseSlope] = useState("");
 
+  function truncateToDecimalPlace(num, decimalPlaces) {
+    const numberAsAString = num.toString();
+    const [front, back] = numberAsAString.split(".");
+    let fixedBack = 0;
+    if (back) {
+      fixedBack = back.slice(0, decimalPlaces);
+    }
+    return Number(front + "." + fixedBack);
+  }
+
+  //this function calculates a users handicap(playing handicap) for a specific course
+  function calculateCourseHandicap(handicapIndex, slopeRating) {
+    // Calculate course handicap
+    const courseHandicap = handicapIndex * (slopeRating / 113);
+    // Truncate to one decimal place
+    return truncateToDecimalPlace(courseHandicap, 1);
+  }
+
+  // Calculate course handicap using the user's handicap and course slope
+  const slopeRating = user.is_male
+    ? course.men_course_slope
+    : course.women_course_slope;
+  const courseHandicap = calculateCourseHandicap(
+    user.user_handicap,
+    slopeRating
+  );
+
   // function to set state when user edits inputs
   const handleEdit = (id) => {
     console.log("Logging course id", id);
@@ -113,8 +140,8 @@ export default function CourseItem({ course }) {
     setWomenCourseRating("");
     setWomenCourseSlope("");
   };
-  console.log(course);
-  console.log("course name", course.course_name);
+  // console.log(course);
+  // console.log("course name", course.course_name);
   return (
     <div>
       <Card key={course.id} className="styledCard">
@@ -232,6 +259,9 @@ export default function CourseItem({ course }) {
                   {user.is_male
                     ? course.men_course_slope
                     : course.women_course_slope}
+                </Typography>
+                <Typography variant="h5" className="courseName">
+                  Course Handicap: {courseHandicap}
                 </Typography>
               </>
             )}
