@@ -252,7 +252,7 @@ export default function CourseItem({ course }) {
                     : course.women_course_slope}
                 </Typography>
                 <Typography variant="h5" className="courseName">
-                  Playing Handicap: {courseHandicap}
+                  {user.username}'s Course Handicap: {courseHandicap}
                 </Typography>
               </>
             )}
