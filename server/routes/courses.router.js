@@ -52,8 +52,12 @@ router.post("/", rejectUnauthenticated, (req, res) => {
   } = req.body;
 
   const queryText = `
-        INSERT INTO user_courses (user_id, course_name, course_location, men_course_rating, men_course_slope, men_front_9_par, men_back_9_par, women_course_rating, women_course_slope, women_front_9_par, women_back_9_par)
-        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11);
+        INSERT INTO user_courses (user_id, course_name, course_location, men_course_rating, men_course_slope, men_front_9_par, men_back_9_par, women_course_rating, women_course_slope, women_front_9_par, women_back_9_par${
+          req.user.is_admin ? ", is_admin_course" : ""
+        })
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11${
+          req.user.is_admin ? ", 'true'" : ""
+        });
     `;
 
   pool.query(
