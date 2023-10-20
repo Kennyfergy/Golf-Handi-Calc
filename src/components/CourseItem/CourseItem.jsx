@@ -5,12 +5,13 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import "./CourseItem.css";
+import { calculateCourseHandicap } from "./CourseFunctions";
 
 export default function CourseItem({ course }) {
   const dispatch = useDispatch();
 
   const user = useSelector((state) => state.user);
-  user.is_male ? console.log("male") : console.log("female");
+  // user.is_male ? console.log("male") : console.log("female");
 
   //declaring states
   const [editingCourseId, setEditingCourseId] = useState(null);
@@ -25,24 +26,6 @@ export default function CourseItem({ course }) {
   const [womenFront9, setWomenFront9] = useState("");
   const [womenCourseRating, setWomenCourseRating] = useState("");
   const [womenCourseSlope, setWomenCourseSlope] = useState("");
-
-  function truncateToDecimalPlace(num, decimalPlaces) {
-    const numberAsAString = num.toString();
-    const [front, back] = numberAsAString.split(".");
-    let fixedBack = 0;
-    if (back) {
-      fixedBack = back.slice(0, decimalPlaces);
-    }
-    return Number(front + "." + fixedBack);
-  }
-
-  //this function calculates a users handicap(playing handicap) for a specific course
-  function calculateCourseHandicap(handicapIndex, slopeRating) {
-    // Calculate course handicap
-    const courseHandicap = handicapIndex * (slopeRating / 113);
-    // Truncate to one decimal place
-    return truncateToDecimalPlace(courseHandicap, 1);
-  }
 
   // Calculate course handicap using the user's handicap and course slope
   const slopeRating = user.is_male
@@ -117,7 +100,7 @@ export default function CourseItem({ course }) {
       women_course_rating: womenCourseRating,
       women_course_slope: womenCourseSlope,
     };
-    console.log("logging updatedCourseData", updatedCourseData);
+    // console.log("logging updatedCourseData", updatedCourseData);
     // Dispatch update action
     dispatch({
       type: "UPDATE_COURSE",
@@ -261,7 +244,7 @@ export default function CourseItem({ course }) {
                     : course.women_course_slope}
                 </Typography>
                 <Typography variant="h5" className="courseName">
-                  Course Handicap: {courseHandicap}
+                  Playing Handicap: {courseHandicap}
                 </Typography>
               </>
             )}
@@ -271,16 +254,3 @@ export default function CourseItem({ course }) {
     </div>
   );
 }
-//data available with
-// course_location: "123 Golf Lane, Golftown";
-// course_name: "Sample Golf Course";
-// id: 3;
-// men_back_9_par: 36; done
-// men_course_rating: "70"; done
-// men_course_slope: 130; done
-// men_front_9_par: 35; done
-// user_id: 9;
-// women_back_9_par: 37;
-// women_course_rating: "72.5";
-// women_course_slope: 134;
-// women_front_9_par: 36;
