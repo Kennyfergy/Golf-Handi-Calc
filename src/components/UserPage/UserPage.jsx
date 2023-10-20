@@ -12,10 +12,6 @@ function UserPage() {
   }, []);
   const round = useSelector((store) => store.rounds);
 
-  // useEffect(() => {
-  //   dispatch({ type: "FETCH_USER" });
-  // }, []);
-
   // Extract a list of course IDs from the rounds data
   const courseIdsPlayed = round.map((round) => round.course_id);
   // Convert this list into a set to get unique course IDs
@@ -25,8 +21,8 @@ function UserPage() {
 
   return (
     <div className="userPageBackground">
-      <div>
-        <Typography variant="h3" gutterBottom>
+      <div className="welcome_header">
+        <Typography variant="h2" gutterBottom>
           Welcome, {user.username}!
         </Typography>
       </div>

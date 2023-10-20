@@ -4,15 +4,17 @@
 }
 
 .nav-title {
-  font-size: 24px;
+  font-size: 34px;
   font-weight: 700;
   color: #f2f2f2;
+  align-items: center;
+  text-align: center;
 }
 
 .navLink {
   display: inline-block;
   color: #f2f2f2;
-  background-color: #00acb0;
+  background-color: #76adaa;
   text-align: center;
   padding: 24px 10px;
   text-decoration: none;
@@ -48,7 +50,7 @@
 }
 
 .drawer .MuiListItemText-root {
-  font-size: 1.2em;
+  font-size: 1.3em;
 }
 .menuButton {
   background-color: #253170;
@@ -72,5 +74,5 @@
 }
 
 .drawer .MuiDrawer-paperAnchorRight {
-  transform: scale(1.05); /* Slightly enlarge the drawer when it's opened */
+  transform: scale(1.04); /* Slightly enlarge the drawer when it's opened */
 }

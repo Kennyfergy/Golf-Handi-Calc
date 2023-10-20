@@ -5,15 +5,7 @@ import LogOutButton from "../LogOutButton/LogOutButton";
 import NavStyles from "./Nav.module.css";
 import "./Nav.css";
 import { useSelector } from "react-redux";
-import {
-  Drawer,
-  Button,
-  List,
-  ListItem,
-  // Link,
-  ListItemText,
-  // LogOutButton,
-} from "@mui/material";
+import { Drawer, Button, List, ListItem, ListItemText } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 
 function Nav() {

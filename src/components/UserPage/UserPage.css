@@ -29,3 +29,9 @@
   ); /* Adjusted transparency for more translucence */
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 }
+
+.welcome_header {
+  color: rgb(4, 56, 38);
+  text-decoration: none;
+  margin-top: 10px;
+}

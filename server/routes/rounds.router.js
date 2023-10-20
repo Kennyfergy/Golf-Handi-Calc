@@ -4,7 +4,10 @@ const pool = require("../modules/pool");
 const {
   rejectUnauthenticated,
 } = require("../modules/authentication-middleware");
-const { calculateHandicap } = require("../modules/helperFunctions.module");
+const {
+  calculateHandicap,
+  calculateCourseHandicap,
+} = require("../modules/helperFunctions.module");
 const {
   calculateRoundScoreDifferential,
 } = require("../modules/CalculateRoundScoreDifferential.module");
