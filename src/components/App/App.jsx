@@ -22,6 +22,7 @@ import Rounds from "../Rounds/Rounds";
 import AddRound from "../AddRound/AddRound";
 import Courses from "../Courses/Courses";
 import AddCourse from "../AddCourse/AddCourse";
+import AdminPage from "../AdminPage/AdminPage";
 
 // import { Drawer, Button, List, ListItem, ListItemText } from "@material-ui";
 import "./App.css";
@@ -101,6 +102,15 @@ function App() {
           >
             <InfoPage />
           </ProtectedRoute>
+          {user.is_admin && (
+            <ProtectedRoute
+              // admin page only shows up for admin
+              exact
+              path="/admin"
+            >
+              <AdminPage />
+            </ProtectedRoute>
+          )}
 
           <Route exact path="/login">
             {user.id ? (
