@@ -38,6 +38,9 @@ passport.deserializeUser((id, done) => {
 passport.use(
   "local",
   new LocalStrategy((username, password, done) => {
+    // Trim leading and trailing spaces from the username
+    username = username.trim();
+
     pool
       .query('SELECT * FROM "users" WHERE username = $1', [username])
       .then((result) => {
