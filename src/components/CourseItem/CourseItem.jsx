@@ -27,7 +27,7 @@ export default function CourseItem({ course }) {
   const [womenCourseRating, setWomenCourseRating] = useState("");
   const [womenCourseSlope, setWomenCourseSlope] = useState("");
 
-  // Calculate course handicap using the user's handicap and course slope
+  // Calculate course handicap using the user's handicap and course slope, for 9 or 18 hole
   const slopeRating = user.is_male
     ? course.men_course_slope
     : course.women_course_slope;
