@@ -45,6 +45,7 @@
 
 /* Styles for the edit mode inputs */
 input[type="number"],
+input[type="password"],
 input[type="text"] {
   width: 100%;
   padding: 8px;
