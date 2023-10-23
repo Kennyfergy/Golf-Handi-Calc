@@ -1,19 +1,21 @@
 .login-background {
-  background-image: url("../../../public/Golf10.png");
+  background-image: url("../../../public/login4.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   padding-top: 0;
+
   height: 100vh;
 }
 
 .login-form {
-  opacity: 0.9; /*  0 is fully transparent and 1 is fully opaque. */
+  opacity: 0.9;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  height: 40%;
+  padding-top: 10px;
+  /* height: 50%; */
   justify-content: center;
 }
 .login-form input {
