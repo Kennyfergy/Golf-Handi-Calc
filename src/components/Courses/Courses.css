@@ -101,3 +101,27 @@ Button.editCourseButton {
 Button.editCourseButton:hover {
   background-color: #024a97;
 }
+/* Styling for the search container */
+.searchContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/* Styling for the search input */
+.searchContainer input {
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  width: 80%;
+  max-width: 400px;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.searchContainer input:focus {
+  border: 1px solid #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  outline: none;
+}
