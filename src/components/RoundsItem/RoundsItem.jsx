@@ -8,13 +8,12 @@ import Swal from "sweetalert2";
 
 export default function RoundsItem({ round }) {
   const dispatch = useDispatch();
-  // console.log(round);
+
   //states
   const [editingRoundId, setEditingRoundId] = useState(null);
   const [editingFront9Score, setEditingFront9Score] = useState("");
   const [editingBack9Score, setEditingBack9Score] = useState("");
   const [newDate, setNewDate] = useState("");
-  // const [roundToEdit, setRoundToEdit] = useState("");
 
   // function to set state when user edits an input
   const handleEdit = (id) => {

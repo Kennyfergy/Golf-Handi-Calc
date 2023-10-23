@@ -1,6 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import RoundSearch from "./RoundSearch";
+import Fuse from "fuse.js";
 
 import "./Rounds.css";
 import Button from "@mui/material/Button";
@@ -9,6 +11,13 @@ import RoundsItem from "../RoundsItem/RoundsItem";
 export default function Rounds() {
   const dispatch = useDispatch();
   const history = useHistory();
+  const [searchQuery, setSearchQuery] = useState("");
+
+  // Fuse.js options
+  const fuseOptions = {
+    keys: ["course_name", "date"],
+    threshold: 0.2,
+  };
 
   // Function to handle button click and navigate to the Add Rounds page
   const goToAddRounds = () => {
@@ -23,10 +32,20 @@ export default function Rounds() {
     dispatch({ type: "FETCH_ROUNDS" });
   }, [dispatch]);
 
+  console.log(rounds);
+  // Using Fuse.js to search the rounds
+  const fuse = new Fuse(rounds, fuseOptions);
+  const filteredRounds = searchQuery
+    ? fuse.search(searchQuery).map((result) => result.item)
+    : rounds;
+
   return (
     <div className="roundContainer">
       <h1>Rounds</h1>
       <h2>Handicap Index {user.user_handicap}</h2>
+
+      <RoundSearch onSearchChange={setSearchQuery} />
+
       <Button
         variant="contained"
         color="primary"
@@ -36,7 +55,7 @@ export default function Rounds() {
         Add Round
       </Button>
       <div>
-        {rounds.map((round) => (
+        {filteredRounds.map((round) => (
           <RoundsItem key={round.id} round={round} />
         ))}
       </div>

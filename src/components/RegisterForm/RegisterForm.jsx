@@ -90,7 +90,12 @@ function RegisterForm() {
       <input type="checkbox" onChange={togglePasswordVisibility} /> Show
       Password
       <div>
-        <input className="btn" type="submit" name="submit" value="Register" />
+        <input
+          className="loginButton"
+          type="submit"
+          name="submit"
+          value="Register"
+        />
       </div>
     </form>
   );

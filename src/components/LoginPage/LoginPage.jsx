@@ -14,7 +14,7 @@ function LoginPage() {
         <center>
           <button
             type="button"
-            className="btn "
+            className="loginButton"
             onClick={() => {
               history.push("/registration");
             }}
