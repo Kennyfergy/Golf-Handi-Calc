@@ -19,11 +19,11 @@ function LandingPage() {
 
       <div className="grid">
         <div className="grid-col grid-col_8">
-          <p>SOLO PROJECT TIME</p>
+          <p>SOLO PROJECT</p>
 
-          <p>YOU GOT THIS</p>
+          <p>Some stuff</p>
 
-          <p>Keep hammering it out</p>
+          <p>some other stuff</p>
         </div>
         <div className="grid-col grid-col_4">
           <RegisterForm />
