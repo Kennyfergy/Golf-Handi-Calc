@@ -127,3 +127,8 @@ Button.deleteRoundButton:hover {
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
   outline: none;
 }
+.hIHeader {
+  position: absolute;
+  top: 120px;
+  left: 25px;
+}

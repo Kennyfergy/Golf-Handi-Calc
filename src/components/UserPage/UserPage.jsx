@@ -11,6 +11,7 @@ function UserPage() {
     dispatch({ type: "FETCH_ROUNDS" });
   }, []);
   const round = useSelector((store) => store.rounds);
+  console.log(round);
 
   // Extract a list of course IDs from the rounds data
   const courseIdsPlayed = round.map((round) => round.course_id);
@@ -23,7 +24,7 @@ function UserPage() {
     <div className="userPageBackground">
       <div className="welcome_header">
         <Typography variant="h2" gutterBottom>
-          Welcome, {user.username}!
+          Welcome {user.username}
         </Typography>
       </div>
       {/* <Typography variant="body1" gutterBottom>
