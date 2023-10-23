@@ -134,7 +134,7 @@ export default function AddRound() {
       </FormControl>
       <Typography variant="h6">Select Course:</Typography>
       <Select
-        value={defaultCourseId}
+        value={courseId}
         onChange={(e) => setCourseId(e.target.value)}
         label="Course"
         variant="outlined"

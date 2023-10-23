@@ -166,12 +166,21 @@ export default function RoundsItem({ round }) {
               <Typography variant="h5" className="roundScore">
                 Total Score: {round.front_9_score + round.back_9_score}
               </Typography>
-              <Typography variant="h6" className="roundScore">
+              {/* <Typography variant="h6" className="roundScore">
                 Front 9: {round.front_9_score}
-              </Typography>
-              <Typography variant="h6" className="roundScore">
-                Back 9: {round.back_9_score}
-              </Typography>
+              </Typography> */}
+
+              {round.front_9_score !== 0 && (
+                <Typography variant="h6" className="roundScore">
+                  Front 9: {round.front_9_score}
+                </Typography>
+              )}
+              {round.back_9_score !== 0 && (
+                <Typography variant="h6" className="roundScore">
+                  Back 9: {round.back_9_score}
+                </Typography>
+              )}
+
               <Typography variant="h5" className="roundScore">
                 Differential: {round.score_differential}
               </Typography>
