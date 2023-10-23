@@ -1,10 +1,10 @@
-import AddCourse from "../AddCourse/AddCourse";
+import AddAdminCourse from "./AddAdminCourse";
 
 export default function AdminPage() {
   return (
     <div>
       <h1>Welcome Admin</h1>
-      <AddCourse />
+      <AddAdminCourse />
     </div>
   );
 }

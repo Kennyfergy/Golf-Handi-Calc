@@ -97,20 +97,6 @@ export default function AddCourse() {
       courseData.women_back_9_par = womenBack9Par;
     }
 
-    // const courseData = {
-    //   course_name: courseName,
-    //   course_location: courseLocation,
-    //   men_course_rating: menCourseRating,
-    //   men_course_slope: menCourseSlope,
-    //   men_front_9_par: menFront9Par,
-    //   men_back_9_par: menBack9Par,
-    //   women_course_rating: womenCourseRating,
-    //   women_course_slope: womenCourseSlope,
-    //   women_front_9_par: womenFront9Par,
-    //   women_back_9_par: womenBack9Par,
-    //   user_id: userId,
-    // };
-
     // Call the API endpoint to add the round
     try {
       const response = await fetch("/api/courses", {
@@ -135,7 +121,7 @@ export default function AddCourse() {
   return (
     <Paper id="courseForm" className="add-course-container" elevation={3}>
       <Typography variant="h4" align="center" gutterBottom>
-        Add {user.is_admin && <>New Admin</>} Course
+        {user.is_admin && <>Please use admin page to</>} Add Course
       </Typography>
       <Divider style={{ marginBottom: "20px" }} />
 
