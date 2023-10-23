@@ -1,50 +1,104 @@
-body {
-  background-color: #95b8a4; /* Light green background for the entire app */
+/* Add styles for the Rounds component */
+.roundContainer {
+  text-align: center;
+  margin: 20px auto;
+  max-width: 800px;
 }
 
-.MuiCard-root {
-  margin: 20px auto; /* Center the card horizontally */
-  max-width: 600px; /* Restrict the width of the card for better readability */
-  padding: 15px;
+.addRoundButton {
+  margin: 20px 0;
+}
+
+/* Style for the RoundsItem component */
+.styledRoundCard {
+  margin: 20px 0;
+  padding: 20px;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease-in-out;
-  background-color: #ffffff;
-}
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
 
-.MuiCard-root:hover {
-  transform: scale(1.05);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  &:hover {
+    transform: translateY(-5px); /* Lift the card slightly when hovered */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
 }
 
 .cardContent {
-  position: relative;
-}
-
-.score {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  height: 100%;
+  justify-content: center;
+  gap: 10px;
 }
 
-.date {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  color: #666;
+.roundScore {
+  font-size: 18px;
+  font-weight: bold;
 }
 
-h1 {
-  color: #2c7a49;
-  text-align: center;
+.roundDate {
+  font-size: 14px;
+  color: #777;
+  margin-top: 10px;
 }
 
-.container {
-  position: relative; /* Setting context for absolute positioning of the button */
+/* Styles for the edit mode inputs */
+input[type="number"],
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-.addButton {
-  position: right;
-  top: 20px;
+/* Style for action buttons */
+Button.deleteRoundButton,
+Button.saveRoundButton,
+Button.cancelEditButton,
+Button.editRoundButton {
+  margin: 5px;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+/* Style for the "Edit" button */
+Button.editRoundButton {
+  background-color: #007bff;
+  color: #fff;
+}
+
+Button.editRoundButton:hover {
+  background-color: #0056b3;
+}
+
+Button.cancelEditButton {
+  background-color: #fcbe01;
+  color: #000;
+}
+
+Button.cancelEditButton:hover {
+  background-color: #b18503;
+}
+
+Button.saveRoundButton {
+  background-color: #28a745;
+  color: #fff;
+}
+
+Button.saveRoundButton:hover {
+  background-color: #196b2a;
+}
+
+Button.deleteRoundButton {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+Button.deleteRoundButton:hover {
+  background-color: #881823;
 }

@@ -25,14 +25,14 @@ export default function Courses() {
 
   console.log(courses);
   return (
-    <div className="container">
+    <div className="coursesContainer">
       <h1>Courses</h1>
       <h2>Handicap Index {user.user_handicap}</h2>
       <Button
         variant="contained"
         color="primary"
         onClick={goToAddCourses}
-        className="addButton"
+        className="addCourseButton"
       >
         Add New Course
       </Button>

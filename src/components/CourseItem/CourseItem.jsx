@@ -134,20 +134,24 @@ export default function CourseItem({ course }) {
   // console.log("course name", course.course_name);
   return (
     <div>
-      <Card key={course.id} className="styledCard">
+      <Card key={course.id} className="styledCourseCard">
         <div className="inputGroup">
-          <CardContent className="cardContent">
+          <CardContent className="courseCardContent">
+            {" "}
+            {/* Updated class name */}
             {editingCourseId === course.id ? (
-              // Render input fields for editing
-
               <>
-                <>Course Name</>
+                <Typography variant="h5" className="courseName">
+                  Course Name
+                </Typography>
                 <input
                   type="text"
                   value={editingCourseName}
                   onChange={(event) => setEditingCourseName(event.target.value)}
                 />
-                <>Location</>
+                <Typography variant="h5" className="courseName">
+                  Location
+                </Typography>
                 <input
                   type="text"
                   value={editingLocation}
@@ -155,19 +159,25 @@ export default function CourseItem({ course }) {
                 />
                 {user.is_male ? (
                   <>
-                    <>Mens Back 9 Par</>
+                    <Typography variant="h5" className="courseName">
+                      Mens Back 9 Par
+                    </Typography>
                     <input
                       type="text"
                       value={menBack9}
                       onChange={(event) => setMenBack9(event.target.value)}
                     />
-                    <>Mens Front 9 Par</>
+                    <Typography variant="h5" className="courseName">
+                      Mens Front 9 Par
+                    </Typography>
                     <input
                       type="text"
                       value={menFront9}
                       onChange={(event) => setMenFront9(event.target.value)}
                     />
-                    <>Mens Course Rating</>
+                    <Typography variant="h5" className="courseName">
+                      Mens Course Rating
+                    </Typography>
                     <input
                       type="text"
                       value={menCourseRating}
@@ -175,7 +185,9 @@ export default function CourseItem({ course }) {
                         setMenCourseRating(event.target.value)
                       }
                     />
-                    <>Mens Course Slope</>
+                    <Typography variant="h5" className="courseName">
+                      Mens Course Slope
+                    </Typography>
                     <input
                       type="text"
                       value={menCourseSlope}
@@ -186,19 +198,25 @@ export default function CourseItem({ course }) {
                   </>
                 ) : (
                   <>
-                    <>Women's Back 9 Par</>
+                    <Typography variant="h5" className="courseName">
+                      Women's Back 9 Par
+                    </Typography>
                     <input
                       type="text"
                       value={womenBack9}
                       onChange={(event) => setWomenBack9(event.target.value)}
                     />
-                    <>Women's Front 9 Par</>
+                    <Typography variant="h5" className="courseName">
+                      Women's Front 9 Par
+                    </Typography>
                     <input
                       type="text"
                       value={womenFront9}
                       onChange={(event) => setWomenFront9(event.target.value)}
                     />
-                    <>Women's Course Rating</>
+                    <Typography variant="h5" className="courseName">
+                      Women's Course Rating
+                    </Typography>
                     <input
                       type="text"
                       value={womenCourseRating}
@@ -206,7 +224,9 @@ export default function CourseItem({ course }) {
                         setWomenCourseRating(event.target.value)
                       }
                     />
-                    <>Women's Course Slope</>
+                    <Typography variant="h5" className="courseName">
+                      Women's Course Slope
+                    </Typography>
                     <input
                       type="text"
                       value={womenCourseSlope}
@@ -216,15 +236,31 @@ export default function CourseItem({ course }) {
                     />
                   </>
                 )}
-                <Button onClick={() => handleDelete(course.id)}>Delete</Button>
-                <Button onClick={() => saveChanges(course.id)}>Save</Button>
-                <Button onClick={handleCancelEdit}>Cancel</Button>
+                <Button className="cancelEditButton" onClick={handleCancelEdit}>
+                  Cancel
+                </Button>
+                <Button
+                  className="deleteCourseButton"
+                  onClick={() => handleDelete(course.id)}
+                >
+                  Delete
+                </Button>
+                <Button
+                  className="saveCourseButton"
+                  onClick={() => saveChanges(course.id)}
+                >
+                  Save
+                </Button>
               </>
             ) : (
-              // Display course data, only an admin can edit admin courses
               <>
                 {(!course.is_admin_course || user.is_admin) && (
-                  <Button onClick={() => handleEdit(course.id)}>Edit</Button>
+                  <Button
+                    className="editCourseButton"
+                    onClick={() => handleEdit(course.id)}
+                  >
+                    Edit
+                  </Button>
                 )}
                 {course.is_admin_course ? (
                   <p>This course was added by Admin</p>

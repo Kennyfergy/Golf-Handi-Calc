@@ -26,7 +26,7 @@ export default function RoundsItem({ round }) {
     setNewDate(round.date);
   };
 
-  //deletes round from DB
+  //deletes round from DB, with a sweetAlert to confirm delete
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -63,6 +63,7 @@ export default function RoundsItem({ round }) {
       date: newDate,
     };
     // console.log("logging updatedRoundData", updatedRoundData);
+
     // Dispatch update action
     dispatch({
       type: "UPDATE_ROUND",
@@ -103,8 +104,8 @@ export default function RoundsItem({ round }) {
 
   return (
     <div>
-      <Card key={round.id} className="styledCard">
-        <CardContent className="cardContent">
+      <Card key={round.id} className="styledRoundCard">
+        <CardContent className="roundCardContent">
           {editingRoundId === round.id ? (
             // Render input fields for editing
             <>
@@ -127,26 +128,43 @@ export default function RoundsItem({ round }) {
                 value={newDate}
                 onChange={(event) => setNewDate(event.target.value)}
               />
-              <Button onClick={() => handleDelete(round.id)}>Delete</Button>
-              <Button onClick={() => saveChanges(round.id)}>Save</Button>
-              <Button onClick={handleCancelEdit}>Cancel</Button>
+              <Button className="cancelEditButton" onClick={handleCancelEdit}>
+                Cancel
+              </Button>
+              <Button
+                className="deleteRoundButton"
+                onClick={() => handleDelete(round.id)}
+              >
+                Delete
+              </Button>
+              <Button
+                className="saveRoundButton"
+                onClick={() => saveChanges(round.id)}
+              >
+                Save
+              </Button>
             </>
           ) : (
             // Display round data
             <>
-              <Button onClick={() => handleEdit(round.id)}>Edit</Button>
+              <Button
+                className="editRoundButton"
+                onClick={() => handleEdit(round.id)}
+              >
+                Edit
+              </Button>
 
               {/* <Button onClick={() => setRoundToEdit(round.id)}>Edit</Button> */}
-              <Typography variant="h5" className="score">
+              <Typography variant="h5" className="roundScore">
                 Course: {round.course_name}
               </Typography>
-              <Typography variant="h5" className="score">
+              <Typography variant="h5" className="roundScore">
                 Score: {round.front_9_score + round.back_9_score}
               </Typography>
-              <Typography variant="h5" className="score">
+              <Typography variant="h5" className="roundScore">
                 Differential: {round.score_differential}
               </Typography>
-              <Typography variant="subtitle1" className="date">
+              <Typography variant="subtitle1" className="roundDate">
                 {formatDate(round.date)}
               </Typography>
               {/* <Typography variant="subtitle2" className="courseHandicap"> not a usable feature yet
