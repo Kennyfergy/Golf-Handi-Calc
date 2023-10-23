@@ -1,8 +1,8 @@
-/* Styles for the Courses component */
 .coursesContainer {
   text-align: center;
   margin: 20px auto;
   max-width: 800px;
+  padding: 0 10px;
 }
 
 Button.addCourseButton {
@@ -115,7 +115,7 @@ Button.editCourseButton:hover {
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 20px;
-  width: 80%;
+  width: 100%;
   max-width: 400px;
   transition: border 0.3s, box-shadow 0.3s;
 }
@@ -124,4 +124,9 @@ Button.editCourseButton:hover {
   border: 1px solid #007bff;
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
   outline: none;
+}
+.hIHeader {
+  position: absolute;
+  top: 120px;
+  left: 25px;
 }

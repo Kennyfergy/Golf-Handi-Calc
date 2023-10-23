@@ -32,7 +32,6 @@ export default function Rounds() {
     dispatch({ type: "FETCH_ROUNDS" });
   }, [dispatch]);
 
-  console.log(rounds);
   // Using Fuse.js to search the rounds
   const fuse = new Fuse(rounds, fuseOptions);
   const filteredRounds = searchQuery
@@ -42,7 +41,7 @@ export default function Rounds() {
   return (
     <div className="roundContainer">
       <h1>Rounds</h1>
-      <h2>Handicap Index {user.user_handicap}</h2>
+      <h2 className="hIHeader">Handicap Index {user.user_handicap}</h2>
 
       <RoundSearch onSearchChange={setSearchQuery} />
 

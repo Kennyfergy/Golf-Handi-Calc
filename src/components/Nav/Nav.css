@@ -22,6 +22,7 @@
 
   /* these last two make the logout button in
   the nav bar look like another link */
+
   border: none;
   cursor: pointer;
   outline: 0;
@@ -36,7 +37,7 @@
   /* background-color: #f5f5f5; */
 }
 .drawer .MuiList-root {
-  padding: 20px;
+  padding: 25px;
 }
 
 .drawer .MuiListItem-root {
