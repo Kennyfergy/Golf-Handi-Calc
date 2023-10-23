@@ -17,6 +17,7 @@
     "cookie-session": "^2.0.0",
     "dotenv": "^16.0.3",
     "express": "^4.17.1",
+    "fuse.js": "^6.6.2",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "pg": "^8.5.1",
