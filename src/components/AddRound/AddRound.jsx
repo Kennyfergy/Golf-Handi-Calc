@@ -17,14 +17,17 @@ export default function AddRound() {
   const dispatch = useDispatch();
   const history = useHistory();
 
+  const course = useSelector((store) => store.courses);
+
   useEffect(() => {
     dispatch({ type: "FETCH_COURSES" });
-    if (course && course.length > 0) {
-      setDefaultCourseId(course[0].id);
-    }
   }, [dispatch]);
 
-  const course = useSelector((store) => store.courses);
+  useEffect(() => {
+    if (course && course.length > 0) {
+      setCourseId(course[0].id);
+    }
+  }, [course]);
 
   // State for checkboxes
   const [front9, setFront9] = useState(false);
@@ -34,7 +37,6 @@ export default function AddRound() {
   const [back9Score, setBack9Score] = useState("");
   const [roundDate, setRoundDate] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const [defaultCourseId, setDefaultCourseId] = useState("");
 
   const handleSubmit = async () => {
     //added error messages for all input fields
