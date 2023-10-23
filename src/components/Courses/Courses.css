@@ -1,51 +1,99 @@
-/* body {
-  background-color: #95b8a4;
-} */
-
-.MuiCard-root {
-  margin: 20px auto; /* Center the card horizontally */
-  max-width: 600px; /* Restrict the width of the card for better readability */
-  padding: 15px;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease-in-out;
-  background-color: #ffffff;
-}
-
-.MuiCard-root:hover {
-  transform: scale(1.05);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.cardContent {
-  position: relative;
-}
-
-.score {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
-.date {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  color: #666;
-}
-
-h1 {
-  color: #2c7a49;
+/* Styles for the Courses component */
+.coursesContainer {
   text-align: center;
+  margin: 20px auto;
+  max-width: 800px;
 }
 
-.container {
-  position: relative; /* Setting context for absolute positioning of the button */
+Button.addCourseButton {
+  margin: 20px 0;
+}
+Button.addCourseButton:hover {
+  background-color: #024a97;
+}
+/* Styles for CourseItem component within Courses */
+.styledCourseCard {
+  margin: 20px 0;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s; /* Add a transition for smooth animation */
+
+  &:hover {
+    transform: translateY(-5px); /* Lift the card slightly when hovered */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Increase the box shadow */
+  }
 }
 
-.addButton {
-  position: right;
-  top: 20px;
-  right: 20px;
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.courseName {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px; /* Add margin to separate course name from other content */
+}
+
+/* Styles for the input fields */
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Styles for the action buttons */
+Button.deleteCourseButton,
+Button.saveCourseButton,
+.cancelEditButton,
+.editCourseButton {
+  margin: 5px;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+Button.deleteCourseButton {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+Button.deleteCourseButton:hover {
+  background-color: #981926;
+}
+
+Button.saveCourseButton {
+  background-color: #28a745;
+  color: #fff;
+}
+
+Button.saveCourseButton:hover {
+  background-color: #218838;
+}
+
+Button.cancelEditButton {
+  background-color: #ffc107;
+  color: #000;
+}
+
+Button.cancelEditButton:hover {
+  background-color: #b98b01;
+}
+
+Button.editCourseButton {
+  background-color: #007bff;
+  color: #fff;
+}
+
+Button.editCourseButton:hover {
+  background-color: #024a97;
 }
