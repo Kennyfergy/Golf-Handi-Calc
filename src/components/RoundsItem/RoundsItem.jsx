@@ -160,28 +160,24 @@ export default function RoundsItem({ round }) {
                 </Button>
               </CardActions>
 
-              <Typography variant="h5" className="roundScore">
+              <Typography variant="h5" className="courseName">
                 Course: {round.course_name}
               </Typography>
               <Typography variant="h5" className="roundScore">
                 Total Score: {round.front_9_score + round.back_9_score}
               </Typography>
-              {/* <Typography variant="h6" className="roundScore">
-                Front 9: {round.front_9_score}
-              </Typography> */}
-
               {round.front_9_score !== 0 && (
-                <Typography variant="h6" className="roundScore">
+                <Typography variant="h6" className="front_9_Score">
                   Front 9: {round.front_9_score}
                 </Typography>
               )}
               {round.back_9_score !== 0 && (
-                <Typography variant="h6" className="roundScore">
+                <Typography variant="h6" className="back_9_Score">
                   Back 9: {round.back_9_score}
                 </Typography>
               )}
 
-              <Typography variant="h5" className="roundScore">
+              <Typography variant="h5" className="roundDifferential">
                 Differential: {round.score_differential}
               </Typography>
               <Typography variant="h5" className="roundDate">
