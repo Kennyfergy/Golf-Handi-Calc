@@ -19,6 +19,9 @@ export default function AddRound() {
 
   useEffect(() => {
     dispatch({ type: "FETCH_COURSES" });
+    if (course && course.length > 0) {
+      setDefaultCourseId(course[0].id);
+    }
   }, [dispatch]);
 
   const course = useSelector((store) => store.courses);
@@ -31,6 +34,7 @@ export default function AddRound() {
   const [back9Score, setBack9Score] = useState("");
   const [roundDate, setRoundDate] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [defaultCourseId, setDefaultCourseId] = useState("");
 
   const handleSubmit = async () => {
     //added error messages for all input fields

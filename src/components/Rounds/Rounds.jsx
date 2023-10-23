@@ -5,6 +5,7 @@ import RoundSearch from "./RoundSearch";
 import Fuse from "fuse.js";
 
 import "./Rounds.css";
+
 import Button from "@mui/material/Button";
 import RoundsItem from "../RoundsItem/RoundsItem";
 
@@ -41,7 +42,7 @@ export default function Rounds() {
   return (
     <div className="roundContainer">
       <h1>Rounds</h1>
-      <h2 className="hIHeader">Handicap Index {user.user_handicap}</h2>
+      <h2 className="hIHeader2">Handicap Index {user.user_handicap}</h2>
 
       <RoundSearch onSearchChange={setSearchQuery} />
 

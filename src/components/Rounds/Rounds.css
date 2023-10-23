@@ -1,26 +1,44 @@
-/* Add styles for the Rounds component */
+/* General Styles */
+body {
+  font-family: Roboto, sans-serif;
+}
+
+/* Styles for the Rounds component */
 .roundContainer {
   text-align: center;
-  margin: 20px auto;
-  max-width: 800px;
+  margin: 40px auto;
+  max-width: 900px;
+  background: linear-gradient(135deg, #e9f5f0, #acc8b1);
+  padding: 20px;
+  border-radius: 10px;
 }
 
 .addRoundButton {
-  margin: 20px 0;
+  margin: 25px 0;
+  background: linear-gradient(135deg, #0069d9, #007bff);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.addRoundButton:hover {
+  background-color: #0056b3;
 }
 
 /* Style for the RoundsItem component */
 .styledRoundCard {
-  margin: 20px 0;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s;
+  margin: 30px 0;
+  padding: 25px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  transition: transform 0.2s, box-shadow 0.2s;
 
   &:hover {
-    transform: translateY(-5px); /* Lift the card slightly when hovered */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transform: translateY(-8px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
   }
 }
 
@@ -29,28 +47,43 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 15px;
 }
 
 .roundScore {
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
 }
 
 .roundDate {
-  font-size: 14px;
-  color: #777;
-  margin-top: 10px;
+  font-size: 16px;
+  color: #888;
+  margin-top: 15px;
 }
 
 /* Styles for the edit mode inputs */
 input[type="number"],
+input[type="password"],
 input[type="text"] {
   width: 100%;
-  padding: 8px;
-  margin: 5px 0;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 10px 15px;
+  margin: 7px 0;
+  border: 1px solid #e1e1e1;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="number"]:focus,
+input[type="password"]:focus,
+input[type="text"]:focus {
+  border-color: #007bff;
+
+  border-color: #007bff;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+
+  outline: none;
 }
 
 /* Style for action buttons */
@@ -58,17 +91,18 @@ Button.deleteRoundButton,
 Button.saveRoundButton,
 Button.cancelEditButton,
 Button.editRoundButton {
-  margin: 5px;
-  padding: 8px 16px;
+  margin: 7px;
+  padding: 10px 20px;
   border: none;
   cursor: pointer;
-  border-radius: 4px;
-  font-weight: bold;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background-color 0.3s;
 }
 
-/* Style for the "Edit" button */
+/* Specific Button Styles */
 Button.editRoundButton {
-  background-color: #007bff;
+  background: linear-gradient(135deg, #0069d9, #007bff);
   color: #fff;
 }
 
@@ -82,7 +116,7 @@ Button.cancelEditButton {
 }
 
 Button.cancelEditButton:hover {
-  background-color: #b18503;
+  background-color: #f59e00;
 }
 
 Button.saveRoundButton {
@@ -91,7 +125,7 @@ Button.saveRoundButton {
 }
 
 Button.saveRoundButton:hover {
-  background-color: #196b2a;
+  background-color: #1e7a34;
 }
 
 Button.deleteRoundButton {
@@ -100,35 +134,107 @@ Button.deleteRoundButton {
 }
 
 Button.deleteRoundButton:hover {
-  background-color: #881823;
+  background-color: #c21d35;
 }
 
 /* Styling for the search container */
 .searchContainer {
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  padding: 0 20px;
 }
 
 /* Styling for the search input */
 .searchContainer input {
-  padding: 10px 15px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  width: 80%;
-  max-width: 400px;
+  flex: 1;
+  padding: 12px 20px;
+  font-size: 18px;
+  border: 1px solid #e1e1e1;
+  border-radius: 25px;
   transition: border 0.3s, box-shadow 0.3s;
 }
 
 .searchContainer input:focus {
   border: 1px solid #007bff;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.4);
   outline: none;
 }
-.hIHeader {
+
+.hIHeader2 {
   position: absolute;
-  top: 120px;
-  left: 25px;
+  /* top: 100px;
+  left: 50px; */
+  top: 140px;
+  font-weight: 600;
+  font-size: 24px;
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .roundContainer {
+    max-width: 90%;
+    padding: 15px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .addRoundButton,
+  Button.deleteRoundButton,
+  Button.saveRoundButton,
+  Button.cancelEditButton,
+  Button.editRoundButton {
+    padding: 8px 15px;
+    font-size: 0.875rem;
+  }
+
+  .styledRoundCard {
+    margin: 15px 0;
+    padding: 20px;
+  }
+
+  .roundScore {
+    font-size: 18px;
+  }
+
+  .roundDate {
+    font-size: 14px;
+  }
+
+  input[type="number"],
+  input[type="password"],
+  input[type="text"] {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
+
+/* .roundDate,
+.roundScore {
+  position: absolute;
+} */
+
+.roundDate {
+  top: 0;
+  right: 0;
+  font-weight: 500;
+  color: #343a40;
+  margin-bottom: 20px;
+}
+
+/* .roundScore {
+  top: 10;
+  left: 100;
+  font-weight: 600;
+  color: #343a40;
+  margin-bottom: 20px;
+} */

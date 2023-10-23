@@ -4,6 +4,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import { CardActionArea, CardActions } from "@mui/material";
 import Swal from "sweetalert2";
 
 export default function RoundsItem({ round }) {
@@ -127,48 +128,65 @@ export default function RoundsItem({ round }) {
                 value={newDate}
                 onChange={(event) => setNewDate(event.target.value)}
               />
-              <Button className="cancelEditButton" onClick={handleCancelEdit}>
-                Cancel
-              </Button>
-              <Button
-                className="deleteRoundButton"
-                onClick={() => handleDelete(round.id)}
-              >
-                Delete
-              </Button>
-              <Button
-                className="saveRoundButton"
-                onClick={() => saveChanges(round.id)}
-              >
-                Save
-              </Button>
+
+              <CardActions>
+                <Button className="cancelEditButton" onClick={handleCancelEdit}>
+                  Cancel
+                </Button>
+                <Button
+                  className="deleteRoundButton"
+                  onClick={() => handleDelete(round.id)}
+                >
+                  Delete
+                </Button>
+                <Button
+                  className="saveRoundButton"
+                  onClick={() => saveChanges(round.id)}
+                >
+                  Save
+                </Button>
+              </CardActions>
             </>
           ) : (
             // Display round data
             <>
-              <Button
-                className="editRoundButton"
-                onClick={() => handleEdit(round.id)}
-              >
-                Edit
-              </Button>
+              <CardActions>
+                <Button
+                  size="small"
+                  className="editRoundButton"
+                  onClick={() => handleEdit(round.id)}
+                >
+                  Edit
+                </Button>
+              </CardActions>
 
-              {/* <Button onClick={() => setRoundToEdit(round.id)}>Edit</Button> */}
               <Typography variant="h5" className="roundScore">
                 Course: {round.course_name}
               </Typography>
               <Typography variant="h5" className="roundScore">
-                Score: {round.front_9_score + round.back_9_score}
+                Total Score: {round.front_9_score + round.back_9_score}
               </Typography>
+              {/* <Typography variant="h6" className="roundScore">
+                Front 9: {round.front_9_score}
+              </Typography> */}
+
+              {round.front_9_score !== 0 && (
+                <Typography variant="h6" className="roundScore">
+                  Front 9: {round.front_9_score}
+                </Typography>
+              )}
+              {round.back_9_score !== 0 && (
+                <Typography variant="h6" className="roundScore">
+                  Back 9: {round.back_9_score}
+                </Typography>
+              )}
+
               <Typography variant="h5" className="roundScore">
                 Differential: {round.score_differential}
               </Typography>
-              <Typography variant="subtitle1" className="roundDate">
+              <Typography variant="h5" className="roundDate">
                 {formatDate(round.date)}
               </Typography>
-              {/* <Typography variant="subtitle2" className="courseHandicap"> not a usable feature yet
-                Course Handicap: {round.course_handicap} 
-              </Typography> */}
             </>
           )}
         </CardContent>
