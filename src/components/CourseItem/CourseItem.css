@@ -1,0 +1,19 @@
+/* CourseItem.css */
+
+.courseHeader {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; positions course name on the left and date on the right */
+  align-items: flex-start; /* vertically aligns them in case they have different heights */
+  padding: 0 16px; /* same padding as CardContent for consistency */
+  font-size: 40px;
+}
+
+.courseName {
+  display: flex;
+  /* justify-content: space-between; */
+}
+
+.courseLocation {
+  /* styles for date */
+}
