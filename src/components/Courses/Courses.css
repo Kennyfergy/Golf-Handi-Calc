@@ -2,40 +2,52 @@
   text-align: center;
   margin: 40px auto;
   max-width: 900px;
-  background: linear-gradient(135deg, #e9f5f0, #acc8b1);
+  background: linear-gradient(135deg, #e9f5f0, #7cc68b);
   padding: 20px;
   border-radius: 10px;
 }
 
-Button.addCourseButton {
-  margin: 20px 0;
+.addCourseButton {
+  margin: 25px 0;
+  background: linear-gradient(135deg, #0069d9, #338ff1);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
 }
-Button.addCourseButton:hover {
-  background-color: #024a97;
+
+.addCourseButton:hover {
+  background: linear-gradient(135deg, #2c7acf, #5ca1ea);
 }
+
 /* Styles for CourseItem component within Courses */
 .styledCourseCard {
   margin: 20px 0;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s; /* Add a transition for smooth animation */
+  padding: 10px;
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  background-color: #f6f5f5;
+  transition: transform 0.2s, box-shadow 0.2s;
+  padding-left: 10px;
+  padding-bottom: 10px;
+
+  margin-bottom: 15px;
 
   &:hover {
-    transform: translateY(-5px); /* Lift the card slightly when hovered */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Increase the box shadow */
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   }
 }
 
-.courseInputGroup {
+/* .courseInputGroup {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 10px;
   font-size: 20px;
-}
+} */
 
 .courseName {
   font-size: 18px;
@@ -129,6 +141,28 @@ Button.editCourseButton:hover {
 }
 .hIHeader {
   position: absolute;
+  border-radius: 12px;
+  padding: 5px 15px;
+  background: linear-gradient(135deg, #a9ffc6, #98e5a3);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(234, 231, 231, 0.3);
   top: 120px;
-  left: 25px;
+  font-weight: 600;
+  font-size: 24px;
+  color: #252525;
+}
+
+.coursesContainer h1 {
+  font-size: 48px;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  background: -webkit-linear-gradient(
+    left,
+    #53dc7f,
+    #05390a
+  ); /* Color gradient */
+  -webkit-background-clip: text;
+  color: transparent;
+  padding: 10px 0;
+  margin-top: 5px;
 }

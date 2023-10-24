@@ -105,7 +105,7 @@ export default function RoundsItem({ round }) {
   };
 
   return (
-    <div>
+    <div className="roundsPage">
       <Card key={round.id} className="styledRoundCard">
         <CardContent className="roundCardContent">
           {editingRoundId === round.id ? (
