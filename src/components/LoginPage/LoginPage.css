@@ -3,31 +3,32 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  padding-top: 0;
   display: flex;
   height: 100vh;
   justify-content: center;
   align-items: center;
 }
 
+/* Form container styling */
 .login-form {
-  width: 350px;
+  max-width: 350px;
+  width: 90%;
   opacity: 0.9;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 20px;
+  padding: 40px;
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 15px;
   transform: translateY(-35%);
   justify-content: center;
   font-size: 20px;
+  margin-top: 80px;
 }
 .login-form input {
   width: 100%;
   margin-bottom: 15px;
-
   padding: 10px;
   font-size: 20px;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -38,6 +39,7 @@
   border-color: #4caf50;
   box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.2);
 }
+/* Button styling */
 .loginButton {
   width: 100%;
   padding: 10px 20px;
@@ -48,40 +50,27 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin-top: 15px;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s;
+  transition: all 0.3s ease;
+  margin-top: 20px;
 }
+
 .loginButton:hover {
   background: linear-gradient(45deg, #173a18, rgb(164, 171, 166));
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4);
 }
-
-.radio_button:focus {
-  outline: none;
-  background: transparent;
-  border: none;
-  max-width: 20px;
+.checkboxes {
   display: flex;
-}
-.show-password-button {
-  border: none;
-  outline: none;
-  background: transparent;
-}
-.radio_button {
-  background: transparent;
-  outline: none;
-  border: none;
-  max-width: 20px;
-  display: flex;
-  align-items: center;
+  flex-direction: row;
   justify-content: center;
-  align-self: center;
-  text-align: center;
+  text-align: inherit;
+  margin-bottom: 20px;
 }
-.center-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
+@media (max-width: 600px) {
+  .login-form {
+    transform: translateY(0);
+    margin-top: 0;
+    padding: 20px;
+  }
 }

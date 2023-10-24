@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import "./RegisterForm.css";
 
 function RegisterForm() {
   const [username, setUsername] = useState("");
@@ -61,8 +60,8 @@ function RegisterForm() {
         </label>
       </div>
       <div>
-        <div>
-          <label className="gender-input">
+        <div className="checkboxes">
+          <div>
             <input
               required
               type="radio"
@@ -72,6 +71,8 @@ function RegisterForm() {
               onChange={() => setIs_male(true)}
             />
             Male
+          </div>{" "}
+          <div>
             <input
               required
               type="radio"
@@ -81,7 +82,7 @@ function RegisterForm() {
               onChange={() => setIs_male(false)}
             />
             Female
-          </label>
+          </div>
         </div>
       </div>
       <input type="checkbox" onChange={togglePasswordVisibility} /> Show

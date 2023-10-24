@@ -277,16 +277,3 @@ export default function AddAdminCourse() {
     </Paper>
   );
 } // end addCourse
-
-//data needed for courses table
-// user_id,
-//   course_name,
-//   course_location,
-//   men_course_rating,
-//   men_course_slope,
-//   men_front_9_par,
-//   men_back_9_par,
-//   women_course_rating,
-//   women_course_slope,
-//   women_front_9_par,
-//   women_back_9_par;
