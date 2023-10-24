@@ -136,182 +136,176 @@ export default function CourseItem({ course }) {
   return (
     <div>
       <Card key={course.id} className="styledCourseCard">
-        <div className="courseInputGroup">
-          <CardContent className="courseCardContent">
-            {" "}
-            {/* Updated class name */}
-            {editingCourseId === course.id ? (
-              <>
-                <Typography variant="h5" className="courseName">
-                  Course Name
-                </Typography>
-                <input
-                  type="text"
-                  name="courseDetails"
-                  value={editingCourseName}
-                  onChange={(event) => setEditingCourseName(event.target.value)}
-                />
-                <Typography variant="h5" className="courseDetails">
-                  Location
-                </Typography>
-                <input
-                  type="text"
-                  name="courseDetails"
-                  value={editingLocation}
-                  onChange={(event) => setEditingLocation(event.target.value)}
-                />
-                {user.is_male ? (
-                  <>
-                    <Typography variant="h5" className="courseDetails">
-                      Mens Back 9 Par
-                    </Typography>
-                    <input
-                      type="text"
-                      name="courseDetails"
-                      value={menBack9}
-                      onChange={(event) => setMenBack9(event.target.value)}
-                    />
-                    <Typography variant="h5" className="courseDetails">
-                      Mens Front 9 Par
-                    </Typography>
-                    <input
-                      type="text"
-                      name="courseDetails"
-                      value={menFront9}
-                      onChange={(event) => setMenFront9(event.target.value)}
-                    />
-                    <Typography variant="h5" className="courseDetails">
-                      Mens Course Rating
-                    </Typography>
-                    <input
-                      type="text"
-                      name="courseDetails"
-                      value={menCourseRating}
-                      onChange={(event) =>
-                        setMenCourseRating(event.target.value)
-                      }
-                    />
-                    <Typography variant="h5" className="courseDetails">
-                      Mens Course Slope
-                    </Typography>
-                    <input
-                      type="text"
-                      name="courseDetails"
-                      value={menCourseSlope}
-                      onChange={(event) =>
-                        setMenCourseSlope(event.target.value)
-                      }
-                    />
-                  </>
-                ) : (
-                  <>
-                    <Typography variant="h5" className="courseDetails">
-                      Women's Back 9 Par
-                    </Typography>
-                    <input
-                      type="text"
-                      name="courseDetails"
-                      value={womenBack9}
-                      onChange={(event) => setWomenBack9(event.target.value)}
-                    />
-                    <Typography variant="h5" className="courseDetails">
-                      Women's Front 9 Par
-                    </Typography>
-                    <input
-                      type="text"
-                      name="courseDetails"
-                      value={womenFront9}
-                      onChange={(event) => setWomenFront9(event.target.value)}
-                    />
-                    <Typography variant="h5" className="courseDetails">
-                      Women's Course Rating
-                    </Typography>
-                    <input
-                      type="text"
-                      name="courseDetails"
-                      value={womenCourseRating}
-                      onChange={(event) =>
-                        setWomenCourseRating(event.target.value)
-                      }
-                    />
-                    <Typography variant="h5" className="courseDetails">
-                      Women's Course Slope
-                    </Typography>
-                    <input
-                      type="text"
-                      name="courseDetails"
-                      value={womenCourseSlope}
-                      onChange={(event) =>
-                        setWomenCourseSlope(event.target.value)
-                      }
-                    />
-                  </>
-                )}
-                <Button className="cancelEditButton" onClick={handleCancelEdit}>
-                  Cancel
-                </Button>
+        <CardContent className="courseCardContent">
+          {" "}
+          {/* Updated class name */}
+          {editingCourseId === course.id ? (
+            <>
+              <Typography variant="h5" className="courseName">
+                Course Name
+              </Typography>
+              <input
+                type="text"
+                name="courseDetails"
+                value={editingCourseName}
+                onChange={(event) => setEditingCourseName(event.target.value)}
+              />
+              <Typography variant="h5" className="courseDetails">
+                Location
+              </Typography>
+              <input
+                type="text"
+                name="courseDetails"
+                value={editingLocation}
+                onChange={(event) => setEditingLocation(event.target.value)}
+              />
+              {user.is_male ? (
+                <>
+                  <Typography variant="h5" className="courseDetails">
+                    Mens Back 9 Par
+                  </Typography>
+                  <input
+                    type="text"
+                    name="courseDetails"
+                    value={menBack9}
+                    onChange={(event) => setMenBack9(event.target.value)}
+                  />
+                  <Typography variant="h5" className="courseDetails">
+                    Mens Front 9 Par
+                  </Typography>
+                  <input
+                    type="text"
+                    name="courseDetails"
+                    value={menFront9}
+                    onChange={(event) => setMenFront9(event.target.value)}
+                  />
+                  <Typography variant="h5" className="courseDetails">
+                    Mens Course Rating
+                  </Typography>
+                  <input
+                    type="text"
+                    name="courseDetails"
+                    value={menCourseRating}
+                    onChange={(event) => setMenCourseRating(event.target.value)}
+                  />
+                  <Typography variant="h5" className="courseDetails">
+                    Mens Course Slope
+                  </Typography>
+                  <input
+                    type="text"
+                    name="courseDetails"
+                    value={menCourseSlope}
+                    onChange={(event) => setMenCourseSlope(event.target.value)}
+                  />
+                </>
+              ) : (
+                <>
+                  <Typography variant="h5" className="courseDetails">
+                    Women's Back 9 Par
+                  </Typography>
+                  <input
+                    type="text"
+                    name="courseDetails"
+                    value={womenBack9}
+                    onChange={(event) => setWomenBack9(event.target.value)}
+                  />
+                  <Typography variant="h5" className="courseDetails">
+                    Women's Front 9 Par
+                  </Typography>
+                  <input
+                    type="text"
+                    name="courseDetails"
+                    value={womenFront9}
+                    onChange={(event) => setWomenFront9(event.target.value)}
+                  />
+                  <Typography variant="h5" className="courseDetails">
+                    Women's Course Rating
+                  </Typography>
+                  <input
+                    type="text"
+                    name="courseDetails"
+                    value={womenCourseRating}
+                    onChange={(event) =>
+                      setWomenCourseRating(event.target.value)
+                    }
+                  />
+                  <Typography variant="h5" className="courseDetails">
+                    Women's Course Slope
+                  </Typography>
+                  <input
+                    type="text"
+                    name="courseDetails"
+                    value={womenCourseSlope}
+                    onChange={(event) =>
+                      setWomenCourseSlope(event.target.value)
+                    }
+                  />
+                </>
+              )}
+              <Button className="cancelEditButton" onClick={handleCancelEdit}>
+                Cancel
+              </Button>
+              <Button
+                className="deleteCourseButton"
+                onClick={() => handleDelete(course.id)}
+              >
+                Delete
+              </Button>
+              <Button
+                className="saveCourseButton"
+                onClick={() => saveChanges(course.id)}
+              >
+                Save
+              </Button>
+            </>
+          ) : (
+            <>
+              {(!course.is_admin_course || user.is_admin) && (
                 <Button
-                  className="deleteCourseButton"
-                  onClick={() => handleDelete(course.id)}
+                  className="editCourseButton"
+                  onClick={() => handleEdit(course.id)}
+                  startIcon={<EditIcon />}
                 >
-                  Delete
+                  Edit
                 </Button>
-                <Button
-                  className="saveCourseButton"
-                  onClick={() => saveChanges(course.id)}
-                >
-                  Save
-                </Button>
-              </>
-            ) : (
-              <>
-                {(!course.is_admin_course || user.is_admin) && (
-                  <Button
-                    className="editCourseButton"
-                    onClick={() => handleEdit(course.id)}
-                    startIcon={<EditIcon />}
-                  >
-                    Edit
-                  </Button>
-                )}
-                {course.is_admin_course ? (
-                  <p>This course was added by Admin</p>
-                ) : (
-                  <></>
-                )}
+              )}
+              {course.is_admin_course ? (
+                <p>This course was added by Admin</p>
+              ) : (
+                <></>
+              )}
 
-                <Typography variant="h5" className="courseDetails">
-                  Course: {course.course_name}
-                </Typography>
-                <Typography variant="h5" className="courseDetails">
-                  Location: {course.course_location}
-                </Typography>
+              <Typography variant="h5" className="courseDetails">
+                Course: {course.course_name}
+              </Typography>
+              <Typography variant="h5" className="courseDetails">
+                Location: {course.course_location}
+              </Typography>
 
-                <Typography variant="h5" className="courseDetails">
-                  Par:{" "}
-                  {user.is_male
-                    ? course.men_back_9_par + course.men_front_9_par
-                    : course.women_back_9_par + course.women_front_9_par}
-                </Typography>
-                <Typography variant="h5" className="courseDetails">
-                  Course Rating:{" "}
-                  {user.is_male
-                    ? course.men_course_rating
-                    : course.women_course_rating}
-                </Typography>
-                <Typography variant="h5" className="courseDetails">
-                  Slope:{" "}
-                  {user.is_male
-                    ? course.men_course_slope
-                    : course.women_course_slope}
-                </Typography>
-                <Typography variant="h5" className="courseDetails">
-                  {user.username}'s Course Handicap: {courseHandicap}
-                </Typography>
-              </>
-            )}
-          </CardContent>
-        </div>
+              <Typography variant="h5" className="courseDetails">
+                Par:{" "}
+                {user.is_male
+                  ? course.men_back_9_par + course.men_front_9_par
+                  : course.women_back_9_par + course.women_front_9_par}
+              </Typography>
+              <Typography variant="h5" className="courseDetails">
+                Course Rating:{" "}
+                {user.is_male
+                  ? course.men_course_rating
+                  : course.women_course_rating}
+              </Typography>
+              <Typography variant="h5" className="courseDetails">
+                Slope:{" "}
+                {user.is_male
+                  ? course.men_course_slope
+                  : course.women_course_slope}
+              </Typography>
+              <Typography variant="h5" className="courseDetails">
+                {user.username}'s Course Handicap: {courseHandicap}
+              </Typography>
+            </>
+          )}
+        </CardContent>
       </Card>
     </div>
   );

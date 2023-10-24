@@ -1,8 +1,10 @@
 .coursesContainer {
   text-align: center;
-  margin: 20px auto;
-  max-width: 800px;
-  padding: 0 10px;
+  margin: 40px auto;
+  max-width: 900px;
+  background: linear-gradient(135deg, #e9f5f0, #acc8b1);
+  padding: 20px;
+  border-radius: 10px;
 }
 
 Button.addCourseButton {
@@ -49,7 +51,7 @@ input[name="courseDetails"] {
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 18px;
-  background-color: #f1faf5;
+  background-color: #ecefed;
   text-align: center;
 }
 

@@ -39,7 +39,7 @@ export default function Courses() {
   return (
     <div className="coursesContainer">
       <h1>Courses</h1>
-      <h2 className="hIHeader">Handicap Index {user.user_handicap}</h2>
+      <h2 className="hIHeader2">Handicap Index {user.user_handicap}</h2>
       <CourseSearch onSearchChange={setSearchQuery} />
       <Button
         variant="contained"
