@@ -1,24 +1,38 @@
-/* html,
+html,
 body,
 #react-root {
   height: 100%;
-} */
+}
 
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Roboto, sans-serif;
   margin: 0px;
 }
+footer {
+  display: flex; /* ensures child elements can use flexbox properties */
+  align-items: center;
+  justify-content: center;
+  align-content: center;
 
-img {
+  width: 20%;
+  height: 18px;
+  font-size: 15px;
+  background-color: #868484;
+  color: white;
+  text-align: center;
+  z-index: 1000;
+}
+
+/* img {
   display: inline-block;
   max-width: 100%;
-}
+} */
 
 /* --------------------------------------------------------------------------------
 Button
 -------------------------------------------------------------------------------- */
 
-.btn_sizeMin {
+/* .btn_sizeMin {
   min-height: 50px;
   min-width: 100px;
 }
@@ -36,13 +50,13 @@ Button
 .btn:hover {
   background-color: #008183;
   text-decoration: none;
-}
+} */
 
 /* --------------------------------------------------------------------------------
 Alert
 -------------------------------------------------------------------------------- */
 
-.alert {
+/* .alert {
   box-sizing: border-box;
   padding: 15px 10px;
   margin: 15px 0;
@@ -51,12 +65,12 @@ Alert
   border-radius: 3px;
   color: #e01616;
   font-size: 0.8rem;
-}
+} */
 
 /* --------------------------------------------------------------------------------
 Form Treatment
 -------------------------------------------------------------------------------- */
-
+/* 
 .formPanel {
   box-sizing: border-box;
   width: 400px;
@@ -66,9 +80,9 @@ Form Treatment
   background-color: #efefef;
   border-radius: 3px;
   box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
-}
+} */
 
-input {
+/* input {
   margin: 5px;
   margin-bottom: 10px;
-}
+} */

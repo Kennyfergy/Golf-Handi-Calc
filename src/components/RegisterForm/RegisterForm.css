@@ -1,26 +1,3 @@
-.formPanel {
-  width: 80%;
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.gender-input > div {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.gender-input label {
-  margin-right: 60px;
-  margin-left: 60px;
-}
-
-.alert {
-  color: red;
-}
-
 /* Media queries for screens smaller than 600px (mobile devices) */
 @media only screen and (max-width: 600px) {
   .formPanel {
@@ -28,12 +5,34 @@
   }
 
   .gender-input label {
-    margin-right: 10px; /* Reduced margin for mobile */
+    margin-right: 10px;
     margin-left: 10px;
   }
 
-  /* Optional: Increase touch area of radio buttons */
   .gender-input input[type="radio"] {
-    transform: scale(1.2); /* Makes the radio button 20% larger */
+    transform: scale(1.4);
   }
+}
+.gender-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.gender-input label {
+  margin-right: 0px;
+  padding: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+  align-items: center;
+  justify-content: center;
+  display: inline-flex;
+}
+.gender-input label:hover {
+  background-color: rgba(220, 220, 220, 0.5);
+}
+
+.gender-input input[type="radio"] {
+  margin-right: 0px;
+  margin-left: 10px;
 }

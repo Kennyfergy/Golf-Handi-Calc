@@ -60,9 +60,9 @@ function RegisterForm() {
           />
         </label>
       </div>
-      <div className="gender-input">
+      <div>
         <div>
-          <label>
+          <label className="gender-input">
             <input
               required
               type="radio"
@@ -72,9 +72,6 @@ function RegisterForm() {
               onChange={() => setIs_male(true)}
             />
             Male
-          </label>
-
-          <label>
             <input
               required
               type="radio"

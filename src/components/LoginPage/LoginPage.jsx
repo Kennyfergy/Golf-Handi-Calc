@@ -10,8 +10,7 @@ function LoginPage() {
     <header className="login-background">
       <div className="login-form">
         <LoginForm />
-
-        <center>
+        <div className="center-button">
           <button
             type="button"
             className="loginButton"
@@ -21,7 +20,7 @@ function LoginPage() {
           >
             Register
           </button>
-        </center>
+        </div>
       </div>
     </header>
   );
