@@ -8,6 +8,20 @@ body {
   font-family: Roboto, sans-serif;
   margin: 0px;
 }
+footer {
+  display: flex; /* ensures child elements can use flexbox properties */
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  align-self: ;
+  width: 20%;
+  height: 18px;
+  font-size: 15px;
+  background-color: #868484;
+  color: white;
+  text-align: center;
+  z-index: 1000;
+}
 
 /* img {
   display: inline-block;
