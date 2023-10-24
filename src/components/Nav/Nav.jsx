@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import LogOutButton from "../LogOutButton/LogOutButton";
-import NavStyles from "./Nav.module.css";
+// import NavStyles from "./Nav.module.css";
 import "./Nav.css";
 import { useSelector } from "react-redux";
 import { Drawer, Button, List, ListItem, ListItemText } from "@mui/material";
@@ -13,7 +13,7 @@ function Nav() {
   const [drawerOpen, setDrawerOpen] = useState(false); //state for drawer
 
   return (
-    <div id="nav" className={NavStyles.nav}>
+    <div id="nav" className="nav">
       <Link to="/home">
         <div class="nav-title-container">
           <h2 className="nav-title">Golf Handi-Calc</h2>
@@ -47,7 +47,7 @@ function Nav() {
           About
         </Link> */}
         <Button className="menuButton" onClick={() => setDrawerOpen(true)}>
-          <MenuIcon fontSize="large" />
+          <MenuIcon style={{ fontSize: "70px", marginRight: "20px" }} />
         </Button>
 
         <Drawer

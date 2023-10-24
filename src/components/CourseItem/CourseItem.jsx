@@ -136,6 +136,14 @@ export default function CourseItem({ course }) {
   return (
     <div>
       <Card key={course.id} className="styledCourseCard">
+        <div className="courseHeader">
+          <Typography variant="h6" className="courseName">
+            {course.course_name}
+          </Typography>
+          <Typography variant="h6" className="courseLocation">
+            {course.course_location}
+          </Typography>
+        </div>
         <CardContent className="courseCardContent">
           {" "}
           {/* Updated class name */}
@@ -275,12 +283,12 @@ export default function CourseItem({ course }) {
                 <></>
               )}
 
-              <Typography variant="h5" className="courseDetails">
+              {/* <Typography variant="h5" className="courseDetails">
                 Course: {course.course_name}
-              </Typography>
-              <Typography variant="h5" className="courseDetails">
+              </Typography> */}
+              {/* <Typography variant="h5" className="courseDetails">
                 Location: {course.course_location}
-              </Typography>
+              </Typography> */}
 
               <Typography variant="h5" className="courseDetails">
                 Par:{" "}

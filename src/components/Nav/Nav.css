@@ -2,13 +2,24 @@
   text-decoration: none;
   flex: 1;
 }
+.nav {
+  /* flex box layout */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 0 0 0;
+  background-color: #4f6e59;
+  z-index: 1000;
+}
 
 .nav-title {
-  font-size: 34px;
+  font-size: 40px;
   font-weight: 700;
   color: #f2f2f2;
   align-items: center;
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .navLink {
@@ -16,9 +27,9 @@
   color: #f2f2f2;
   background-color: #5e946d;
   text-align: center;
-  padding: 24px 10px;
+  padding: 24px 14px;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 18px;
 
   /* these last two make the logout button in
   the nav bar look like another link */
@@ -37,7 +48,7 @@
   /* background-color: #f5f5f5; */
 }
 .drawer .MuiList-root {
-  padding: 25px;
+  padding: 30px;
 }
 
 .drawer .MuiListItem-root {
@@ -50,13 +61,13 @@
   transform: scale(1.12);
 }
 
-.drawer .MuiListItemText-root {
+/* .drawer .MuiListItemText-root {
   font-size: 1.3em;
-}
+} */
 .menuButton {
-  background-color: #253170;
-  color: white;
-  margin-left: 10px;
+  background-color: none;
+  color: rgb(255, 165, 96) !important;
+
   border-radius: 3px;
   transition: background-color 0.3s, transform 0.2s;
   border: none;
@@ -66,12 +77,13 @@
 }
 
 .menuButton:hover {
-  background-color: #2c387e;
-  transform: scale(1.2);
+  background-color: #777676;
+  transform: scale(1.1);
 }
 .drawer .MuiDrawer-paper {
-  transition: transform 0.3s;
+  transition: transform 0.2s;
   transform-origin: right;
+  background-color: rgb(233, 236, 232);
 }
 
 .drawer .MuiDrawer-paperAnchorRight {
