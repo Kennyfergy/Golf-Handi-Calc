@@ -22,7 +22,7 @@
 }
 
 /* Style for the RoundsItem component */
-.styledRoundCard {
+.roundsPage .styledRoundCard {
   margin: 30px 0;
   padding: 25px;
   border: none;
@@ -30,6 +30,7 @@
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
   background-color: #fff;
   transition: transform 0.2s, box-shadow 0.2s;
+  padding-left: 0;
 
   &:hover {
     transform: translateY(-8px);
@@ -37,13 +38,14 @@
   }
 }
 
-.cardContent {
+/* .cardContent {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 15px;
-}
+  background-color: black;
+} */
 
 .roundScore {
   font-size: 20px;
@@ -58,9 +60,9 @@
 }
 
 /* Styles for the edit mode inputs */
-input[type="number"],
-input[type="password"],
-input[type="text"] {
+.roundsPage input[type="number"],
+.roundsPage input[type="password"],
+.roundsPage input[type="text"] {
   width: 100%;
   padding: 10px 15px;
   margin: 7px 0;
@@ -70,11 +72,9 @@ input[type="text"] {
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-input[type="number"]:focus,
-input[type="password"]:focus,
-input[type="text"]:focus {
-  border-color: #007bff;
-
+.roundsPage input[type="number"]:focus,
+.roundsPage input[type="password"]:focus,
+.roundsPage input[type="text"]:focus {
   border-color: #007bff;
   box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
 
@@ -192,25 +192,25 @@ Button.deleteRoundButton:hover {
     font-size: 0.875rem;
   }
 
-  .styledRoundCard {
+  /* .styledRoundCard {
     margin: 15px 0;
     padding: 20px;
-  }
+  } */
 
-  .roundScore {
+  /* .roundScore {
     font-size: 18px;
   }
 
   .roundDate {
     font-size: 14px;
-  }
+  } */
 
-  input[type="number"],
+  /* input[type="number"],
   input[type="password"],
   input[type="text"] {
     padding: 8px 12px;
     font-size: 14px;
-  }
+  } */
 }
 
 /* .roundDate,
@@ -218,7 +218,7 @@ Button.deleteRoundButton:hover {
   position: absolute;
 } */
 
-.roundDate {
+/* .roundDate {
   top: 0;
   right: 0;
   font-weight: 500;
@@ -232,4 +232,4 @@ Button.deleteRoundButton:hover {
   font-weight: 600;
   color: #343a40;
   margin-bottom: 20px;
-}
+} */
