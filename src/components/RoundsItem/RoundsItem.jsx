@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { CardActionArea, CardActions } from "@mui/material";
 import Swal from "sweetalert2";
+import EditIcon from "@mui/icons-material/Edit";
 
 export default function RoundsItem({ round }) {
   const dispatch = useDispatch();
@@ -155,6 +156,7 @@ export default function RoundsItem({ round }) {
                   size="small"
                   className="editRoundButton"
                   onClick={() => handleEdit(round.id)}
+                  startIcon={<EditIcon />}
                 >
                   Edit
                 </Button>

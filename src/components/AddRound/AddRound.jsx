@@ -10,6 +10,8 @@ import {
   Select,
   MenuItem,
 } from "@mui/material";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import SendIcon from "@mui/icons-material/Send";
 import "./AddRound.css";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -102,6 +104,7 @@ export default function AddRound() {
         variant="outlined"
         color="primary"
         onClick={() => history.push("/rounds")}
+        startIcon={<ArrowBackIcon />}
       >
         Back to Rounds
       </Button>
@@ -111,8 +114,10 @@ export default function AddRound() {
         </Typography>
       )}
 
-      <Typography variant="h4">Add Round</Typography>
-      <FormControl component="fieldset">
+      <Typography variant="h4" style={{ marginTop: "20px" }}>
+        Add Round
+      </Typography>
+      <FormControl component="fieldset" style={{ marginTop: "20px" }}>
         <FormControlLabel
           control={
             <Checkbox
@@ -134,7 +139,9 @@ export default function AddRound() {
           label="Back 9"
         />
       </FormControl>
-      <Typography variant="h6">Select Course:</Typography>
+      <Typography variant="h6" style={{ marginTop: "20px" }}>
+        Select Course:
+      </Typography>
       <Select
         value={courseId}
         onChange={(e) => setCourseId(e.target.value)}
@@ -178,7 +185,21 @@ export default function AddRound() {
         InputLabelProps={{ shrink: true }}
       />
 
-      <Button variant="contained" color="primary" onClick={handleSubmit}>
+      <Button
+        style={{
+          backgroundColor: "#1a481b",
+          color: "white",
+          marginTop: "20px",
+          "&:hover": {
+            backgroundColor: "#173a18",
+          },
+        }}
+        className="submitRoundButton"
+        variant="contained"
+        color="primary"
+        onClick={handleSubmit}
+        startIcon={<SendIcon />}
+      >
         Submit
       </Button>
     </div>

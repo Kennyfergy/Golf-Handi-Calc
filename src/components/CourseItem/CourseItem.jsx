@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Swal from "sweetalert2";
 import "./CourseItem.css";
+import EditIcon from "@mui/icons-material/Edit";
 import { calculateCourseHandicap } from "./CourseFunctions";
 
 export default function CourseItem({ course }) {
@@ -268,6 +269,7 @@ export default function CourseItem({ course }) {
                   <Button
                     className="editCourseButton"
                     onClick={() => handleEdit(course.id)}
+                    startIcon={<EditIcon />}
                   >
                     Edit
                   </Button>

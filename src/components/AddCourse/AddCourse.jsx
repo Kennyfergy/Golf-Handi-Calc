@@ -10,6 +10,8 @@ import {
   Grid,
 } from "@mui/material";
 import "./AddCourse.css";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import SendIcon from "@mui/icons-material/Send";
 
 export default function AddCourse() {
   const history = useHistory();
@@ -131,8 +133,9 @@ export default function AddCourse() {
         size="small"
         onClick={() => history.push("/courses")}
         style={{ marginBottom: "20px" }}
+        startIcon={<ArrowBackIcon />}
       >
-        ⬅ Back to Courses
+        Back to Courses
       </Button>
 
       {errorMessage && (
@@ -266,13 +269,18 @@ export default function AddCourse() {
         <Grid
           item
           xs={12}
-          style={{ display: "flex", justifyContent: "flex-end" }}
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+            marginTop: "20px",
+          }}
         >
           <Button
             className="submit-btn"
             variant="contained"
             color="primary"
             onClick={handleSubmit}
+            startIcon={<SendIcon />}
           >
             Submit
           </Button>
@@ -281,16 +289,3 @@ export default function AddCourse() {
     </Paper>
   );
 } // end addCourse
-
-//data needed for courses table
-// user_id,
-//   course_name,
-//   course_location,
-//   men_course_rating,
-//   men_course_slope,
-//   men_front_9_par,
-//   men_back_9_par,
-//   women_course_rating,
-//   women_course_slope,
-//   women_front_9_par,
-//   women_back_9_par;
