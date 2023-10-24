@@ -3,10 +3,12 @@ body,
 #react-root {
   height: 100%;
 }
-
+/* background-image: url("../../../public/Golf6.png"); */
 body {
   font-family: Roboto, sans-serif;
+
   margin: 0px;
+  background-color: rgba(117, 145, 117, 0.666);
 }
 footer {
   display: flex; /* ensures child elements can use flexbox properties */
