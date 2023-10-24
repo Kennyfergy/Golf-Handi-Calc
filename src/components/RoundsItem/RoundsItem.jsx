@@ -154,7 +154,7 @@ export default function RoundsItem({ round }) {
             <>
               <CardActions>
                 <Button
-                  size="small"
+                  style={{ fontSize: "12px" }}
                   className="editRoundButton"
                   onClick={() => handleEdit(round.id)}
                   startIcon={<EditIcon />}

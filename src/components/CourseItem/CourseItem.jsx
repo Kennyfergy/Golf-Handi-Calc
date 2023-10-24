@@ -137,16 +137,22 @@ export default function CourseItem({ course }) {
     <div>
       <Card key={course.id} className="styledCourseCard">
         <div className="courseHeader">
-          <Typography variant="h6" className="courseName">
-            {course.course_name}
+          <Typography
+            variant="h6"
+            className="courseName"
+            style={{ fontSize: "30px" }}
+          >
+            Course: {course.course_name}
           </Typography>
-          <Typography variant="h6" className="courseLocation">
+          <Typography
+            variant="h6"
+            className="courseLocation"
+            style={{ fontSize: "30px" }}
+          >
             {course.course_location}
           </Typography>
         </div>
         <CardContent className="courseCardContent">
-          {" "}
-          {/* Updated class name */}
           {editingCourseId === course.id ? (
             <>
               <Typography variant="h5" className="courseName">
