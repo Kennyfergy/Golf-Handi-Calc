@@ -14,7 +14,7 @@
 .navLink {
   display: inline-block;
   color: #f2f2f2;
-  background-color: #76adaa;
+  background-color: #5e946d;
   text-align: center;
   padding: 24px 10px;
   text-decoration: none;
@@ -29,7 +29,7 @@
 }
 
 .navLink:hover {
-  background-color: #008183;
+  background-color: #027e69;
 }
 .drawer {
   width: 33.33%;
