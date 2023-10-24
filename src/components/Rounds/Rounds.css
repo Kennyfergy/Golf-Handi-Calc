@@ -2,7 +2,7 @@
 .roundContainer {
   text-align: center;
   margin: 40px auto;
-  max-width: 1300px;
+  max-width: 1100px;
   background: linear-gradient(135deg, #e9f5f0, #7cc68b);
   padding: 20px;
   border-radius: 10px;
@@ -126,10 +126,11 @@ Button.deleteRoundButton:hover {
 }
 
 /* Styling for the search container */
-.searchContainer {
+.roundContainer .searchContainer {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-left: 29%;
   margin-bottom: 25px;
   padding: 0 20px;
 }
@@ -189,48 +190,7 @@ Button.deleteRoundButton:hover {
     padding: 8px 15px;
     font-size: 0.875rem;
   }
-
-  /* .styledRoundCard {
-    margin: 15px 0;
-    padding: 20px;
-  } */
-
-  /* .roundScore {
-    font-size: 18px;
-  }
-
-  .roundDate {
-    font-size: 14px;
-  } */
-
-  /* input[type="number"],
-  input[type="password"],
-  input[type="text"] {
-    padding: 8px 12px;
-    font-size: 14px;
-  } */
 }
-
-/* .roundDate,
-.roundScore {
-  position: absolute;
-} */
-
-/* .roundDate {
-  top: 0;
-  right: 0;
-  font-weight: 500;
-  color: #343a40;
-  margin-bottom: 20px;
-}
-
-.roundScore {
-  top: 10;
-  left: 100;
-  font-weight: 600;
-  color: #343a40;
-  margin-bottom: 20px;
-} */
 
 .roundContainer > div {
   display: flex;
@@ -239,7 +199,7 @@ Button.deleteRoundButton:hover {
 }
 
 .roundContainer > div > div {
-  /* Assuming each RoundsItem component is rendered inside a div */
+  /* RoundsItem component is rendered inside a div */
   flex: 1 0 calc(33.33% - 10px); /* 3 cards side by side */
   margin-bottom: 15px;
   box-sizing: border-box;
@@ -257,20 +217,20 @@ Button.deleteRoundButton:hover {
 }
 
 .roundContainer > div > div {
-  margin: 15px; /* Adds space on all sides of the card */
+  margin: 15px;
 }
 
 .roundContainer h1 {
-  font-size: 48px; /* Increased font size */
-  font-weight: bold; /* Bold text */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
+  font-size: 48px;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   background: -webkit-linear-gradient(
     left,
     #53dc7f,
     #05390a
   ); /* Color gradient */
-  -webkit-background-clip: text; /* Apply the gradient color to the text */
-  color: transparent; /* Make the original text color transparent to show the gradient */
-  padding: 20px 0; /* Added vertical spacing */
-  margin-top: 50px; /* Extra spacing at the top */
+  -webkit-background-clip: text;
+  color: transparent;
+  padding: 10px 0;
+  margin-top: 5px;
 }
