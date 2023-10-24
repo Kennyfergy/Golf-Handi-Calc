@@ -47,6 +47,6 @@
 }
 .submit-btn {
   max-width: 200px;
-  margin-left: auto; /* Aligning to the right */
+  margin-left: auto;
   margin-right: 0;
 }

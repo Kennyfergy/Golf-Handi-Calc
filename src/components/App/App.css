@@ -9,16 +9,16 @@ body {
   margin: 0px;
 }
 
-img {
+/* img {
   display: inline-block;
   max-width: 100%;
-}
+} */
 
 /* --------------------------------------------------------------------------------
 Button
 -------------------------------------------------------------------------------- */
 
-.btn_sizeMin {
+/* .btn_sizeMin {
   min-height: 50px;
   min-width: 100px;
 }
@@ -36,13 +36,13 @@ Button
 .btn:hover {
   background-color: #008183;
   text-decoration: none;
-}
+} */
 
 /* --------------------------------------------------------------------------------
 Alert
 -------------------------------------------------------------------------------- */
 
-.alert {
+/* .alert {
   box-sizing: border-box;
   padding: 15px 10px;
   margin: 15px 0;
@@ -51,12 +51,12 @@ Alert
   border-radius: 3px;
   color: #e01616;
   font-size: 0.8rem;
-}
+} */
 
 /* --------------------------------------------------------------------------------
 Form Treatment
 -------------------------------------------------------------------------------- */
-
+/* 
 .formPanel {
   box-sizing: border-box;
   width: 400px;
@@ -66,9 +66,9 @@ Form Treatment
   background-color: #efefef;
   border-radius: 3px;
   box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
-}
+} */
 
-input {
+/* input {
   margin: 5px;
   margin-bottom: 10px;
-}
+} */

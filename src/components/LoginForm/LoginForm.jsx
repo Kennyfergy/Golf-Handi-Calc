@@ -62,9 +62,13 @@ function LoginForm() {
             onChange={(event) => setPassword(event.target.value)}
           />
         </label>
-        <div>
-          <input type="checkbox" onChange={togglePasswordVisibility} /> Show
-          Password
+        <div className="radio_button">
+          <input
+            type="checkbox"
+            className="show-password-button"
+            onChange={togglePasswordVisibility}
+          />{" "}
+          Show Password
         </div>
       </div>
       <div>

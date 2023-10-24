@@ -4,35 +4,84 @@
   background-repeat: no-repeat;
   background-position: center center;
   padding-top: 0;
-
+  display: flex;
   height: 100vh;
+  justify-content: center;
+  align-items: center;
 }
 
 .login-form {
+  width: 350px;
   opacity: 0.9;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding-top: 10px;
-  /* height: 50%; */
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  transform: translateY(-35%);
   justify-content: center;
+  font-size: 20px;
 }
 .login-form input {
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
+  width: 100%;
+  margin-bottom: 15px;
+
+  padding: 10px;
+  font-size: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  outline: none;
+}
+.login-form input:focus {
+  border-color: #4caf50;
+  box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.2);
 }
 .loginButton {
-  background-color: #1a481b;
-  color: white;
-  border: 2px solid #4caf50; /* Green border */
+  width: 100%;
   padding: 10px 20px;
-  margin-top: 20px; /* Adds space between the Login and Register buttons */
-  transition: all 0.3s; /* Smooth transition for hover effects */
+  font-weight: 600;
+  font-size: 18px;
+  background: linear-gradient(45deg, #1a481b, #4caf50);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s;
 }
 .loginButton:hover {
-  background-color: rgb(164, 171, 166);
-  color: #173a18;
+  background: linear-gradient(45deg, #173a18, rgb(164, 171, 166));
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.radio_button:focus {
+  outline: none;
+  background: transparent;
+  border: none;
+  max-width: 20px;
+  display: flex;
+}
+.show-password-button {
+  border: none;
+  outline: none;
+  background: transparent;
+}
+.radio_button {
+  background: transparent;
+  outline: none;
+  border: none;
+  max-width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  text-align: center;
+}
+.center-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
 }

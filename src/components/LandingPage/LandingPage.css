@@ -2,13 +2,13 @@
 Grid
 -------------------------------------------------------------------------------- */
 
-.grid {
+/* .grid {
   display: flex;
   flex: 0 1 auto;
-  /* defaults to 'row' */
+
   flex-direction: row;
   flex-wrap: wrap;
-  /* defaults to 'flex-start' */
+ 
   justify-content: flex-start;
   align-items: flex-start;
 }
@@ -77,4 +77,4 @@ Grid
 .grid-col_12 {
   flex-basis: 100%;
   max-width: 100%;
-}
+} */

@@ -2,15 +2,15 @@ body,
 html {
   height: 100%;
   margin: 0;
-  font-family: "Arial", sans-serif;
+  font-family: Roboto;
 }
 
-#root {
+/* #root {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
-}
+} */
 
 .errorMessage {
   color: red;
