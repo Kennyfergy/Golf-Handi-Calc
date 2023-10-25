@@ -3,13 +3,22 @@ body,
 #react-root {
   height: 100%;
 }
+
 body {
   font-family: Roboto, sans-serif;
-
   margin: 0px;
+
   background-color: rgba(117, 145, 117, 0.666);
 }
-footer {
+.App {
+  flex: 1 0 auto;
+}
+
+#react-root {
+  display: flex;
+  flex-direction: column;
+}
+/* footer {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,68 +31,8 @@ footer {
   color: white;
   text-align: center;
   z-index: 1000;
+} */
+.footer {
+  flex-shrink: 0;
+  margin-top: auto;
 }
-
-/* img {
-  display: inline-block;
-  max-width: 100%;
-} */
-
-/* --------------------------------------------------------------------------------
-Button
--------------------------------------------------------------------------------- */
-
-/* .btn_sizeMin {
-  min-height: 50px;
-  min-width: 100px;
-}
-
-.btn_sizeSm {
-  padding: 10px 15px;
-  font-size: 0.8rem;
-}
-
-.btn_sizeFull {
-  display: block;
-  width: 100%;
-}
-
-.btn:hover {
-  background-color: #008183;
-  text-decoration: none;
-} */
-
-/* --------------------------------------------------------------------------------
-Alert
--------------------------------------------------------------------------------- */
-
-/* .alert {
-  box-sizing: border-box;
-  padding: 15px 10px;
-  margin: 15px 0;
-  border: 2px solid #e01616;
-  background-color: #efefef;
-  border-radius: 3px;
-  color: #e01616;
-  font-size: 0.8rem;
-} */
-
-/* --------------------------------------------------------------------------------
-Form Treatment
--------------------------------------------------------------------------------- */
-/* 
-.formPanel {
-  box-sizing: border-box;
-  width: 400px;
-  max-width: 100%;
-  padding: 25px;
-  margin: 0 auto 20px;
-  background-color: #efefef;
-  border-radius: 3px;
-  box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
-} */
-
-/* input {
-  margin: 5px;
-  margin-bottom: 10px;
-} */
