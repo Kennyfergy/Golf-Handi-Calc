@@ -75,6 +75,7 @@
     height: auto;
     margin: 20px 10px; /* Adjust the margin for smaller screens */
     padding: 15px;
+    margin-top: 50px;
   }
 
   .historyBox {
