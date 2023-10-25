@@ -14,11 +14,11 @@
   background-image: url("../../../public/Golf\ Logo.png");
   background-repeat: no-repeat;
   background-position: 10px, 0;
-  background-size: 210px;
+  background-size: 190px;
 }
 
 .nav-title {
-  font-size: 46px;
+  font-size: 42px;
   font-weight: 700;
   color: #f2f2f2;
   align-items: center;
@@ -99,16 +99,27 @@
 /* Media query for mobile screens */
 @media (max-width: 768px) {
   .nav {
-    flex-direction: column; /* Stack items vertically on small screens */
+    flex-direction: row; /* Stack items vertically on small screens */
+    background-size: 150px; /* Adjust logo size for mobile */
+    background-position: center top 1px;
+    padding-top: 50px;
   }
 
   .nav-title {
-    font-size: 24px; /* Reduce font size for mobile */
-    margin-bottom: 40px;
+    font-size: 24px;
+    margin-bottom: 0px;
+    padding-left: 0;
+    padding-top: 10px;
+    padding-bottom: 0;
   }
 
   .navLink {
-    padding: 16px 7px; /* Reduce padding for mobile */
-    font-size: 16px; /* Reduce font size for mobile */
+    padding: 12px 5px;
+    font-size: 16px;
+    flex-wrap: wrap;
+  }
+
+  .menuButton {
+    position: absolute;
   }
 }

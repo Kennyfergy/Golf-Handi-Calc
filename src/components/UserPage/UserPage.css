@@ -4,9 +4,9 @@
   background-repeat: no-repeat;
   background-position: center center;
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+  /* top: 0;
+  left: 0; */
+  /* width: 100%; */
   min-height: 100%;
   display: flex;
   flex-direction: column;
@@ -27,7 +27,7 @@
   border: 1px solid #ddd;
   padding: 20px;
   margin: 36px;
-  margin-top: 100px;
+  margin-top: 120px;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -36,61 +36,57 @@
   background-color: rgba(247, 247, 247, 0.7);
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 }
-.historyBox {
+.quickAddBox {
   margin-top: 32px;
   display: flex;
-  align-items: center;
 
   flex-direction: row;
-  justify-content: center;
 }
-.quickAddButton {
+Button.quickAddButton {
   background: linear-gradient(135deg, #518c57, #248c89);
   color: #fff;
   padding: 20px;
-  border-radius: 100px;
+  border-radius: 10px;
   width: 250px;
   height: auto;
   margin: 0 90px;
   font-size: 20px;
 }
-.quickAddButton:hover {
+Button.quickAddButton:hover {
   background: linear-gradient(135deg, #314039, #248c89);
 }
 .welcome_header {
   color: rgb(4, 56, 38);
   text-decoration: none;
-  margin-top: 200px;
+  margin-top: 100px;
   padding-top: 0px;
 }
 
-/* adjustments for mobile below*/
 @media (max-width: 768px) {
   .cardsContainer {
-    flex-direction: column; /* Stack the cards vertically on mobile */
+    flex-direction: column;
   }
 
   .infoBox {
-    width: 90%; /* Increase width for mobile */
+    width: 90%;
     height: auto;
-    margin: 20px 10px; /* Adjust the margin for smaller screens */
+    margin: 10px 0px;
     padding: 15px;
-    margin-top: 50px;
   }
 
-  .historyBox {
-    flex-direction: column; /* Stack the items vertically on mobile */
+  .quickAddBox {
+    flex-direction: column;
     align-items: center;
     gap: 20px;
   }
 
   .quickAddButton {
-    margin: 0 10px;
+    margin: 0 0px;
     width: 90%;
   }
 
   .welcome_header {
-    margin-top: 40px;
+    margin-top: 140px;
     font-size: 18px;
   }
 }

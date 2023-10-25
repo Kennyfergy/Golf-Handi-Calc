@@ -52,7 +52,7 @@ function UserPage() {
 
           <Typography variant="h4">{numberOfUniqueCoursesPlayed}</Typography>
         </Box>
-        <div className="historyBox">
+        <div className="quickAddBox">
           <Button
             className="quickAddButton"
             onClick={() => history.push("/addRound")}

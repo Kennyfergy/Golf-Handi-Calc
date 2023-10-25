@@ -202,7 +202,7 @@ Button.deleteRoundButton:hover {
 
 .roundContainer > div > div {
   /* RoundsItem component is rendered inside a div */
-  flex: 1 0 calc(33.33% - 10px); /* 2 cards side by side */
+  flex: 1 0 calc(33.33% - 10px);
   margin-bottom: 15px;
   box-sizing: border-box;
 }
@@ -216,10 +216,6 @@ Button.deleteRoundButton:hover {
 .roundContainer > div > div {
   width: 300px;
   height: 350px;
-}
-
-.roundContainer > div > div {
-  margin: 15px;
 }
 
 .roundContainer h1 {
