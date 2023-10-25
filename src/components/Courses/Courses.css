@@ -156,9 +156,12 @@ Button.editCourseButton:hover {
   font-size: 48px;
   font-weight: bold;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-  background: -webkit-linear-gradient(left, #53dc7f, #05390a);
-  -webkit-background-clip: text;
-  color: transparent;
   padding: 10px 0;
   margin-top: 5px;
+
+  /* Gradient settings */
+  background: linear-gradient(90deg, #53dc7f, #05390a);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
 }
