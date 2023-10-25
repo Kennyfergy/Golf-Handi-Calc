@@ -11,15 +11,21 @@
   margin: 0 0 0;
   background-color: #4f6e59;
   z-index: 1000;
+  background-image: url("../../../public/Golf\ Logo.png");
+  background-repeat: no-repeat;
+  background-position: 10px, 0;
+  background-size: 210px;
 }
 
 .nav-title {
-  font-size: 40px;
+  font-size: 46px;
   font-weight: 700;
   color: #f2f2f2;
   align-items: center;
   text-align: center;
   margin-bottom: 20px;
+  margin-top: 20px;
+  padding-left: 140px;
 }
 
 .navLink {
@@ -88,4 +94,21 @@
 
 .drawer .MuiDrawer-paperAnchorRight {
   transform: scale(1.04); /* Slightly enlarge the drawer when it's opened */
+}
+
+/* Media query for mobile screens */
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column; /* Stack items vertically on small screens */
+  }
+
+  .nav-title {
+    font-size: 24px; /* Reduce font size for mobile */
+    margin-bottom: 40px;
+  }
+
+  .navLink {
+    padding: 16px 7px; /* Reduce padding for mobile */
+    font-size: 16px; /* Reduce font size for mobile */
+  }
 }
