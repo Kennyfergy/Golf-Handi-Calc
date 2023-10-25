@@ -1,12 +1,16 @@
 const pool = require("./pool");
 
-async function calculateRoundScoreDifferential(roundId) {
+const { calculateHandicap } = require("./helperFunctions.module");
+
+async function calculateRoundScoreDifferential(roundId, userId) {
   // We grab the round and related results
   const roundResults = await pool.query(
     "SELECT id, course_id, front_9_score, back_9_score FROM user_rounds WHERE user_rounds.id = $1",
     [roundId]
   );
   const round = roundResults.rows[0];
+
+  console.log(round);
 
   // We get the user gender, as that changes some of our calculations
   const userGender = await pool.query(
@@ -58,18 +62,20 @@ async function calculateRoundScoreDifferential(roundId) {
     113
   ).toFixed(0);
 
-  console.log("Score differential", scoreDifferential);
-
   //setting to minimum 0
   //TODO check if WHS allows negative
   if (scoreDifferential < 0) {
     scoreDifferential = 0;
   }
 
+  console.log("Score differential", scoreDifferential);
+
   await pool.query(
     "UPDATE user_rounds SET score_differential = $1 WHERE id = $2",
     [scoreDifferential, round.id]
   );
+
+  await calculateHandicap(userId);
 }
 
 module.exports = {

@@ -31,14 +31,14 @@ export default function Rounds() {
   // Dispatch the FETCH_ROUNDS action when the component mounts
   useEffect(() => {
     dispatch({ type: "FETCH_ROUNDS" });
-  }, [dispatch]);
+  }, []);
 
   // Using Fuse.js to search the rounds
   const fuse = new Fuse(rounds, fuseOptions);
   const filteredRounds = searchQuery
     ? fuse.search(searchQuery).map((result) => result.item)
     : rounds;
-
+  console.log(user.user_handicap);
   return (
     <div className="roundContainer">
       <h1>Rounds</h1>

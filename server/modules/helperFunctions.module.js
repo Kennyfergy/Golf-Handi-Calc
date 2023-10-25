@@ -11,7 +11,7 @@ function truncateToDecimalPlace(num, decimalPlaces) {
 
   return Number(front + "." + fixedBack);
 }
-
+// console.log("logging truncate", truncateToDecimalPlace(12.5444, 1));
 //this function calculates a users handicap(playing handicap) for a specific course
 function calculateCourseHandicap(handicapIndex, slopeRating) {
   // Calculate course handicap
@@ -23,8 +23,10 @@ function calculateCourseHandicap(handicapIndex, slopeRating) {
 
 // get route to grab data required, then calculate a users handicap index
 async function calculateHandicap(userId) {
-  let differentials = await pool.query(
-    `WITH RankedDifferentials AS (
+  try {
+    console.log("amirunning");
+    let differentials = await pool.query(
+      `WITH RankedDifferentials AS (
     SELECT 
         score_differential,
         ROW_NUMBER() OVER (ORDER BY score_differential ASC) AS rnum,
@@ -39,7 +41,7 @@ SELECT
 FROM RankedDifferentials
 WHERE rnum <= 
     CASE 
-        WHEN numRounds <= 3 THEN 1
+        
         WHEN numRounds <= 5 THEN 1
         WHEN numRounds <= 8 THEN 2
         WHEN numRounds <= 10 THEN 3
@@ -49,22 +51,27 @@ WHERE rnum <=
         WHEN numRounds <= 18 THEN 7
         ELSE 8
     END;`,
-    [userId]
-  );
+      [userId]
+    );
 
-  // Calculate and send the handicap index
-  let handicapIndex = Math.min(
-    54,
-    Math.max(0, differentials.rows[0].avgdifferential)
-  ); //max of 54 handicap, min of 0
+    // Calculate and send the handicap index
+    let handicapIndex = Math.min(
+      54,
+      Math.max(0, differentials.rows[0].avgdifferential)
+    ); //max of 54 handicap, min of 0
 
-  // running the function to truncate handicap. ex: 15.4564 = 15.4
-  const handicap = truncateToDecimalPlace(handicapIndex, 1);
+    // running the function to truncate handicap. ex: 15.4564 = 15.4
+    const handicap = truncateToDecimalPlace(handicapIndex, 1);
 
-  await pool.query("UPDATE users SET user_handicap = $1 WHERE id=$2", [
-    handicap,
-    userId,
-  ]);
+    console.log(handicap);
+
+    await pool.query("UPDATE users SET user_handicap = $1 WHERE id=$2", [
+      handicap,
+      userId,
+    ]);
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 module.exports = {

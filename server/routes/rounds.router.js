@@ -78,9 +78,11 @@ router.post("/", rejectUnauthenticated, async (req, res) => {
       "SELECT id FROM user_rounds ORDER BY id DESC LIMIT 1"
     );
 
+    console.log(round.rows);
+
     // update and persist the round differential and handicap index
-    calculateRoundScoreDifferential(round.rows[0].id);
-    calculateHandicap(userId);
+    await calculateRoundScoreDifferential(round.rows[0].id, userId);
+    // calculateHandicap(userId);
 
     res.json({
       message: "Round submitted successfully!",
@@ -112,8 +114,10 @@ router.put("/:roundId", rejectUnauthenticated, async (req, res) => {
     await pool.query(queryText, [dateValue, front9Score, back9Score, roundId]);
 
     // update and persist the round differential and handicap index
-    calculateRoundScoreDifferential(roundId);
-    calculateHandicap(userId);
+
+    //how to return custom promise
+    await calculateRoundScoreDifferential(roundId, userId);
+    // calculateHandicap(userId);
 
     res.json({ message: "Round updated successfully!" });
   } catch (err) {
@@ -139,12 +143,12 @@ router.delete("/:roundId", rejectUnauthenticated, (req, res) => {
         WHERE id = $1;
     `;
 
-  pool.query(queryText, [roundId], (error, results) => {
+  pool.query(queryText, [roundId], async (error, results) => {
     if (error) {
       console.error("Error deleting the round:", error);
       res.status(500).json({ error: "Database error" });
     } else {
-      calculateHandicap(userId);
+      await calculateHandicap(userId);
       res.sendStatus(200); // 200 OK
     }
   });
