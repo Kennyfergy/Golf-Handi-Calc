@@ -122,21 +122,20 @@ export default function AddCourse() {
   }; // end handleSubmit
   return (
     <Paper id="courseForm" className="add-course-container" elevation={3}>
-      <Typography variant="h4" align="center" gutterBottom>
-        {user.is_admin && <>Please use admin page to</>} Add Course
-      </Typography>
-      <Divider style={{ marginBottom: "20px" }} />
-
       <Button
         variant="outlined"
         color="primary"
         size="small"
         onClick={() => history.push("/courses")}
-        style={{ marginBottom: "20px" }}
+        style={{ marginBottom: "20px", fontSize: "20px" }}
         startIcon={<ArrowBackIcon />}
       >
         Back to Courses
       </Button>
+      <Typography variant="h4" align="center" gutterBottom>
+        {user.is_admin && <>Please use admin page to</>} Add Course
+      </Typography>
+      <Divider style={{ marginBottom: "20px" }} />
 
       {errorMessage && (
         <Typography
