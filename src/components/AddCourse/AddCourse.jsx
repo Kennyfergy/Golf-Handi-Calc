@@ -280,6 +280,9 @@ export default function AddCourse() {
             color="primary"
             onClick={handleSubmit}
             startIcon={<SendIcon />}
+            style={{
+              fontSize: "18px",
+            }}
           >
             Submit
           </Button>
