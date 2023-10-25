@@ -35,6 +35,7 @@
   color: rgb(4, 56, 38);
   text-decoration: none;
   margin-top: 80px;
+  padding-top: 100px;
 }
 @media (max-width: 768px) {
   .infoBox {

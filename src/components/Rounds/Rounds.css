@@ -232,6 +232,7 @@ Button.deleteRoundButton:hover {
     #05390a
   ); /* Color gradient */
   -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
   padding: 10px 0;
   margin-top: 5px;
