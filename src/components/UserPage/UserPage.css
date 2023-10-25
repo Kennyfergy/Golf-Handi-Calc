@@ -3,48 +3,93 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   min-height: 100%;
-  padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  flex-wrap: wrap;
   align-items: center;
-  overflow-y: auto;
 }
-
+.cardsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
 .infoBox {
-  width: 250px;
-  height: 150px;
+  border-radius: 10px;
+  width: 280px;
+  height: 180px;
   border: 1px solid #ddd;
   padding: 20px;
-  margin: 10px;
+  margin: 36px;
+  margin-top: 100px;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
   background-color: rgba(247, 247, 247, 0.7);
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 }
+.historyBox {
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
 
+  flex-direction: row;
+  justify-content: center;
+}
+.quickAddButton {
+  background: linear-gradient(135deg, #518c57, #248c89);
+  color: #fff;
+  padding: 20px;
+  border-radius: 100px;
+  width: 250px;
+  height: auto;
+  margin: 0 90px;
+  font-size: 20px;
+}
+.quickAddButton:hover {
+  background: linear-gradient(135deg, #314039, #248c89);
+}
 .welcome_header {
   color: rgb(4, 56, 38);
   text-decoration: none;
-  margin-top: 80px;
-  padding-top: 100px;
+  margin-top: 200px;
+  padding-top: 0px;
 }
+
+/* adjustments for mobile below*/
 @media (max-width: 768px) {
+  .cardsContainer {
+    flex-direction: column; /* Stack the cards vertically on mobile */
+  }
+
   .infoBox {
-    width: 80%; /* Adjust the width for smaller screens */
-    margin: 5px; /* Adjust the margin for smaller screens */
-    padding: 10px; /* Adjust the padding for smaller screens */
+    width: 90%; /* Increase width for mobile */
+    height: auto;
+    margin: 20px 10px; /* Adjust the margin for smaller screens */
+    padding: 15px;
+  }
+
+  .historyBox {
+    flex-direction: column; /* Stack the items vertically on mobile */
+    align-items: center;
+    gap: 20px;
+  }
+
+  .quickAddButton {
+    margin: 0 10px;
+    width: 90%;
   }
 
   .welcome_header {
-    margin-top: 80px; /* Adjust the margin-top for smaller screens */
+    margin-top: 40px;
+    font-size: 18px;
   }
 }
