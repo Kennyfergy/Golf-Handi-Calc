@@ -1,11 +1,25 @@
 /* Styles for the Rounds component */
 .roundContainer {
   text-align: center;
+
   margin: 40px auto;
-  max-width: 1100px;
+  max-width: 1300px;
   background: linear-gradient(135deg, #e9f5f0, #7cc68b);
   padding: 20px;
   border-radius: 10px;
+}
+.roundContainer h1 {
+  font-size: 48px;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+  margin-top: 5px;
+
+  /* Gradient settings */
+  background: linear-gradient(90deg, #53dc7f, #05390a);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 .addRoundButton {
@@ -26,7 +40,7 @@
 
 /* Style for the RoundsItem component */
 .roundsPage .styledRoundCard {
-  margin: 20px 0;
+  margin: 20px 10px;
   padding: 10px;
   border: none;
   border-radius: 14px;
@@ -201,35 +215,7 @@ Button.deleteRoundButton:hover {
 }
 
 .roundContainer > div > div {
-  /* RoundsItem component is rendered inside a div */
   flex: 1 0 calc(33.33% - 10px);
   margin-bottom: 15px;
   box-sizing: border-box;
-}
-
-@media (max-width: 768px) {
-  .roundContainer > div > div {
-    flex: 1 0 100%; /* 1 card takes the full width */
-  }
-}
-
-.roundContainer > div > div {
-  width: 300px;
-  height: 350px;
-}
-
-.roundContainer h1 {
-  font-size: 48px;
-  font-weight: bold;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-  background: -webkit-linear-gradient(
-    left,
-    #53dc7f,
-    #05390a
-  ); /* Color gradient */
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  padding: 10px 0;
-  margin-top: 5px;
 }
