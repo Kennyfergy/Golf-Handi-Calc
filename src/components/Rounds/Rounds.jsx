@@ -41,24 +41,26 @@ export default function Rounds() {
   console.log(user.user_handicap);
   return (
     <div className="roundContainer">
-      <h1>Rounds</h1>
-      <h2 className="hIHeader2">Handicap Index {user.user_handicap}</h2>
+      <div className="roundCardWrapper">
+        <h1>Rounds</h1>
+        <h2 className="hIHeader2">Handicap Index {user.user_handicap}</h2>
 
-      <RoundSearch onSearchChange={setSearchQuery} />
+        <RoundSearch onSearchChange={setSearchQuery} />
 
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={goToAddRounds}
-        className="addRoundButton"
-        style={{ fontSize: "18px" }}
-      >
-        Add Round
-      </Button>
-      <div>
-        {filteredRounds.map((round) => (
-          <RoundsItem key={round.id} round={round} />
-        ))}
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={goToAddRounds}
+          className="addRoundButton"
+          style={{ fontSize: "18px" }}
+        >
+          Add Round
+        </Button>
+        <div>
+          {filteredRounds.map((round) => (
+            <RoundsItem key={round.id} round={round} />
+          ))}
+        </div>
       </div>
     </div>
   );
