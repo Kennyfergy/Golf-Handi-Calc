@@ -51,6 +51,7 @@ export default function Rounds() {
         color="primary"
         onClick={goToAddRounds}
         className="addRoundButton"
+        style={{ fontSize: "18px" }}
       >
         Add Round
       </Button>

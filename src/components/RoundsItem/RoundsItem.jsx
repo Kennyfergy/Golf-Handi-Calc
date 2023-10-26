@@ -152,9 +152,46 @@ export default function RoundsItem({ round }) {
           ) : (
             // Display round data
             <>
+              <div className="courseAndDateWrapper">
+                <div className="courseNameWrapper">
+                  <Typography variant="h5" className="courseNameRound">
+                    Course: {round.course_name}
+                  </Typography>
+                </div>
+                <div className="courseDateWrapper">
+                  <Typography variant="h5" className="roundDate">
+                    {formatDate(round.date)}
+                  </Typography>
+                </div>
+              </div>
+              <div className="scoresWrapper">
+                <div className="leftScores">
+                  <Typography variant="h5" className="roundScore">
+                    Total Score: {round.front_9_score + round.back_9_score}
+                  </Typography>
+                  {round.front_9_score !== 0 && (
+                    <Typography variant="h6" className="front_9_Score">
+                      Front 9: {round.front_9_score}
+                    </Typography>
+                  )}
+                  {round.back_9_score !== 0 && (
+                    <Typography variant="h6" className="back_9_Score">
+                      Back 9: {round.back_9_score}
+                    </Typography>
+                  )}
+                </div>
+                <div className="rightScores">
+                  <Typography variant="h5" className="roundDifferential">
+                    Differential: {round.score_differential}
+                  </Typography>
+                </div>
+              </div>
               <CardActions>
                 <Button
-                  style={{ fontSize: "12px" }}
+                  style={{
+                    fontSize: "12px",
+                    marginTop: "40px",
+                  }}
                   className="editRoundButton"
                   onClick={() => handleEdit(round.id)}
                   startIcon={<EditIcon />}
@@ -162,30 +199,6 @@ export default function RoundsItem({ round }) {
                   Edit
                 </Button>
               </CardActions>
-
-              <Typography variant="h5" className="courseName">
-                Course: {round.course_name}
-              </Typography>
-              <Typography variant="h5" className="roundScore">
-                Total Score: {round.front_9_score + round.back_9_score}
-              </Typography>
-              {round.front_9_score !== 0 && (
-                <Typography variant="h6" className="front_9_Score">
-                  Front 9: {round.front_9_score}
-                </Typography>
-              )}
-              {round.back_9_score !== 0 && (
-                <Typography variant="h6" className="back_9_Score">
-                  Back 9: {round.back_9_score}
-                </Typography>
-              )}
-
-              <Typography variant="h5" className="roundDifferential">
-                Differential: {round.score_differential}
-              </Typography>
-              <Typography variant="h5" className="roundDate">
-                {formatDate(round.date)}
-              </Typography>
             </>
           )}
         </CardContent>
