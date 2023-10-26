@@ -3,7 +3,7 @@
   text-align: center;
 
   margin: 40px auto;
-  max-width: 1100px;
+  max-width: 1200px;
   background: linear-gradient(135deg, #e9f5f0, #7cc68b);
   padding: 20px;
   border-radius: 10px;
@@ -73,8 +73,8 @@
 .roundsPage input[type="number"],
 .roundsPage input[type="password"],
 .roundsPage input[type="text"] {
-  width: 100%;
-  padding: 10px 15px;
+  width: 90%;
+  padding: 10px;
   margin: 7px 0;
   border: 1px solid #e1e1e1;
   border-radius: 6px;
@@ -215,7 +215,7 @@ Button.deleteRoundButton:hover {
 }
 
 .roundContainer > div > div {
-  flex: 1 0 calc(33.33% - 10px);
+  flex: 1 0 calc(50% - 10px);
   margin-bottom: 15px;
   box-sizing: border-box;
 }

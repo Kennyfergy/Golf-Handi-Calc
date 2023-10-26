@@ -25,7 +25,7 @@ export default function RoundsItem({ round }) {
     // Set the local states with the original data from the round
     setEditingFront9Score(round.front_9_score);
     setEditingBack9Score(round.back_9_score);
-    setNewDate(round.date);
+    setNewDate(formatDate(round.date));
   };
 
   //deletes round from DB, with a sweetAlert to confirm delete
