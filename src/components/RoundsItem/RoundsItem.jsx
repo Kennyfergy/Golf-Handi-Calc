@@ -4,7 +4,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import { CardActionArea, CardActions } from "@mui/material";
+import { CardActions } from "@mui/material";
 import Swal from "sweetalert2";
 
 import EditIcon from "@mui/icons-material/Edit";
