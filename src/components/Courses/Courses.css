@@ -1,7 +1,7 @@
 .coursesContainer {
   text-align: center;
   margin: 40px auto;
-  max-width: 1000px;
+  max-width: 980px;
   background: linear-gradient(135deg, #e9f5f0, #7cc68b);
   padding: 20px;
   border-radius: 10px;
@@ -14,64 +14,46 @@
   padding: 10px 20px;
   border-radius: 5px;
   transition: background-color 0.3s;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
 }
-
+.editButtons {
+  justify-content: space-between;
+  padding: 10px;
+}
 .addCourseButton:hover {
   background: linear-gradient(135deg, #2c7acf, #5ca1ea);
 }
 
-/* Styles for CourseItem component within Courses */
 .styledCourseCard {
-  margin: 20px 0;
+  max-width: 800px;
+  margin: 20px auto;
   padding: 10px;
-  border: none;
   border-radius: 14px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
-  background-color: #f6f5f5;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s, box-shadow 0.2s;
-  padding-left: 10px;
-  padding-bottom: 10px;
-
-  margin-bottom: 15px;
-
-  &:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  }
+  background-color: #f6f5f5;
+  margin-bottom: 10px;
 }
 
-/* .courseInputGroup {
+.styledCourseCard:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.editAndAdmin {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  font-size: 20px;
-} */
-
-.courseName {
-  font-size: 18px;
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-/* Styles for the input fields */
-input[name="courseDetails"] {
-  width: 100%;
-  padding: 8px;
-  margin: 5px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 18px;
-  background-color: #ecefed;
-  text-align: center;
+  margin-left: 0px;
 }
 
 /* Styles for the action buttons */
 Button.deleteCourseButton,
 Button.saveCourseButton,
-.cancelEditButton,
-.editCourseButton {
+Button.cancelEditButton,
+Button.editCourseButton {
   margin: 5px;
   padding: 8px 16px;
   border: none;
@@ -142,7 +124,9 @@ Button.editCourseButton:hover {
 .hIHeader {
   position: absolute;
   border-radius: 12px;
-  padding: 5px 15px;
+  align-items: center;
+  justify-content: center;
+
   background: linear-gradient(135deg, #a9ffc6, #98e5a3);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(234, 231, 231, 0.3);
@@ -164,4 +148,68 @@ Button.editCourseButton:hover {
   color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
+}
+/* Base styles */
+
+.courseCardContent {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* Styles for the input fields */
+input[name="courseDetails"] {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 18px;
+  background-color: #f4faf7;
+  text-align: center;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Typography styles */
+.courseName,
+.courseDetails {
+  margin: 15px 0;
+  color: #333;
+}
+
+.coursePar,
+.courseRating,
+.courseSlope,
+.courseHandicap {
+  margin: 10px 0;
+  color: #666;
+}
+
+/* center data */
+.cardWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.courseInformation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (max-width: 600px) {
+  .courseCardContent,
+  .cardWrapper,
+  .courseInformation {
+    flex-direction: column;
+    align-items: center;
+  }
 }

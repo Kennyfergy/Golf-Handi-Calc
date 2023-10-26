@@ -18,20 +18,7 @@ body {
   display: flex;
   flex-direction: column;
 }
-/* footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  align-content: center;
 
-  width: 20%;
-  height: 18px;
-  font-size: 15px;
-  background-color: #868484;
-  color: white;
-  text-align: center;
-  z-index: 1000;
-} */
 .footer {
   flex-shrink: 0;
   margin-top: auto;
