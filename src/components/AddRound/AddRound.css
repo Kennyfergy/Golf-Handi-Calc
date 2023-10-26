@@ -64,7 +64,9 @@
     flex-basis: 49%;
   }
 }
-
+.date-input-field input {
+  font-size: 1.2em;
+}
 /* Date input field styling */
 .add-round-container .MuiFormControl-root {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
