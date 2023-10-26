@@ -21,8 +21,7 @@
   -webkit-background-clip: text;
   background-clip: text;
 }
-
-.addRoundButton {
+*/ .addRoundButton {
   display: flex;
   margin: 25px 0;
   align-items: center;
@@ -53,6 +52,7 @@
   align-items: center;
   gap: 80px;
   margin-top: 2px;
+  margin-bottom: 20px;
 }
 
 .scoresWrapper {
@@ -62,21 +62,6 @@
   margin-top: 40px;
 }
 
-.leftScores {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.rightScores {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-
-  margin-right: 20px;
-}
-
-/*end new styles here*/
 /* Style for the RoundsItem component */
 .roundsPage .styledRoundCard {
   margin: 20px auto;
@@ -96,6 +81,11 @@
   }
 }
 
+.styledRoundCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
 .roundScore {
   font-size: 20px;
   font-weight: 600;
@@ -107,7 +97,6 @@
   color: #6f6c6c;
   margin-top: 15px;
 }
-
 /* Styles for the edit mode inputs */
 .roundsPage input[type="number"],
 .roundsPage input[type="password"],
@@ -124,8 +113,8 @@
 .roundsPage input[type="number"]:focus,
 .roundsPage input[type="password"]:focus,
 .roundsPage input[type="text"]:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+  border-color: #1fa73b;
+  box-shadow: 0 0 10px rgba(47, 192, 25, 0.2);
 
   outline: none;
 }
@@ -148,12 +137,18 @@ Button.editRoundButton {
 Button.editRoundButton {
   background: linear-gradient(135deg, #0069d9, #007bff);
   color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
 }
 
 Button.editRoundButton:hover {
   background: linear-gradient(135deg, #2363a8, #4798ee);
+  transform: translateY(-2px);
 }
-
 Button.cancelEditButton {
   background-color: #fcbe01;
   color: #000;
@@ -202,8 +197,8 @@ Button.deleteRoundButton:hover {
 }
 
 .searchContainer input:focus {
-  border: 1px solid #007bff;
-  box-shadow: 0 0 10px rgba(0, 123, 255, 0.4);
+  border: 1px solid #2fd43a;
+  box-shadow: 0 0 10px rgba(54, 255, 51, 0.4);
   outline: none;
 }
 
@@ -229,11 +224,7 @@ Button.deleteRoundButton:hover {
   }
 
   h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  h2 {
     margin-top: 10px;
     margin-bottom: 10px;
   }
@@ -250,11 +241,11 @@ Button.deleteRoundButton:hover {
 .roundContainer > div {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
+  align-items: center;
 }
 
 .roundContainer > div > div {
-  flex: 1 0 calc(50% - 10px);
+  flex: 1 0 calc(30% - 10px);
   margin-bottom: 15px;
-  box-sizing: border-box;
 }

@@ -5,7 +5,7 @@ export default function CourseSearch({ onSearchChange }) {
     <div className="searchContainer">
       <input
         type="text"
-        placeholder="Search for a course..."
+        placeholder="🔍 Search for a course..."
         onChange={(e) => onSearchChange(e.target.value)}
       />
     </div>
