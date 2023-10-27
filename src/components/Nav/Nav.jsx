@@ -16,7 +16,7 @@ function Nav() {
   return (
     <div id="nav" className="nav">
       <Link to="/home">
-        <div class="nav-title-container">
+        <div className="nav-title-container">
           <h2 className="nav-title">Golf Handi-Calc</h2>
         </div>
       </Link>
