@@ -9,7 +9,8 @@
   justify-content: center;
   position: relative;
   margin: 0 0 0;
-  background-color: #4f6e59;
+  background-color: rgb(79, 110, 89, 0.8);
+
   z-index: 1000;
   background-image: url("../../../public/Golf\ Logo.png");
   background-repeat: no-repeat;

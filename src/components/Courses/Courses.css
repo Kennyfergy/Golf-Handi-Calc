@@ -2,7 +2,11 @@
   text-align: center;
   margin: 40px auto;
   max-width: 980px;
-  background: linear-gradient(135deg, #e9f5f0, #7cc68b);
+  background: linear-gradient(
+    135deg,
+    rgb(233, 245, 240, 0.8),
+    rgb(124, 198, 139, 0.6)
+  );
   padding: 20px;
   border-radius: 10px;
 }

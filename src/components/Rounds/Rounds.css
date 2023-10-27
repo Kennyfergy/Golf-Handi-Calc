@@ -1,16 +1,5 @@
 /* Styles for the Rounds component */
 
-/* .login-background {
-  background-image: url("../../../public/login4.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  display: flex;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-} */
-
 .roundContainer {
   text-align: center;
   margin: 40px auto;
@@ -20,7 +9,11 @@
   flex-direction: column;
 
   /* justify-content: space-between; */
-  background: linear-gradient(135deg, #e9f5f0, #7cc68b);
+  background: linear-gradient(
+    135deg,
+    rgb(233, 245, 240, 0.8),
+    rgb(124, 198, 139, 0.6)
+  );
   padding: 20px;
   border-radius: 10px;
 }

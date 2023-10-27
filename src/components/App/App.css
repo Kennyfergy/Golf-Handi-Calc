@@ -3,16 +3,6 @@ body,
 #react-root {
   height: 100%;
 }
-/* .login-background {
-  background-image: url("../../../public/login4.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  display: flex;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-} */
 
 body {
   font-family: Roboto, sans-serif;
