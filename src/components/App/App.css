@@ -7,8 +7,11 @@ body,
 body {
   font-family: Roboto, sans-serif;
   margin: 0px;
+  background-image: url("../../../public/Golf6.png"); /*3,4, 11,12, 15*/
+  background-size: cover;
 
-  background-color: rgba(117, 145, 117, 0.666);
+  background-attachment: fixed;
+  /* background-color: rgba(117, 145, 117, 0.666); */
 }
 .App {
   flex: 1 0 auto;
