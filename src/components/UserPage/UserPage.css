@@ -55,13 +55,26 @@ Button.quickAddButton {
 Button.quickAddButton:hover {
   background: linear-gradient(135deg, #314039, #248c89);
 }
-.welcome_header {
+/* .welcome_header {
   color: rgb(4, 56, 38);
   text-decoration: none;
   margin-top: 100px;
   padding-top: 0px;
-}
+} */
+.welcome_header {
+  font-size: 48px;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+  margin-top: 100px;
+  padding-top: 0px;
 
+  /* Gradient settings */
+  background: linear-gradient(90deg, #2e8036, #1cae4a);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
 @media (max-width: 768px) {
   .cardsContainer {
     flex-direction: column;
