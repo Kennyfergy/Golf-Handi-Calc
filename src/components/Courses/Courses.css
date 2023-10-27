@@ -1,7 +1,7 @@
 .coursesContainer {
   text-align: center;
   margin: 40px auto;
-  max-width: 980px;
+  max-width: 1200px;
   background: linear-gradient(
     135deg,
     rgb(233, 245, 240, 0.8),
@@ -46,7 +46,7 @@ Button.addCourseButton {
   max-width: 800px;
   margin: 20px auto;
   padding: 10px;
-  border-radius: 14px;
+  border-radius: 14px !important;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s, box-shadow 0.2s;
   background-color: #f6f5f5;
