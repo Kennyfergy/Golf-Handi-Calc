@@ -77,6 +77,14 @@ export default function RoundsItem({ round }) {
       payload: { roundId: editingRoundId, updatedRoundData },
     });
 
+    // Show SweetAlert2 notification
+    Swal.fire({
+      title: "Success!",
+      text: "Your changes have been saved.",
+      icon: "success",
+      confirmButtonColor: "#3085d6",
+    });
+
     // Exit edit mode
     setEditingRoundId(null);
 
@@ -163,7 +171,8 @@ export default function RoundsItem({ round }) {
                   </TableRow>
                 </TableBody>
               </Table>
-              <CardActions>
+
+              <div className="editButtons">
                 <Button
                   className="cancelEditButton"
                   onClick={handleCancelEdit}
@@ -185,7 +194,7 @@ export default function RoundsItem({ round }) {
                 >
                   Save
                 </Button>
-              </CardActions>
+              </div>
             </>
           ) : (
             // Display round data
