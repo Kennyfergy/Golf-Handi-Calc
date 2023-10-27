@@ -141,109 +141,178 @@ export default function CourseItem({ course }) {
     <div className="coursePage">
       <Card key={course.id} className="styledCourseCard">
         <CardContent className="courseCardContent">
+          <div className="courseNameWrapper">
+            {editingCourseId === course.id ? (
+              <TableRow>
+                <TableCell style={{ fontSize: "26px" }}>Course Name</TableCell>
+                <TableCell>
+                  <input
+                    type="text"
+                    value={editingCourseName}
+                    onChange={(event) =>
+                      setEditingCourseName(event.target.value)
+                    }
+                    style={{ fontSize: "20px" }}
+                  />
+                </TableCell>
+              </TableRow>
+            ) : (
+              <Typography
+                variant="h6"
+                className="courseName"
+                style={{ fontSize: "34px" }}
+              >
+                {course.course_name}
+              </Typography>
+            )}
+          </div>
           {editingCourseId === course.id ? (
             <>
-              <Typography variant="h5" className="courseName">
-                Course: {course.course_name}
-              </Typography>
-              <input
-                type="text"
-                name="courseDetails"
-                value={editingCourseName}
-                onChange={(event) => setEditingCourseName(event.target.value)}
-              />
-              <Typography variant="h5" className="courseDetails">
-                Location
-              </Typography>
-              <input
-                type="text"
-                name="courseDetails"
-                value={editingLocation}
-                onChange={(event) => setEditingLocation(event.target.value)}
-              />
-              {user.is_male ? (
-                <>
-                  <Typography variant="h5" className="courseDetails">
-                    Mens Back 9 Par
-                  </Typography>
-                  <input
-                    type="text"
-                    name="courseDetails"
-                    value={menBack9}
-                    onChange={(event) => setMenBack9(event.target.value)}
-                  />
-                  <Typography variant="h5" className="courseDetails">
-                    Mens Front 9 Par
-                  </Typography>
-                  <input
-                    type="text"
-                    name="courseDetails"
-                    value={menFront9}
-                    onChange={(event) => setMenFront9(event.target.value)}
-                  />
-                  <Typography variant="h5" className="courseDetails">
-                    Mens Course Rating
-                  </Typography>
-                  <input
-                    type="text"
-                    name="courseDetails"
-                    value={menCourseRating}
-                    onChange={(event) => setMenCourseRating(event.target.value)}
-                  />
-                  <Typography variant="h5" className="courseDetails">
-                    Mens Course Slope
-                  </Typography>
-                  <input
-                    type="text"
-                    name="courseDetails"
-                    value={menCourseSlope}
-                    onChange={(event) => setMenCourseSlope(event.target.value)}
-                  />
-                </>
-              ) : (
-                <>
-                  <Typography variant="h5" className="courseDetails">
-                    Women's Back 9 Par
-                  </Typography>
-                  <input
-                    type="text"
-                    name="courseDetails"
-                    value={womenBack9}
-                    onChange={(event) => setWomenBack9(event.target.value)}
-                  />
-                  <Typography variant="h5" className="courseDetails">
-                    Women's Front 9 Par
-                  </Typography>
-                  <input
-                    type="text"
-                    name="courseDetails"
-                    value={womenFront9}
-                    onChange={(event) => setWomenFront9(event.target.value)}
-                  />
-                  <Typography variant="h5" className="courseDetails">
-                    Women's Course Rating
-                  </Typography>
-                  <input
-                    type="text"
-                    name="courseDetails"
-                    value={womenCourseRating}
-                    onChange={(event) =>
-                      setWomenCourseRating(event.target.value)
-                    }
-                  />
-                  <Typography variant="h5" className="courseDetails">
-                    Women's Course Slope
-                  </Typography>
-                  <input
-                    type="text"
-                    name="courseDetails"
-                    value={womenCourseSlope}
-                    onChange={(event) =>
-                      setWomenCourseSlope(event.target.value)
-                    }
-                  />
-                </>
-              )}
+              <Table>
+                <TableBody>
+                  <TableRow>
+                    <TableCell style={{ fontSize: "26px" }}>Location</TableCell>
+                    <TableCell style={{ fontSize: "26px" }}>
+                      <input
+                        type="text"
+                        value={editingLocation}
+                        onChange={(event) =>
+                          setEditingLocation(event.target.value)
+                        }
+                        style={{ fontSize: "20px" }}
+                      />
+                    </TableCell>
+                  </TableRow>
+
+                  {user.is_male ? (
+                    <>
+                      <TableRow>
+                        <TableCell style={{ fontSize: "26px" }}>
+                          Men's Front 9 Par
+                        </TableCell>
+                        <TableCell style={{ fontSize: "26px" }}>
+                          <input
+                            type="text"
+                            value={menFront9}
+                            onChange={(event) =>
+                              setMenFront9(event.target.value)
+                            }
+                            style={{ fontSize: "20px" }}
+                          />
+                        </TableCell>
+                      </TableRow>
+
+                      <TableRow>
+                        <TableCell style={{ fontSize: "26px" }}>
+                          Men's Back 9 Par
+                        </TableCell>
+                        <TableCell style={{ fontSize: "26px" }}>
+                          <input
+                            type="text"
+                            value={menBack9}
+                            onChange={(event) =>
+                              setMenBack9(event.target.value)
+                            }
+                            style={{ fontSize: "20px" }}
+                          />
+                        </TableCell>
+                      </TableRow>
+
+                      <TableRow>
+                        <TableCell style={{ fontSize: "26px" }}>
+                          Men's Course Rating
+                        </TableCell>
+                        <TableCell style={{ fontSize: "26px" }}>
+                          <input
+                            type="text"
+                            value={menCourseRating}
+                            onChange={(event) =>
+                              setMenCourseRating(event.target.value)
+                            }
+                            style={{ fontSize: "20px" }}
+                          />
+                        </TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell style={{ fontSize: "26px" }}>
+                          Men's Course Slope
+                        </TableCell>
+                        <TableCell style={{ fontSize: "26px" }}>
+                          <input
+                            type="text"
+                            value={menCourseSlope}
+                            onChange={(event) =>
+                              setMenCourseSlope(event.target.value)
+                            }
+                            style={{ fontSize: "20px" }}
+                          />
+                        </TableCell>
+                      </TableRow>
+                    </>
+                  ) : (
+                    <>
+                      <TableRow>
+                        <TableCell style={{ fontSize: "26px" }}>
+                          Women's Front 9 Par
+                        </TableCell>
+                        <TableCell style={{ fontSize: "26px" }}>
+                          <input
+                            type="text"
+                            value={womenFront9}
+                            onChange={(event) =>
+                              setWomenFront9(event.target.value)
+                            }
+                          />
+                        </TableCell>
+                      </TableRow>
+
+                      <TableRow>
+                        <TableCell style={{ fontSize: "26px" }}>
+                          Women's Back 9 Par
+                        </TableCell>
+                        <TableCell style={{ fontSize: "26px" }}>
+                          <input
+                            type="text"
+                            value={womenBack9}
+                            onChange={(event) =>
+                              setWomenBack9(event.target.value)
+                            }
+                          />
+                        </TableCell>
+                      </TableRow>
+
+                      <TableRow>
+                        <TableCell style={{ fontSize: "26px" }}>
+                          Women's Course Rating
+                        </TableCell>
+                        <TableCell style={{ fontSize: "26px" }}>
+                          <input
+                            type="text"
+                            value={womenCourseRating}
+                            onChange={(event) =>
+                              setWomenCourseRating(event.target.value)
+                            }
+                          />
+                        </TableCell>
+                      </TableRow>
+                      <TableRow>
+                        <TableCell style={{ fontSize: "26px" }}>
+                          Women's Course Slope
+                        </TableCell>
+                        <TableCell style={{ fontSize: "26px" }}>
+                          <input
+                            type="text"
+                            value={womenCourseSlope}
+                            onChange={(event) =>
+                              setWomenCourseSlope(event.target.value)
+                            }
+                          />
+                        </TableCell>
+                      </TableRow>
+                    </>
+                  )}
+                </TableBody>
+              </Table>
               <div className="editButtons">
                 <Button
                   className="cancelEditButton"
@@ -270,14 +339,6 @@ export default function CourseItem({ course }) {
             </>
           ) : (
             <div className="cardWrapper">
-              <Typography
-                variant="h6"
-                className="courseName"
-                style={{ fontSize: "34px" }}
-              >
-                {course.course_name}
-              </Typography>
-
               <Table>
                 <TableBody>
                   <TableRow>
