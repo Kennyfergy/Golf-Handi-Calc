@@ -50,7 +50,7 @@ Button.addCourseButton {
   border-radius: 14px !important;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s, box-shadow 0.2s;
-  background-color: #f6f5f5;
+  background-color: #f6f5f5 !important;
   margin-bottom: 10px;
 }
 

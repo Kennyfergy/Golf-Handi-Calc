@@ -119,6 +119,14 @@ export default function CourseItem({ course }) {
       payload: { courseId: editingCourseId, updatedCourseData },
     });
 
+    // Show SweetAlert2 notification
+    Swal.fire({
+      title: "Success!",
+      text: "Your changes have been saved.",
+      icon: "success",
+      confirmButtonColor: "#3085d6",
+    });
+
     // Exit edit mode
     setEditingCourseId(null);
 

@@ -57,6 +57,7 @@ Button.addRoundButton {
 
 .styledRoundCard {
   max-width: 800px;
+  min-height: 550px;
   margin: 20px auto;
   padding: 10px;
   border-radius: 14px !important;
