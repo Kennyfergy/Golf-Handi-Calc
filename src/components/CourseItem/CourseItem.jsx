@@ -7,6 +7,10 @@ import Button from "@mui/material/Button";
 import Swal from "sweetalert2";
 import "./CourseItem.css";
 import EditIcon from "@mui/icons-material/Edit";
+import CancelIcon from "@mui/icons-material/Cancel";
+import DeleteIcon from "@mui/icons-material/Delete";
+import SaveIcon from "@mui/icons-material/Save";
+
 import { calculateCourseHandicap } from "./CourseFunctions";
 
 export default function CourseItem({ course }) {
@@ -241,18 +245,24 @@ export default function CourseItem({ course }) {
                 </>
               )}
               <div className="editButtons">
-                <Button className="cancelEditButton" onClick={handleCancelEdit}>
+                <Button
+                  className="cancelEditButton"
+                  onClick={handleCancelEdit}
+                  startIcon={<CancelIcon />}
+                >
                   Cancel
                 </Button>
                 <Button
                   className="deleteCourseButton"
                   onClick={() => handleDelete(course.id)}
+                  startIcon={<DeleteIcon />}
                 >
                   Delete
                 </Button>
                 <Button
                   className="saveCourseButton"
                   onClick={() => saveChanges(course.id)}
+                  startIcon={<SaveIcon />}
                 >
                   Save
                 </Button>

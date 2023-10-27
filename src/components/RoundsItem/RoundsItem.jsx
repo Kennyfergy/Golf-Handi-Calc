@@ -4,6 +4,9 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import CancelIcon from "@mui/icons-material/Cancel";
+import DeleteIcon from "@mui/icons-material/Delete";
+import SaveIcon from "@mui/icons-material/Save";
 import { CardActions } from "@mui/material";
 import Swal from "sweetalert2";
 
@@ -132,18 +135,24 @@ export default function RoundsItem({ round }) {
               />
 
               <CardActions>
-                <Button className="cancelEditButton" onClick={handleCancelEdit}>
+                <Button
+                  className="cancelEditButton"
+                  onClick={handleCancelEdit}
+                  startIcon={<CancelIcon />}
+                >
                   Cancel
                 </Button>
                 <Button
                   className="deleteRoundButton"
                   onClick={() => handleDelete(round.id)}
+                  startIcon={<DeleteIcon />}
                 >
                   Delete
                 </Button>
                 <Button
                   className="saveRoundButton"
                   onClick={() => saveChanges(round.id)}
+                  startIcon={<SaveIcon />}
                 >
                   Save
                 </Button>
