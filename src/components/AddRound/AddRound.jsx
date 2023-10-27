@@ -123,13 +123,14 @@ export default function AddRound() {
           label="Back 9"
         />
       </FormControl>
-      <Typography variant="h6" style={{ marginTop: "20px" }}>
+      <Typography variant="h6" style={{ marginTop: "10px" }}>
         Select Course:
       </Typography>
       <Select
         value={courseId}
         onChange={(e) => setCourseId(e.target.value)}
         label="Course"
+        className="selectCourseBox"
         variant="outlined"
       >
         {course.map((c) => (
