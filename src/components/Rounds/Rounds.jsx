@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import RoundSearch from "./RoundSearch";
 import Fuse from "fuse.js";
+import AddIcon from "@mui/icons-material/Add";
 
 import "./Rounds.css";
 
@@ -54,7 +55,7 @@ export default function Rounds() {
           className="addRoundButton"
           style={{ fontSize: "18px" }}
         >
-          Add Round
+          <AddIcon /> Add Round
         </Button>
         <div>
           {filteredRounds.map((round) => (

@@ -134,7 +134,7 @@ export default function CourseItem({ course }) {
   // console.log(course);
   // console.log("course name", course.course_name);
   return (
-    <div>
+    <div className="coursePage">
       <Card key={course.id} className="styledCourseCard">
         <CardContent className="courseCardContent">
           {editingCourseId === course.id ? (
