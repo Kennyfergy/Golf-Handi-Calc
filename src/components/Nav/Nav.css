@@ -35,7 +35,8 @@
   text-align: center;
   padding: 24px 14px;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: bold;
 
   /* these last two make the logout button in
   the nav bar look like another link */

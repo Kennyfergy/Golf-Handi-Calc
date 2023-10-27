@@ -4,6 +4,7 @@ import "./UserPage.css";
 import { Box, Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import { useHistory } from "react-router-dom";
+import AddIcon from "@mui/icons-material/Add";
 
 function UserPage() {
   const dispatch = useDispatch();
@@ -57,12 +58,14 @@ function UserPage() {
             className="quickAddButton"
             onClick={() => history.push("/addRound")}
           >
+            <AddIcon style={{ marginRight: "8px", fontSize: "30px" }} />
             Add Round
           </Button>
           <Button
             className="quickAddButton"
             onClick={() => history.push("/addCourse")}
           >
+            <AddIcon style={{ marginRight: "8px", fontSize: "30px" }} />
             Add Course
           </Button>
         </div>

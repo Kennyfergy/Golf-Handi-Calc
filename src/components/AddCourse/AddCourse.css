@@ -20,3 +20,15 @@
 .submit-btn:hover {
   background-color: #173a18;
 }
+.coursePage input[type="number"]:focus,
+.coursePage input[type="password"]:focus,
+.coursePage input[type="text"]:focus {
+  border-color: #1fa73b;
+  box-shadow: 0 0 10px rgba(47, 192, 25, 0.2);
+
+  outline: none;
+}
+/* .add-course-container input[type="text"]:focus {
+  border-color: #1fa73b;
+  box-shadow: 0 0 10px rgba(47, 192, 25, 0.2);
+} */

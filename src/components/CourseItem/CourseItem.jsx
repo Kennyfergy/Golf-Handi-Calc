@@ -7,6 +7,10 @@ import Button from "@mui/material/Button";
 import Swal from "sweetalert2";
 import "./CourseItem.css";
 import EditIcon from "@mui/icons-material/Edit";
+import CancelIcon from "@mui/icons-material/Cancel";
+import DeleteIcon from "@mui/icons-material/Delete";
+import SaveIcon from "@mui/icons-material/Save";
+
 import { calculateCourseHandicap } from "./CourseFunctions";
 
 export default function CourseItem({ course }) {
@@ -134,29 +138,13 @@ export default function CourseItem({ course }) {
   // console.log(course);
   // console.log("course name", course.course_name);
   return (
-    <div>
+    <div className="coursePage">
       <Card key={course.id} className="styledCourseCard">
-        <div className="courseHeader">
-          <Typography
-            variant="h6"
-            className="courseName"
-            style={{ fontSize: "30px" }}
-          >
-            Course: {course.course_name}
-          </Typography>
-          <Typography
-            variant="h6"
-            className="courseLocation"
-            style={{ fontSize: "30px" }}
-          >
-            {course.course_location}
-          </Typography>
-        </div>
         <CardContent className="courseCardContent">
           {editingCourseId === course.id ? (
             <>
               <Typography variant="h5" className="courseName">
-                Course Name
+                Course: {course.course_name}
               </Typography>
               <input
                 type="text"
@@ -256,68 +244,86 @@ export default function CourseItem({ course }) {
                   />
                 </>
               )}
-              <Button className="cancelEditButton" onClick={handleCancelEdit}>
-                Cancel
-              </Button>
-              <Button
-                className="deleteCourseButton"
-                onClick={() => handleDelete(course.id)}
-              >
-                Delete
-              </Button>
-              <Button
-                className="saveCourseButton"
-                onClick={() => saveChanges(course.id)}
-              >
-                Save
-              </Button>
+              <div className="editButtons">
+                <Button
+                  className="cancelEditButton"
+                  onClick={handleCancelEdit}
+                  startIcon={<CancelIcon />}
+                >
+                  Cancel
+                </Button>
+                <Button
+                  className="deleteCourseButton"
+                  onClick={() => handleDelete(course.id)}
+                  startIcon={<DeleteIcon />}
+                >
+                  Delete
+                </Button>
+                <Button
+                  className="saveCourseButton"
+                  onClick={() => saveChanges(course.id)}
+                  startIcon={<SaveIcon />}
+                >
+                  Save
+                </Button>
+              </div>
             </>
           ) : (
-            <>
-              {(!course.is_admin_course || user.is_admin) && (
-                <Button
-                  className="editCourseButton"
-                  onClick={() => handleEdit(course.id)}
-                  startIcon={<EditIcon />}
+            <div className="cardWrapper">
+              <div className="courseName">
+                <Typography
+                  variant="h6"
+                  className="courseName"
+                  style={{ fontSize: "30px" }}
                 >
-                  Edit
-                </Button>
-              )}
-              {course.is_admin_course ? (
-                <p>This course was added by Admin</p>
-              ) : (
-                <></>
-              )}
-
-              {/* <Typography variant="h5" className="courseDetails">
-                Course: {course.course_name}
-              </Typography> */}
-              {/* <Typography variant="h5" className="courseDetails">
-                Location: {course.course_location}
-              </Typography> */}
-
-              <Typography variant="h5" className="courseDetails">
-                Par:{" "}
-                {user.is_male
-                  ? course.men_back_9_par + course.men_front_9_par
-                  : course.women_back_9_par + course.women_front_9_par}
-              </Typography>
-              <Typography variant="h5" className="courseDetails">
-                Course Rating:{" "}
-                {user.is_male
-                  ? course.men_course_rating
-                  : course.women_course_rating}
-              </Typography>
-              <Typography variant="h5" className="courseDetails">
-                Slope:{" "}
-                {user.is_male
-                  ? course.men_course_slope
-                  : course.women_course_slope}
-              </Typography>
-              <Typography variant="h5" className="courseDetails">
-                {user.username}'s Course Handicap: {courseHandicap}
-              </Typography>
-            </>
+                  Course: {course.course_name}
+                </Typography>
+              </div>{" "}
+              <div className="courseLocation">
+                <Typography
+                  variant="h6"
+                  className="courseLocation"
+                  style={{ fontSize: "30px" }}
+                >
+                  {course.course_location}
+                </Typography>
+              </div>
+              <div className="courseInformation">
+                <Typography variant="h5" className="coursePar">
+                  Par:{" "}
+                  {user.is_male
+                    ? course.men_back_9_par + course.men_front_9_par
+                    : course.women_back_9_par + course.women_front_9_par}
+                </Typography>
+                <Typography variant="h5" className="courseRating">
+                  Course Rating:{" "}
+                  {user.is_male
+                    ? course.men_course_rating
+                    : course.women_course_rating}
+                </Typography>
+                <Typography variant="h5" className="courseSlope">
+                  Slope:{" "}
+                  {user.is_male
+                    ? course.men_course_slope
+                    : course.women_course_slope}
+                </Typography>
+                <Typography variant="h5" className="courseHandicap">
+                  {user.username}'s Course Handicap: {courseHandicap}
+                </Typography>
+              </div>
+              <div className="editAndAdmin">
+                {(!course.is_admin_course || user.is_admin) && (
+                  <Button
+                    className="editCourseButton"
+                    onClick={() => handleEdit(course.id)}
+                    startIcon={<EditIcon />}
+                  >
+                    Edit
+                  </Button>
+                )}
+                {course.is_admin_course ? <p></p> : <></>}
+              </div>
+            </div>
           )}
         </CardContent>
       </Card>

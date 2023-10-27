@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import RoundSearch from "./RoundSearch";
 import Fuse from "fuse.js";
+import AddIcon from "@mui/icons-material/Add";
 
 import "./Rounds.css";
 
@@ -31,33 +32,36 @@ export default function Rounds() {
   // Dispatch the FETCH_ROUNDS action when the component mounts
   useEffect(() => {
     dispatch({ type: "FETCH_ROUNDS" });
-  }, [dispatch]);
+  }, []);
 
   // Using Fuse.js to search the rounds
   const fuse = new Fuse(rounds, fuseOptions);
   const filteredRounds = searchQuery
     ? fuse.search(searchQuery).map((result) => result.item)
     : rounds;
-
+  console.log(user.user_handicap);
   return (
     <div className="roundContainer">
-      <h1>Rounds</h1>
-      <h2 className="hIHeader2">Handicap Index {user.user_handicap}</h2>
+      <div className="roundCardWrapper">
+        <h1>Rounds</h1>
+        <h2 className="hIHeader2">Handicap Index {user.user_handicap}</h2>
 
-      <RoundSearch onSearchChange={setSearchQuery} />
+        <RoundSearch onSearchChange={setSearchQuery} />
 
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={goToAddRounds}
-        className="addRoundButton"
-      >
-        Add Round
-      </Button>
-      <div>
-        {filteredRounds.map((round) => (
-          <RoundsItem key={round.id} round={round} />
-        ))}
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={goToAddRounds}
+          className="addRoundButton"
+          style={{ fontSize: "18px" }}
+        >
+          <AddIcon /> Add Round
+        </Button>
+        <div>
+          {filteredRounds.map((round) => (
+            <RoundsItem key={round.id} round={round} />
+          ))}
+        </div>
       </div>
     </div>
   );

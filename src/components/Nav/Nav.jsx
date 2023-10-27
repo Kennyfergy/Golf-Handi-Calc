@@ -6,6 +6,7 @@ import LogOutButton from "../LogOutButton/LogOutButton";
 import "./Nav.css";
 import { useSelector } from "react-redux";
 import { Drawer, Button, List, ListItem, ListItemText } from "@mui/material";
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import MenuIcon from "@mui/icons-material/Menu";
 
 function Nav() {
@@ -29,23 +30,7 @@ function Nav() {
         )}
 
         {/* If a user is logged in, show these links */}
-        {/* {user.id && (
-          <>
-            <Link className="navLink" to="/user">
-              Home
-            </Link>
 
-            <Link className="navLink" to="/info">
-              Info Page
-            </Link>
-
-            <LogOutButton className="navLink" />
-          </>
-        )} */}
-
-        {/* <Link className="navLink" to="/about">
-          About
-        </Link> */}
         <Button className="menuButton" onClick={() => setDrawerOpen(true)}>
           <MenuIcon style={{ fontSize: "70px", marginRight: "20px" }} />
         </Button>
@@ -65,14 +50,14 @@ function Nav() {
             >
               <ListItemText primary="Home" />
             </ListItem>
-            <ListItem
+            {/* <ListItem
               button
               onClick={() => setDrawerOpen(false)}
               component={Link}
               to="/info"
             >
               <ListItemText primary="Info" />
-            </ListItem>
+            </ListItem> */}
             <ListItem
               button
               onClick={() => setDrawerOpen(false)}
@@ -81,14 +66,14 @@ function Nav() {
             >
               <ListItemText primary="About" />
             </ListItem>
-            <ListItem
+            {/* <ListItem
               button
               onClick={() => setDrawerOpen(false)}
               component={Link}
               to="/settings"
             >
               <ListItemText primary="Settings" />
-            </ListItem>
+            </ListItem> */}
             <ListItem
               button
               onClick={() => setDrawerOpen(false)}

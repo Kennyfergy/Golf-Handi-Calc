@@ -1,13 +1,18 @@
 /* Styles for the Rounds component */
 .roundContainer {
   text-align: center;
-
   margin: 40px auto;
-  max-width: 1100px;
+  max-width: 1200px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+
+  /* justify-content: space-between; */
   background: linear-gradient(135deg, #e9f5f0, #7cc68b);
   padding: 20px;
   border-radius: 10px;
 }
+
 .roundContainer h1 {
   font-size: 48px;
   font-weight: bold;
@@ -21,40 +26,72 @@
   -webkit-background-clip: text;
   background-clip: text;
 }
-
 .addRoundButton {
   display: flex;
-  margin: 25px 0;
+
+  margin: 25px auto;
   align-items: center;
   justify-content: center;
+  align-self: center;
   background: linear-gradient(135deg, #0069d9, #338ff1);
   color: #fff;
   padding: 12px 25px;
   border-radius: 5px;
   transition: background-color 0.3s;
+  max-width: 200px;
 }
 
 .addRoundButton:hover {
   background: linear-gradient(135deg, #2c7acf, #5ca1ea);
 }
 
+.styledRoundCard {
+  /* width: 500px; */
+  width: calc(50% - 20px);
+  margin: 0px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.courseAndDateWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 80px;
+  margin-top: 2px;
+  margin-bottom: 20px;
+}
+
+.scoresWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+}
+
 /* Style for the RoundsItem component */
 .roundsPage .styledRoundCard {
-  margin: 20px 10px;
-  padding: 10px;
+  margin: 20px auto;
+  padding: 8px;
   border: none;
   border-radius: 14px;
 
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
   background-color: #f6f5f5;
   transition: transform 0.2s, box-shadow 0.2s;
-  padding-left: 10px;
+  padding-left: 16px;
   padding-bottom: 10px;
 
   &:hover {
     transform: translateY(-8px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   }
+}
+
+.styledRoundCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 .roundScore {
@@ -68,13 +105,12 @@
   color: #6f6c6c;
   margin-top: 15px;
 }
-
 /* Styles for the edit mode inputs */
 .roundsPage input[type="number"],
 .roundsPage input[type="password"],
 .roundsPage input[type="text"] {
-  width: 100%;
-  padding: 10px 15px;
+  width: 90%;
+  padding: 10px;
   margin: 7px 0;
   border: 1px solid #e1e1e1;
   border-radius: 6px;
@@ -85,8 +121,8 @@
 .roundsPage input[type="number"]:focus,
 .roundsPage input[type="password"]:focus,
 .roundsPage input[type="text"]:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+  border-color: #1fa73b;
+  box-shadow: 0 0 10px rgba(47, 192, 25, 0.2);
 
   outline: none;
 }
@@ -109,12 +145,18 @@ Button.editRoundButton {
 Button.editRoundButton {
   background: linear-gradient(135deg, #0069d9, #007bff);
   color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
 }
 
 Button.editRoundButton:hover {
   background: linear-gradient(135deg, #2363a8, #4798ee);
+  transform: translateY(-2px);
 }
-
 Button.cancelEditButton {
   background-color: #fcbe01;
   color: #000;
@@ -163,8 +205,8 @@ Button.deleteRoundButton:hover {
 }
 
 .searchContainer input:focus {
-  border: 1px solid #007bff;
-  box-shadow: 0 0 10px rgba(0, 123, 255, 0.4);
+  border: 1px solid #2fd43a;
+  box-shadow: 0 0 10px rgba(54, 255, 51, 0.4);
   outline: none;
 }
 
@@ -178,23 +220,38 @@ Button.deleteRoundButton:hover {
 
   top: 140px;
   font-weight: 600;
-  font-size: 24px;
+  font-size: 26px;
   color: #252525;
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 700px) {
   .roundContainer {
-    max-width: 90%;
-    padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .styledRoundCard {
+    width: 90%;
+    /* width: calc(50% - 20px); */
+    height: 350px;
+  }
+
+  .courseAndDateWrapper,
+  .scoresWrapper {
+    gap: 10px;
+  }
+
+  .roundsPage input[type="number"],
+  .roundsPage input[type="password"],
+  .roundsPage input[type="text"] {
+    width: 95%;
   }
 
   h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  h2 {
     margin-top: 10px;
     margin-bottom: 10px;
   }
@@ -203,19 +260,13 @@ Button.deleteRoundButton:hover {
   Button.saveRoundButton,
   Button.cancelEditButton,
   Button.editRoundButton {
-    padding: 8px 15px;
+    padding: 8px 25px;
     font-size: 0.875rem;
+    margin-bottom: 20px;
   }
-}
 
-.roundContainer > div {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.roundContainer > div > div {
-  flex: 1 0 calc(33.33% - 10px);
-  margin-bottom: 15px;
-  box-sizing: border-box;
+  .roundContainer > div > div {
+    flex: 1 0 calc(50% - 10px);
+    margin-bottom: 15px;
+  }
 }

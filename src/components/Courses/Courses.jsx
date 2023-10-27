@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import Button from "@mui/material/Button";
 import Fuse from "fuse.js";
 import "./Courses.css";
+import AddIcon from "@mui/icons-material/Add";
 
 import CourseItem from "../CourseItem/CourseItem";
 import CourseSearch from "./CourseSearch";
@@ -47,7 +48,8 @@ export default function Courses() {
         onClick={goToAddCourses}
         className="addCourseButton"
       >
-        Add New Course
+        <AddIcon />
+        Add Course
       </Button>
 
       <div>

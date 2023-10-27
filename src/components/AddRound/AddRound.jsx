@@ -11,6 +11,7 @@ import {
   MenuItem,
 } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+
 import SendIcon from "@mui/icons-material/Send";
 import "./AddRound.css";
 import { useDispatch, useSelector } from "react-redux";
@@ -69,33 +70,15 @@ export default function AddRound() {
 
     // Prepare the data payload
     const roundData = {
-      //user_id: 0, // TODO: Replace this with the actual user ID, never mind don't even need this
       date: roundDate,
       front_9_score: front9 ? front9Score : 0,
       back_9_score: back9 ? back9Score : 0,
       course_id: courseId,
     };
+    dispatch({ type: "ADD_ROUND", payload: roundData });
+    console.log("dispatched add round");
+    history.push("/rounds");
 
-    // Call the API endpoint to add the round
-    try {
-      const response = await fetch("/api/rounds", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json", //need to specify to server that json data is sent
-        },
-        body: JSON.stringify(roundData), //sending JSON to server
-      });
-      console.log(roundData);
-      if (response.ok) {
-        console.log("Round added successfully");
-        dispatch({ type: "FETCH_USER" });
-        history.push("/rounds");
-      } else {
-        console.error("Failed to add round");
-      }
-    } catch (error) {
-      console.error("There was an error adding the round", error);
-    }
     setErrorMessage("");
   }; // end handleSubmit
   return (
@@ -183,6 +166,7 @@ export default function AddRound() {
         value={roundDate}
         onChange={(e) => setRoundDate(e.target.value)}
         InputLabelProps={{ shrink: true }}
+        className="date-input-field"
       />
 
       <Button

@@ -5,7 +5,7 @@ export default function RoundSearch({ onSearchChange }) {
     <div className="searchContainer">
       <input
         type="text"
-        placeholder="Search for a round..."
+        placeholder="🔍 Search for a round..."
         onChange={(e) => onSearchChange(e.target.value)}
       />
     </div>
