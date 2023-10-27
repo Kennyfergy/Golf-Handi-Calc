@@ -51,10 +51,9 @@
 }
 
 .styledRoundCard {
-  /* width: 500px; */
   width: calc(50% - 20px);
   margin: 0px;
-  height: 300px;
+  height: auto;
   display: flex;
   flex-direction: column;
 }

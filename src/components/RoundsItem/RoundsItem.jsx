@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
+import { Table, TableBody, TableRow, TableCell } from "@mui/material";
+
 import Button from "@mui/material/Button";
 import CancelIcon from "@mui/icons-material/Cancel";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -114,26 +116,53 @@ export default function RoundsItem({ round }) {
           {editingRoundId === round.id ? (
             // Render input fields for editing
             <>
-              <>Front 9</>
-              <input
-                type="number"
-                value={editingFront9Score}
-                onChange={(event) => setEditingFront9Score(event.target.value)}
-              />
-              <>Back 9</>
-              <input
-                type="number"
-                value={editingBack9Score}
-                onChange={(event) => setEditingBack9Score(event.target.value)}
-              />
-
-              <>Date</>
-              <input
-                type="text"
-                value={newDate}
-                onChange={(event) => setNewDate(event.target.value)}
-              />
-
+              <div className="courseNameWrapper">
+                <Typography
+                  variant="h5"
+                  className="courseNameRound"
+                  style={{ fontSize: "34px" }}
+                >
+                  Course: {round.course_name}
+                </Typography>
+              </div>
+              <Table>
+                <TableBody>
+                  <TableRow>
+                    <TableCell style={{ fontSize: "26px" }}>Date</TableCell>
+                    <TableCell>
+                      <input
+                        type="text"
+                        value={newDate}
+                        onChange={(event) => setNewDate(event.target.value)}
+                      />
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell style={{ fontSize: "26px" }}>Front 9</TableCell>
+                    <TableCell>
+                      <input
+                        type="number"
+                        value={editingFront9Score}
+                        onChange={(event) =>
+                          setEditingFront9Score(event.target.value)
+                        }
+                      />
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell style={{ fontSize: "26px" }}>Back 9</TableCell>
+                    <TableCell>
+                      <input
+                        type="number"
+                        value={editingBack9Score}
+                        onChange={(event) =>
+                          setEditingBack9Score(event.target.value)
+                        }
+                      />
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
               <CardActions>
                 <Button
                   className="cancelEditButton"
@@ -161,45 +190,92 @@ export default function RoundsItem({ round }) {
           ) : (
             // Display round data
             <>
-              <div className="courseAndDateWrapper">
-                <div className="courseNameWrapper">
-                  <Typography variant="h5" className="courseNameRound">
-                    Course: {round.course_name}
-                  </Typography>
-                </div>
-                <div className="courseDateWrapper">
-                  <Typography variant="h5" className="roundDate">
-                    {formatDate(round.date)}
-                  </Typography>
-                </div>
+              <div className="courseNameWrapper">
+                <Typography
+                  variant="h5"
+                  className="courseNameRound"
+                  style={{ fontSize: "34px" }}
+                >
+                  Course: {round.course_name}
+                </Typography>
               </div>
-              <div className="scoresWrapper">
-                <div className="leftScores">
-                  <Typography variant="h5" className="roundScore">
-                    Total Score: {round.front_9_score + round.back_9_score}
-                  </Typography>
+              <Table>
+                <TableBody>
+                  <TableRow>
+                    <TableCell style={{ fontSize: "26px" }}>Date</TableCell>
+                    <TableCell style={{ fontSize: "26px" }}>
+                      {formatDate(round.date)}
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell style={{ fontSize: "26px" }}>
+                      Total Score
+                    </TableCell>
+                    <TableCell
+                      style={{
+                        fontSize: "26px",
+                        display: "flex",
+                        justifyContent: "flex-end",
+                        paddingRight: "200px",
+                      }}
+                    >
+                      {round.front_9_score + round.back_9_score}
+                    </TableCell>
+                  </TableRow>
                   {round.front_9_score !== 0 && (
-                    <Typography variant="h6" className="front_9_Score">
-                      Front 9: {round.front_9_score}
-                    </Typography>
+                    <TableRow>
+                      <TableCell style={{ fontSize: "26px" }}>
+                        Front 9
+                      </TableCell>
+                      <TableCell
+                        style={{
+                          fontSize: "26px",
+                          display: "flex",
+                          justifyContent: "flex-end",
+                          paddingRight: "200px",
+                        }}
+                      >
+                        {round.front_9_score}
+                      </TableCell>
+                    </TableRow>
                   )}
                   {round.back_9_score !== 0 && (
-                    <Typography variant="h6" className="back_9_Score">
-                      Back 9: {round.back_9_score}
-                    </Typography>
+                    <TableRow>
+                      <TableCell style={{ fontSize: "26px" }}>Back 9</TableCell>
+                      <TableCell
+                        style={{
+                          fontSize: "26px",
+                          display: "flex",
+                          justifyContent: "flex-end",
+                          paddingRight: "200px",
+                        }}
+                      >
+                        {round.back_9_score}
+                      </TableCell>
+                    </TableRow>
                   )}
-                </div>
-                <div className="rightScores">
-                  <Typography variant="h5" className="roundDifferential">
-                    Differential: {round.score_differential}
-                  </Typography>
-                </div>
-              </div>
+                  <TableRow>
+                    <TableCell style={{ fontSize: "26px" }}>
+                      Differential
+                    </TableCell>
+                    <TableCell
+                      style={{
+                        fontSize: "26px",
+                        display: "flex",
+                        justifyContent: "flex-end",
+                        paddingRight: "200px",
+                      }}
+                    >
+                      {round.score_differential}
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
               <CardActions>
                 <Button
                   style={{
                     fontSize: "12px",
-                    marginTop: "40px",
+                    marginTop: "10px",
                   }}
                   className="editRoundButton"
                   onClick={() => handleEdit(round.id)}
