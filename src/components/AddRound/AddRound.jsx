@@ -11,6 +11,7 @@ import {
   MenuItem,
 } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import Swal from "sweetalert2";
 
 import SendIcon from "@mui/icons-material/Send";
 import "./AddRound.css";
@@ -76,7 +77,7 @@ export default function AddRound() {
       course_id: courseId,
     };
     dispatch({ type: "ADD_ROUND", payload: roundData });
-    console.log("dispatched add round");
+    Swal.fire("Success!", "Round added", "success");
     history.push("/rounds");
 
     setErrorMessage("");
