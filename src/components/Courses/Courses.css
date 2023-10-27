@@ -1,12 +1,13 @@
 .coursesContainer {
-  text-align: center;
-  margin: 40px auto;
-  max-width: 1200px;
   background: linear-gradient(
     135deg,
     rgb(233, 245, 240, 0.8),
     rgb(124, 198, 139, 0.6)
   );
+  text-align: center;
+  margin: 40px auto;
+  max-width: 1200px;
+
   padding: 20px;
   border-radius: 10px;
 }

@@ -163,7 +163,8 @@ export default function RoundsItem({ round }) {
                   </TableRow>
                 </TableBody>
               </Table>
-              <CardActions>
+
+              <div className="editButtons">
                 <Button
                   className="cancelEditButton"
                   onClick={handleCancelEdit}
@@ -185,7 +186,7 @@ export default function RoundsItem({ round }) {
                 >
                   Save
                 </Button>
-              </CardActions>
+              </div>
             </>
           ) : (
             // Display round data

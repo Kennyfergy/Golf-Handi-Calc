@@ -1,21 +1,19 @@
 /* Styles for the Rounds component */
 
 .roundContainer {
-  text-align: center;
-  margin: 40px auto;
-  max-width: 1200px;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-
-  /* justify-content: space-between; */
   background: linear-gradient(
     135deg,
     rgb(233, 245, 240, 0.8),
     rgb(124, 198, 139, 0.6)
   );
+  text-align: center;
+  margin: 40px auto;
+  max-width: 1200px;
   padding: 20px;
   border-radius: 10px;
+  /* display: flex;
+  flex-wrap: wrap;
+  flex-direction: column; */
 }
 
 .roundContainer h1 {
@@ -31,9 +29,16 @@
   -webkit-background-clip: text;
   background-clip: text;
 }
-.addRoundButton {
+Button.addRoundButton {
+  background: linear-gradient(135deg, #0069d9, #338ff1);
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  max-width: 200px;
+  font-size: 18px;
+  font-weight: bold;
   display: flex;
-
   margin: 25px auto;
   align-items: center;
   justify-content: center;
@@ -51,31 +56,22 @@
 }
 
 .styledRoundCard {
-  width: calc(50% - 20px);
-  margin: 0px;
-  height: auto;
-  display: flex;
-  flex-direction: column;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 10px;
+  border-radius: 14px !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  background-color: #f6f5f5;
+  margin-bottom: 10px;
 }
-
-.courseAndDateWrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 80px;
-  margin-top: 2px;
-  margin-bottom: 20px;
-}
-
-.scoresWrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 40px;
+.styledRoundCard:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 /* Style for the RoundsItem component */
-.roundsPage .styledRoundCard {
+/* .roundsPage .styledRoundCard {
   margin: 20px auto;
   padding: 8px;
   border: none;
@@ -91,24 +87,13 @@
     transform: translateY(-8px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   }
-}
+} */
 
 .styledRoundCard:hover {
   transform: translateY(-10px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
-.roundScore {
-  font-size: 20px;
-  font-weight: 600;
-  color: #333;
-}
-
-.roundDate {
-  font-size: 16px;
-  color: #6f6c6c;
-  margin-top: 15px;
-}
 /* Styles for the edit mode inputs */
 .roundsPage input[type="number"],
 .roundsPage input[type="password"],
@@ -118,7 +103,7 @@
   margin: 7px 0;
   border: 1px solid #e1e1e1;
   border-radius: 6px;
-  font-size: 16px;
+  font-size: 20px;
   transition: border-color 0.3s, box-shadow 0.4s;
 }
 
@@ -227,50 +212,46 @@ Button.deleteRoundButton:hover {
   font-size: 26px;
   color: #252525;
 }
-
-/* Responsive Design */
-@media (max-width: 700px) {
+@media (max-width: 728px) {
   .roundContainer {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .styledRoundCard {
-    width: 90%;
-    /* width: calc(50% - 20px); */
-    height: 350px;
+    padding: 15px;
+    max-width: 95%;
   }
 
-  .courseAndDateWrapper,
-  .scoresWrapper {
-    gap: 10px;
+  .roundContainer h1 {
+    font-size: 32px;
+  }
+
+  .styledRoundCard {
+    max-width: 95%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
   }
 
   .roundsPage input[type="number"],
   .roundsPage input[type="password"],
   .roundsPage input[type="text"] {
-    width: 95%;
-  }
-
-  h1,
-  h2 {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    width: 100%;
+    font-size: 16px;
   }
 
   Button.deleteRoundButton,
   Button.saveRoundButton,
   Button.cancelEditButton,
   Button.editRoundButton {
-    padding: 8px 25px;
-    font-size: 0.875rem;
-    margin-bottom: 20px;
+    padding: 8px 15px;
+    font-size: 16px;
   }
 
-  .roundContainer > div > div {
-    flex: 1 0 calc(50% - 10px);
-    margin-bottom: 15px;
+  .roundContainer .searchContainer {
+    flex-direction: column;
+    margin-left: 0;
+    gap: 10px;
+  }
+
+  .searchContainer input {
+    width: 100%;
+    margin-top: 10px;
   }
 }
