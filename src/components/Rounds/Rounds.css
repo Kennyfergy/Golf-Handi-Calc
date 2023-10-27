@@ -1,4 +1,16 @@
 /* Styles for the Rounds component */
+
+/* .login-background {
+  background-image: url("../../../public/login4.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+} */
+
 .roundContainer {
   text-align: center;
   margin: 40px auto;
