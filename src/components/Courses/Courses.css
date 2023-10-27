@@ -168,12 +168,12 @@ Button.editCourseButton:hover {
 }
 /* Base styles */
 
-.courseCardContent {
+/* .courseCardContent {
   padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+} */
 /* Styles for the input fields */
 input[name="courseDetails"] {
   width: 100%;
@@ -195,31 +195,49 @@ input[type="text"] {
 }
 
 /* Typography styles */
-.courseName,
+/* .courseName,
 .courseDetails {
   margin: 15px 0;
   color: #333;
-}
+} */
 
-.coursePar,
+/* .coursePar,
 .courseRating,
 .courseSlope,
 .courseHandicap {
   margin: 10px 0;
   color: #666;
+} */
+
+Table {
+  width: 100%;
+  max-width: 750px;
+  border-collapse: collapse;
+  margin: 20px 0;
 }
 
-/* center data */
+TableCell {
+  padding: 8px 12px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* Alternating row colors for better readability */
+TableBody TableRow:nth-of-type(even) {
+  background-color: #f8f8f8;
+}
+
 .cardWrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 .courseInformation {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 @media (max-width: 600px) {

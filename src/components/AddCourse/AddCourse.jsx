@@ -12,6 +12,7 @@ import {
 import "./AddCourse.css";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import SendIcon from "@mui/icons-material/Send";
+import Swal from "sweetalert2";
 
 export default function AddCourse() {
   const history = useHistory();
@@ -110,9 +111,14 @@ export default function AddCourse() {
       });
 
       if (response.ok) {
-        console.log("Course added successfully");
+        Swal.fire("Success!", "Course added", "success");
         history.push("/courses");
       } else {
+        Swal.fire({
+          icon: "error",
+          title: "Failed to add course",
+          text: "Please try again!",
+        });
         console.error("Failed to add course");
       }
     } catch (error) {
