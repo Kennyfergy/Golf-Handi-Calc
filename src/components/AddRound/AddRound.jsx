@@ -16,6 +16,7 @@ import Swal from "sweetalert2";
 import SendIcon from "@mui/icons-material/Send";
 import "./AddRound.css";
 import { useDispatch, useSelector } from "react-redux";
+import ParDisplay from "../ParDisplay/ParDisplay";
 
 export default function AddRound() {
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ export default function AddRound() {
   useEffect(() => {
     dispatch({ type: "FETCH_COURSES" });
   }, [dispatch]);
-
+  console.log("logging da course", course);
   useEffect(() => {
     if (course && course.length > 0) {
       setCourseId(course[0].id);
@@ -126,12 +127,14 @@ export default function AddRound() {
       <Typography variant="h6" style={{ marginTop: "10px" }}>
         Select Course:
       </Typography>
+
       <Select
         value={courseId}
         onChange={(e) => setCourseId(e.target.value)}
         label="Course"
         className="selectCourseBox"
         variant="outlined"
+        style={{ marginBottom: "20px" }}
       >
         {course.map((c) => (
           <MenuItem key={c.id} value={c.id}>
@@ -139,6 +142,8 @@ export default function AddRound() {
           </MenuItem>
         ))}
       </Select>
+      <ParDisplay selectedCourseId={courseId} />
+
       <div className="round-inputs">
         {front9 && (
           <TextField
