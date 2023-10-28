@@ -21,6 +21,34 @@
   transition: transform 0.2s;
   font-size: 18px;
   font-weight: 800;
+  padding-top: 10px;
+}
+
+/* .parDisplays {
+  display: flex;
+  flex-direction: row;
+  gap: 400px;
+  font-size: 20px;
+
+  color: #113212;
+  background-color: #f1f3f1;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  padding-left: 80px;
+  padding-right: 80px;
+} */
+
+.parDisplays {
+  display: flex;
+  flex-direction: row;
+  gap: 90px;
+  font-size: 22px;
+  color: #0b260d;
+  /* background-color: #f1f3f1; */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .add-round-container button:hover {
@@ -52,6 +80,7 @@
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
+  width: 500px;
 }
 
 .round-inputs > div {
@@ -63,37 +92,46 @@
   .round-inputs > div {
     flex-basis: 49%;
   }
-}
-.date-input-field input {
-  font-size: 1.2em;
-}
-/* Date input field styling */
-.add-round-container .MuiFormControl-root {
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-}
 
-/* Submit button styling */
-.submitRoundButton {
-  display: block;
-  width: 100%;
-  padding: 10px 15px;
-  font-size: 18px;
-  font-weight: bold;
-  border-radius: 5px;
-  background: linear-gradient(to right, #1a481b, #173a18);
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s, background-color 0.3s;
-}
+  .date-input-field input {
+    font-size: 1.2em;
+  }
+  /* Date input field styling */
+  .add-round-container .MuiFormControl-root {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  }
 
-.submitRoundButton:hover {
-  transform: scale(1.05);
-  background-color: #173a18;
-}
-.add-round-container button,
-.add-round-container select,
-.errorMessage,
-.MuiFormControl-root,
-.round-inputs,
-.submitRoundButton {
-  width: 100%;
+  .parDisplays {
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  /* Submit button styling */
+  .submitRoundButton {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    background: linear-gradient(to right, #1a481b, #173a18);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, background-color 0.3s;
+  }
+
+  .submitRoundButton:hover {
+    transform: scale(1.05);
+    background-color: #173a18;
+  }
+  .add-round-container button,
+  .add-round-container select,
+  .errorMessage,
+  .MuiFormControl-root,
+  .round-inputs,
+  .submitRoundButton {
+    width: 100%;
+  }
 }
