@@ -139,7 +139,7 @@ export default function AddCourse() {
         Back to Courses
       </Button>
       <Typography variant="h4" align="center" gutterBottom>
-        {user.is_admin && <>Please use admin page to</>} Add Course
+        Add Course
       </Typography>
       <Divider style={{ marginBottom: "20px" }} />
 

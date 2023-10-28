@@ -101,13 +101,13 @@
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   }
 
-  .parDisplays {
+  /* .parDisplays {
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
     padding-left: 10px;
     padding-right: 10px;
-  }
+  } */
 
   /* Submit button styling */
   .submitRoundButton {
