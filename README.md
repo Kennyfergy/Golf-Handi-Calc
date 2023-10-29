@@ -14,6 +14,15 @@ My solution was to create an app that a user can input their scores, and after s
 
 ## Screenshots
 
+![Login Page](/public/screenshots/login-page.png)
+![Home Page](/public/screenshots/home-page.png)
+![Courses Page](/public/screenshots/courses-page.png)
+![Edit a course](/public/screenshots/edit-course.png)
+![Rounds Page](/public/screenshots/rounds-page.png)
+![Adding a round](/public/screenshots/add-round-page.png)
+![Editing a round](/public/screenshots/edit-round.png)
+![About Page](/public/screenshots/about%20page.png)
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
