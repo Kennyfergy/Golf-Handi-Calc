@@ -5,7 +5,21 @@ function AboutPage() {
   return (
     <div className="aboutPageContainer">
       <h2 className="aboutPageHeading">About the App</h2>
-
+      <h3 className="aboutPageSubheading">Using the app</h3>
+      <p className="aboutPageParagraph">
+        After Logging in you are brought the the welcome page where you can see
+        a quick summary of handicap index and rounds. From here you can quickly
+        add a new round or add a new course. To navigate the app, there is a
+        menu on the top right that opens a menu of every page.
+      </p>
+      <p className="aboutPageParagraph">
+        The courses page displays all courses that have been added by you and by
+        the admin. The courses you have added can be edited and deleted
+      </p>
+      <p className="aboutPageParagraph">
+        The rounds page displays all of your rounds. From here you can edit any
+        rounds or delete them
+      </p>
       <h3 className="aboutPageSubheading">What is WHS?</h3>
       <p className="aboutPageParagraph">
         The World Handicap System (WHS) is a system that allows golfers of
