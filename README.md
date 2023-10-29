@@ -14,22 +14,22 @@ My solution was to create an app that a user can input their scores, and after s
 
 ## Screenshots
 
-![Login Page](/public/screenshots/login-page.png)
 This is the login page
-![Home Page](/public/screenshots/home-page.png)
+![Login Page](/public/screenshots/login-page.png)
 The home page gives quick data and buttons to add a round or add a course
-![Courses Page](/public/screenshots/courses-page.png)
+![Home Page](/public/screenshots/home-page.png)
 The courses page shows all courses added by user and admin. The user added courses can be edited and deleted
-![Edit a course](/public/screenshots/edit-course.png)
+![Courses Page](/public/screenshots/courses-page.png)
 Example of editing a course
-![Rounds Page](/public/screenshots/rounds-page.png)
+![Edit a course](/public/screenshots/edit-course.png)
 The rounds page shows every round a user has added. They can be edited or deleted
-![Adding a round](/public/screenshots/add-round-page.png)
+![Rounds Page](/public/screenshots/rounds-page.png)
 Adding a round example
-![Editing a round](/public/screenshots/edit-round.png)
+![Adding a round](/public/screenshots/add-round-page.png)
 Editing a round example
-![About Page](/public/screenshots/about%20page.png)
+![Editing a round](/public/screenshots/edit-round.png)
 The about page explains using the app and how the calculations work
+![About Page](/public/screenshots/about%20page.png)
 
 ## Getting Started
 
@@ -37,29 +37,16 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+- [Node.js](https://nodejs.org/en)
+- [PostgreSQL](https://www.postgresql.org/)
 
-```
-Give examples
-```
+### Installation
 
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
+- Create a PostgreSQL database named _golf_handi_calc_
+- Use the _database.sql_ file to create table
+- Open the project in code editor of your choice and run _npm install_ in the terminal
+- Run _npm run server_ in the terminal
+- Open another terminal and run _npm run client_ in the terminal
 
 ## Running the tests
 
