@@ -42,41 +42,23 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Installation
 
-- Create a PostgreSQL database named _golf_handi_calc_
-- Use the _database.sql_ file to create table
-- Open the project in code editor of your choice and run _npm install_ in the terminal
-- Run _npm run server_ in the terminal
-- Open another terminal and run _npm run client_ in the terminal
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
+- Create a PostgreSQL database named `golf_handi_calc`
+- Use the `database.sql` file to create table
+- Open the project in code editor of your choice and run `npm install` in the terminal
+- Run `npm run server` in the terminal
+- Open another terminal and run `npm run client` in the terminal
 
 ## Built With
 
-- [Javascript](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-- [Maven](https://maven.apache.org/) - Dependency Management
-- [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+- [Javascript]() - The core language
+- [Express.js]
+- [Passport.js]
+- [bcrypt.js]
+- [React]
+- [React Redux]
+- [React Sagas/Routers]
+- [Axios]
+- [Material_UI]
 
 ## Contributing
 
