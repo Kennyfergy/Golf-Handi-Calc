@@ -1,6 +1,18 @@
-# Project Title
+# Golf Handi-Calc
 
-One Paragraph of project description goes here
+Duration: 2 week sprint
+
+Introducing the WHS Golf Calculator. Golf Handi-Calc revolutionizes your golfing experience by effortlessly managing your scorecards and seamlessly calculating your handicap index and updating local course handicaps specifically for you, using the World Handicap System. Picture this: You complete a round, input your score, and voilà your handicap index is auto-calculated and saved.
+
+### Why did I make this?
+
+When 5 friends and I started golfing in 2022, we had no idea what a handicap index was. One day a gentleman asked us what our handicap was so we said “no idea but we should probably figure that out”. Fast forward a year later, we still didn’t have our handicap index because looking into it, it looked like a lot of work and a lot of calculations.
+
+### Solution
+
+My solution was to create an app that a user can input their scores, and after scores are inputted it will calculate the handicap index. Going by the World Handicap System regulations, a user can use the best 8 rounds out of the last 20, to calculate their handicap. If a new round played is better than any of the current rounds being used to calculate, it will automatically update their handicap index. The app will display a users course handicap for every course they have added.
+
+## Screenshots
 
 ## Getting Started
 
@@ -58,7 +70,7 @@ Add additional notes about how to deploy this on a live system
 
 ## Built With
 
-- [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
+- [Javascript](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
 - [Maven](https://maven.apache.org/) - Dependency Management
 - [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
 
