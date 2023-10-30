@@ -50,22 +50,24 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Built With
 
-- [Javascript]() - The core language
-- [Express.js]
-- [Passport.js]
-- [bcrypt.js]
-- [React]
-- [React Redux]
+- [Javascript](https://www.javascript.com/) - Core Language
+- [Express.js](https://expressjs.com/) - RESTful API Web App Framework
+- [Passport.js](https://www.passportjs.org/) - Authentication
+- [bcrypt.js](https://www.npmjs.com/package/bcryptjs) - Password Hashing and Salting
+- [React](https://react.dev/) - User interface with components
+- [React Redux](https://react-redux.js.org/) - Read store data and dispatch actions to update state
 - [React Sagas/Routers]
-- [Axios]
-- [Material_UI]
-- [PostgreSQL]
-- [Postico2]() - Local Database
-- [Postman]() - For testing routes
+- [Axios](https://axios-http.com/) - HTTP client
+- [Material_UI](https://mui.com/) - React UI tools
+- [PostgreSQL](https://www.postgresql.org/) - Relational Database System
+- [Postico2](https://eggerapps.at/postico2/) - Local Database
+- [Postman](https://www.postman.com/) - For testing APIs
+- [SweetAlert2](https://sweetalert2.github.io/) - Customized Popup Boxes
+- [Fuse.js](https://www.fusejs.io/) - Fuzzy search library
 
-## Contributing
+<!-- ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us. -->
 
 ## Authors
 
