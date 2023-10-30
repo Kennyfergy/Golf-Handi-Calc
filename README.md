@@ -56,7 +56,7 @@ These instructions will get you a copy of the project up and running on your loc
 - [bcrypt.js](https://www.npmjs.com/package/bcryptjs) - Password Hashing and Salting
 - [React](https://react.dev/) - User interface with components
 - [React Redux](https://react-redux.js.org/) - Read store data and dispatch actions to update state
-- [React Sagas/Routers]
+- [React Sagas/Routers](https://redux-saga.js.org/) - Redux side effect manager
 - [Axios](https://axios-http.com/) - HTTP client
 - [Material_UI](https://mui.com/) - React UI tools
 - [PostgreSQL](https://www.postgresql.org/) - Relational Database System
