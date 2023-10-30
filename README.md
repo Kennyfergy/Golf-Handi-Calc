@@ -59,6 +59,9 @@ These instructions will get you a copy of the project up and running on your loc
 - [React Sagas/Routers]
 - [Axios]
 - [Material_UI]
+- [PostgreSQL]
+- [Postico2]() - Local Database
+- [Postman]() - For testing routes
 
 ## Contributing
 
@@ -74,5 +77,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-- Thanks to **Emerging Digital Academy** [EDA](https://emergingacademy.org/) for the skills and education.
+- Thanks to [Emerging Digital Academy](https://emergingacademy.org/) for the skills and education.
 - Thanks to fellow cohort members for tips and advice.

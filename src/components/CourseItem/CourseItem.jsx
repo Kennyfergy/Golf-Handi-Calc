@@ -37,9 +37,8 @@ export default function CourseItem({ course }) {
   const slopeRating = user.is_male
     ? course.men_course_slope
     : course.women_course_slope;
-  const courseHandicap = calculateCourseHandicap(
-    user.user_handicap,
-    slopeRating
+  const courseHandicap = Math.round(
+    calculateCourseHandicap(user.user_handicap, slopeRating)
   );
 
   // function to set state when user edits inputs
