@@ -15,20 +15,35 @@ My solution was to create an app that a user can input their scores, and after s
 ## Screenshots
 
 This is the login page
+
 ![Login Page](/public/screenshots/login-page.png)
+
 The home page gives quick data and buttons to add a round or add a course
+
 ![Home Page](/public/screenshots/home-page.png)
+
 The courses page shows all courses added by user and admin. The user added courses can be edited and deleted
+
 ![Courses Page](/public/screenshots/courses-page.png)
+
 Example of editing a course
+
 ![Edit a course](/public/screenshots/edit-course.png)
+
 The rounds page shows every round a user has added. They can be edited or deleted
+
 ![Rounds Page](/public/screenshots/rounds-page.png)
+
 Adding a round example
+
 ![Adding a round](/public/screenshots/add-round-page.png)
+
 Editing a round example
+
 ![Editing a round](/public/screenshots/edit-round.png)
+
 The about page explains using the app and how the calculations work
+
 ![About Page](/public/screenshots/about%20page.png)
 
 ## Getting Started
