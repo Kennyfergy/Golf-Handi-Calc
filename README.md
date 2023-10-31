@@ -76,7 +76,8 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 - **Kenny Ferguson** - _Initial work_ - [kennyfergy](https://github.com/Kennyfergy)
 
 ## License
-![GitHub](https://img.shields.io/github/license/Kennyfergy/Golf-Handi-Calc)
+![GitHub](https://img.shields.io/github/license/Kennyfergy/Golf-Handi-Calc?link=https%3A%2F%2Fgithub.com%2FKennyfergy%2FGolf-Handi-Calc%2Fblob%2Fmaster%2FLICENSE.md)
+
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
