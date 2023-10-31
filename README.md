@@ -49,6 +49,8 @@ These instructions will get you a copy of the project up and running on your loc
 - Open another terminal and run `npm run client` in the terminal
 
 ## Built With
+![GitHub top language](https://img.shields.io/github/languages/top/KennyFergy/Golf-Handi-Calc)
+
 
 - [Javascript](https://www.javascript.com/) - Core Language
 - [Express.js](https://expressjs.com/) - RESTful API Web App Framework
