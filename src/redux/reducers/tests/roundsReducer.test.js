@@ -1,6 +1,6 @@
 import roundsReducer from "../rounds.reducer";
 
-describe("Testing the roundsReducer...", () => {
+describe("Testing the roundsReducer", () => {
   // Test 1: Initial state
   test("Initial state should be an empty array", () => {
     let initialState = [];
