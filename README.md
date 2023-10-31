@@ -1,6 +1,4 @@
 # Golf Handi-Calc
-![GitHub](https://img.shields.io/github/license/https%3A%2F%2Fgithub.com%2FKennyfergy/https%3A%2F%2Fgithub.com%2FKennyfergy%2FGolf-Handi-Calc)
-
 
 Duration: 2 week sprint
 
