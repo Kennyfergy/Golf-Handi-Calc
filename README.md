@@ -67,7 +67,7 @@ These instructions will get you a copy of the project up and running on your loc
 ![GitHub top language](https://img.shields.io/github/languages/top/KennyFergy/Golf-Handi-Calc)
 
 
-- [Javascript](https://www.javascript.com/) - Core Language <a href="https://www.w3schools.com/js/default.asp"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" height="40px" width="40px" /></a>
+<a href="https://www.w3schools.com/js/default.asp"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" height="40px" width="40px" /></a> - [Javascript](https://www.javascript.com/) - Core Language
 - [Express.js](https://expressjs.com/) - RESTful API Web App Framework
 - [Passport.js](https://www.passportjs.org/) - Authentication
 - [bcrypt.js](https://www.npmjs.com/package/bcryptjs) - Password Hashing and Salting
