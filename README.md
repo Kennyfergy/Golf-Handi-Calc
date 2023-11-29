@@ -68,19 +68,23 @@ These instructions will get you a copy of the project up and running on your loc
 
 
 <a href="https://www.w3schools.com/js/default.asp"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" height="40px" width="40px" /></a> - [Javascript](https://www.javascript.com/) - Core Language
-- [Express.js](https://expressjs.com/) - RESTful API Web App Framework
-- [Passport.js](https://www.passportjs.org/) - Authentication
+<a href="https://www.w3schools.com/w3css/defaulT.asp"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" height="40px" width="40px" /></a> - [CSS]([https://expressjs.com/](https://www.w3schools.com/w3css/defaulT.asp)) - CSS styling
+<a href="https://www.w3schools.com/html/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" height="40px" width="40px" /></a> - [HTML]([https://www.javascript.com/](https://www.w3schools.com/html)) - HTML5
+<a href="https://expressjs.com/"><img src="https://avatars.githubusercontent.com/u/5658226?s=200&v=4" height="40px" width="40px" /></a> - [Express.js](https://expressjs.com/) - RESTful API Web App Framework
+<a href="https://www.passportjs.org"><img src="https://avatars.githubusercontent.com/u/1160530?s=200&v=4" height="40px" width="40px" /></a> - [Passport.js](https://www.passportjs.org/) - Authentication
 - [bcrypt.js](https://www.npmjs.com/package/bcryptjs) - Password Hashing and Salting
-- [React](https://react.dev/) - User interface with components
-- [React Redux](https://react-redux.js.org/) - Read store data and dispatch actions to update state
+<a href="https://reactjs.org/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" height="40px" width="40px" /></a> - [React](https://react.dev/) - User interface with components
+<a href="https://redux.js.org/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" height="40px" width="40px" /></a> - [React Redux](https://react-redux.js.org/) - Read store data and dispatch actions to update state
 - [React Sagas/Routers](https://redux-saga.js.org/) - Redux side effect manager
-- [Axios](https://axios-http.com/) - HTTP client
-- [Material_UI](https://mui.com/) - React UI tools
-- [PostgreSQL](https://www.postgresql.org/) - Relational Database System
+<a href="https://axios-http.com"><img src="https://avatars.githubusercontent.com/u/32372333?s=200&v=4" height="40px" width="40px" /></a> - [Axios](https://axios-http.com/) - HTTP client
+<a href="https://material-ui.com/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/materialui/materialui-original.svg" height="40px" width="40px" /></a> - [Material_UI](https://mui.com/) - React UI tools
+<a href="https://www.postgresql.org/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" height="40px" width="40px" /></a> - [PostgreSQL](https://www.postgresql.org/) - Relational Database System
 - [Postico2](https://eggerapps.at/postico2/) - Local Database
-- [Postman](https://www.postman.com/) - For testing APIs
-- [SweetAlert2](https://sweetalert2.github.io/) - Customized Popup Boxes
-- [Fuse.js](https://www.fusejs.io/) - Fuzzy search library
+<a href="https://www.postman.com/"><img src="https://voyager.postman.com/logo/postman-logo-icon-orange.svg" height="40px" width="40px" /></a> - [Postman](https://www.postman.com/) - For testing APIs
+<a href="https://sweetalert2.github.io"><img src="https://avatars.githubusercontent.com/u/35137722?s=200&v=4" height="40px" width="40px" /></a> - [SweetAlert2](https://sweetalert2.github.io/) - Customized Popup Boxes
+<a href="https://www.fusejs.io/"><img src="https://www.fusejs.io/assets/img/logo.png" height="40px" width="40px" /></a>
+ - [Fuse.js](https://www.fusejs.io/) - Fuzzy search library
+<a href="https://nodejs.org/en/"><img src="https://github.com/devicons/devicon/blob/master/icons/nodejs/nodejs-plain.svg" height="40px" width="40px" /></a> - [Node.js](https://nodejs.org/en/) - runtime enviroment
 
 <!-- ## Contributing
 
